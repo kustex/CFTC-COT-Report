@@ -20,4 +20,5 @@
   <li>Source the environment by <code>source venv/bin/activate</code></li>
   <li>Install the required packages <code>pip install -r requirements.txt</code></li>
   <li>Run the application <code>python app_cftc.py</code></li>
+  <li>Open the application on http://127.0.0.1:8050/</li>
 </ol>
