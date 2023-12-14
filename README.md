@@ -1,5 +1,4 @@
-# CFTC-COT-Report
-<h2>CFTC Commitment of Traders weekly report</h2>
+# CFTC Commitment of Traders weekly report
 <ol>
   <li>This Dash application provides analysis and visualization of the weekly Commitment of Traders report.</li>
   <br>
