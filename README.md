@@ -2,6 +2,8 @@
 <ol>
   This Dash application provides analysis and visualization of the weekly Commitment of Traders report.
   <br>
+  <br>
+  
   <p align="center">
     <img src="/img/datatable.png" width="750">
   </p>
