@@ -5,11 +5,11 @@
   <br>
   
   <p align="center">
-    <img src="/img/datatable.png" width="750">
+    <img src="/img/data-table.png" width="650">
   </p>
 
   <p align="center">
-    <img src="/img/graphs.png" width="750">
+    <img src="/img/graphs.png" width="650">
   </p>
   <br>
   <h3>Run the following commands on your bash terminal to get the application running.</h3>
