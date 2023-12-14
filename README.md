@@ -1,6 +1,5 @@
 # CFTC Commitment of Traders weekly report
 <ol>
-  <br>
   This Dash application provides analysis and visualization of the weekly Commitment of Traders report.
   <br>
   <p align="center">
