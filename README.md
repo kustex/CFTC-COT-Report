@@ -3,11 +3,14 @@
   This Dash application provides analysis and visualization of the weekly Commitment of Traders report.
   <br>
   <br>
-  
+
+  On this datatable you can find different statistics for futures contracts of multiple asset classes.
   <p align="center">
     <img src="/img/data-table.png" width="800">
   </p>
+  <br>
 
+  More in depth analysis per asset. 
   <p align="center">
     <img src="/img/graphs.png" width="800">
   </p>
