@@ -16,6 +16,7 @@ CFTC-COT-Report/
 ├── app_cftc.py               # Main Python script to run the app and display dashboard
 ├── cftc_analyser.py          # Main Python script to download zip-files and make calculations
 ├── cftc_data                 # Directory with zip files (downloaded from https://www.cftc.gov/)
+├── metrics.yaml              # .yaml file with all the names which cftc_analyser.py will be looking for in the downloaded Excel-files. 
 ├── requirements.txt          # Python dependencies
 └── README.md                 # This README file
 ```
