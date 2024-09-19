@@ -14,6 +14,7 @@ The **CFTC-COT-Report A** provides a weekly update dashboard with tables + visua
 CFTC-COT-Report/
 │
 ├── app_cftc.py               # Main Python script to run the app and display dashboard
+├── cftc_analyser.py          # Main Python script to download zip-files and make calculations
 ├── cftc_data                 # Directory with zip files (downloaded from https://www.cftc.gov/)
 ├── requirements.txt          # Python dependencies
 └── README.md                 # This README file
