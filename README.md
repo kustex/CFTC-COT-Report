@@ -4,6 +4,17 @@
 
 The **CFTC-COT-Report A** provides a weekly update dashboard with tables + visualizations of z-scores en related metrics for Futures positions in all major Macro asset classes. 
 
+## Project Structure
+
+```plaintext
+CFTC-COT-Report/
+│
+├── app_cftc.py               # Main Python script to run the app and display dashboard
+├── cftc_data                 # Directory with zip files (downloaded from https://www.cftc.gov/)
+├── requirements.txt          # Python dependencies
+└── README.md                 # This README file
+```
+
 ## Installation
 
 ### 1. Clone the Repository
