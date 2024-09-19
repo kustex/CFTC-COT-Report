@@ -3,14 +3,10 @@ import math
 import yaml
 import os
 import pandas as pd
-import dash_bootstrap_components as dbc
-import plotly.graph_objects as go
 import requests
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-from dash.dependencies import Input, Output, State
-from plotly.subplots import make_subplots
 from zipfile import ZipFile
 
 
@@ -150,7 +146,7 @@ def getLists():
     if not os.path.exists(DATA_DIR):
         os.makedirs(DATA_DIR)
 
-    years = [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023]
+    years = [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
     for year in years:
         file = f'{DATA_DIR}/{year}.zip'
         get_cot_zip(f'https://www.cftc.gov/files/dea/history/dea_com_xls_{year}.zip', file)
