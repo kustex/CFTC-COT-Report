@@ -4,6 +4,10 @@
 
 The **CFTC-COT-Report A** provides a weekly update dashboard with tables + visualizations of z-scores en related metrics for Futures positions in all major Macro asset classes. 
 
+### Key Features:
+- **Positioning Monitoring**: Track the changes in positioning of various sectors, industries, and macroeconomic indicators over a multiduration time-horizon. 
+- **Visualization**: Barcharts and scatterplots are shown to visualize changes over time. 
+
 ## Project Structure
 
 ```plaintext
