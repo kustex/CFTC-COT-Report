@@ -1,28 +1,37 @@
-# CFTC Commitment of Traders weekly report
-<ol>
-  This Dash application provides analysis and visualization of the weekly Commitment of Traders report.
-  <br>
-  <br>
+# CFTC Commitment of Traders Report
 
-  On this datatable you can find different statistics for futures contracts of multiple asset classes.
-  <p align="center">
-    <img src="/img/data-table.png" width="800">
-  </p>
-  <br>
+## Overview
 
-  More in depth analysis per asset. 
-  <p align="center">
-    <img src="/img/graphs.png" width="800">
-  </p>
-  <br>
-  <h3>Run the following commands in your bash terminal to get the application running.</h3>
-  <li>Open your bash terminal</li>
-  <li>Run <code>cd ~</code></li>
-  <li>Clone the project to your local pc <code>git clone https://github.com/kustex/CFTC-COT-Report.git</code></li>
-  <li>Make the cloned project your current working directory by <code>cd ~/CFTC-COT-REPORT/</code></li>
-  <li>Create an environment using <code>python3.10 -m venv venv</code></li>
-  <li>Source the environment by <code>source venv/bin/activate</code></li>
-  <li>Install the required packages <code>pip install -r requirements.txt</code></li>
-  <li>Run the application <code>python app_cftc.py</code></li>
-  <li>Open the application on http://127.0.0.1:8050/</li>
-</ol>
+The **CFTC-COT-Report A** provides a weekly update dashboard with tables + visualizations of z-scores en related metrics for Futures positions in all major Macro asset classes. 
+
+## Installation
+
+### 1. Clone the Repository
+
+Clone the repository to your local machine and make it the current directory:
+
+```bash
+git clone https://github.com/kustex/CFTC-COT-Report.git
+cd CFTC-COT-Report
+```
+
+### 2. Create & activate a virtual environment 
+```bash
+python -m venv venv
+source venv/bin/activate 
+```
+
+### 2. Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Running the App
+```bash
+python app_cftc.py
+```
+
+### 4. Access the App: Open your web browser and go to:
+```arduino
+http://127.0.0.1:8050/
+```
