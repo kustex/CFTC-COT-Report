@@ -1,5 +1,3 @@
-#import dash_html_components as html
-#import dash_core_components as dcc
 import dash_bootstrap_components as dbc
 import plotly.graph_objects as go
 import pandas as pd
@@ -15,7 +13,6 @@ from dash.dependencies import Input, Output, State
 from plotly.subplots import make_subplots
 
 
-
 dash_app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 three_years_ago = datetime.now() - relativedelta(years=3)
@@ -28,30 +25,18 @@ cftc_df_comm, cftc_metrics_comm, n_entries_comm = get_CFTC_Dataframe(name_list, 
 
 @dash_app.callback(
     Output('cftc_datatable_non_comm', 'children'),
-    [Input('cftc_submit_df', 'n_clicks')],
-    [State('cftc_input_df', 'value')]
+    [Input('cftc_input_df', 'value')]
 )
-def get_CFTC_df_selection(n_clicks, MULTP_ASSETS):
+def get_CFTC_df_selection(value):
     return dbc.Table.from_dataframe(
-        cftc_df_non_comm.loc[MULTP_ASSETS, :],
-        bordered=True)
-
-@dash_app.callback(
-    Output('cftc_datatable_comm', 'children'),
-    [Input('cftc_submit_df', 'n_clicks')],
-    [State('cftc_input_df', 'value')]
-)
-def get_CFTC_df_selection(n_clicks, MULTP_ASSETS):
-    return dbc.Table.from_dataframe(
-        cftc_df_comm.loc[MULTP_ASSETS, :],
+        cftc_df_non_comm.loc[value, :],
         bordered=True)
 
 @dash_app.callback(
     Output('cftc_graph', 'figure'),
-    [Input('cftc_submit', 'n_clicks')],
-    [State('cftc_input', 'value')]
+    [Input('cftc_input', 'value')]
 )
-def create_z_score_plot(n_clicks, TICKER):
+def create_z_score_plot(value):
     num_of_entries = len(name_list)
     weeks = []
     for i in range(0,156):
@@ -62,7 +47,7 @@ def create_z_score_plot(n_clicks, TICKER):
 
     for asset_class in metrics:
         for metric in metrics[asset_class]:
-            if metric == TICKER:
+            if metric == value:
                 list_of_i_and_date = get_list_of_i_and_date_for_metric(metrics[asset_class][metric], num_of_entries, date_list, name_list)
 
     diff_non_comm = [(a - b) for a, b in zip(non_comm_long_list, non_comm_short_list)]
@@ -85,45 +70,35 @@ def create_z_score_plot(n_clicks, TICKER):
     non_comm_net_positioning_list = get_list_of_net_positioning(list_of_i_and_date, three_years_ago, diff_non_comm)
     comm_net_positioning_list = get_list_of_net_positioning(list_of_i_and_date, three_years_ago, diff_comm)
     net_open_interest_list = get_list_of_net_positioning(list_of_i_and_date, three_years_ago, interest_list)
+    
+    color_palette = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd']
 
     fig = make_subplots(rows=3, cols=2,
-                        subplot_titles=("Z-scores non_comm",
-                                        "Z-scores comm",
-                                        "Net positioning non_comm",
-                                        "Net positioning Comm",
-                                        "Z-scores open interest,",
-                                        "Open interest"))
+                        subplot_titles=("z-scores non-commercial",
+                                        "z-scores commercial",
+                                        "net positioning non-commercial",
+                                        "net positioning commercial",
+                                        "z-scores open interest,",
+                                        "open interest"))
 
-    fig.add_trace(go.Scatter(x=weeks, y=z_score_list_one_year_non_comm, name='1y (non_comm)'),
-                  row=1, col=1,
-                  ),
-    fig.add_trace(go.Scatter(x=weeks, y=z_score_list_three_year_non_comm, name='3y (non_comm)'),
-                  row=1, col=1
-                  )
-
-    fig.add_trace(go.Scatter(x=weeks, y=z_score_list_one_year_comm, name='1y (comm)'),
-                  row=1, col=2,
-                  ),
-    fig.add_trace(go.Scatter(x=weeks, y=z_score_list_three_year_comm, name='3y (comm)'),
-                  row=1, col=2
-                  )
-
-    fig.add_trace(go.Bar(x=weeks, y=non_comm_net_positioning_list, name="Net Pos (non_comm)"),
-                  row=2, col=1
-                  )
-    fig.add_trace(go.Bar(x=weeks, y=comm_net_positioning_list, name="Net Pos (comm)"),
-                  row=2, col=2
-                  )
-
-    fig.add_trace(go.Scatter(x=weeks, y=z_score_list_one_year_open_interest, name='1y (OI)'),
-                  row=3, col=1,
-                  ),
-    fig.add_trace(go.Scatter(x=weeks, y=z_score_list_three_year_open_interest, name='3y (OI)'),
-                  row=3, col=1,
-                  ),
-    fig.add_trace(go.Bar(x=weeks, y=net_open_interest_list, name="OI"),
-                  row=3, col=2
-                  )
+    fig.add_trace(go.Scatter(x=weeks, y=z_score_list_one_year_non_comm, name='1y (non_comm)', line=dict(color=color_palette[0])),
+                  row=1, col=1)
+    fig.add_trace(go.Scatter(x=weeks, y=z_score_list_three_year_non_comm, name='3y (non_comm)', line=dict(color=color_palette[1])),
+                  row=1, col=1)
+    fig.add_trace(go.Scatter(x=weeks, y=z_score_list_one_year_comm, name='2y (comm)', line=dict(color=color_palette[0])),
+                  row=1, col=2)
+    fig.add_trace(go.Scatter(x=weeks, y=z_score_list_three_year_comm, name='3y (comm)', line=dict(color=color_palette[1])),
+                  row=1, col=2)
+    fig.add_trace(go.Bar(x=weeks, y=non_comm_net_positioning_list, name="net Pos (non_comm)", marker_color=color_palette[2]),
+                  row=2, col=1)
+    fig.add_trace(go.Bar(x=weeks, y=comm_net_positioning_list, name="net Pos (comm)", marker_color=color_palette[2]),
+                  row=2, col=2)
+    fig.add_trace(go.Scatter(x=weeks, y=z_score_list_one_year_open_interest, name='1y (OI)', line=dict(color=color_palette[0])),
+                  row=3, col=1)
+    fig.add_trace(go.Scatter(x=weeks, y=z_score_list_three_year_open_interest, name='3y (OI)', line=dict(color=color_palette[1])),
+                  row=3, col=1)
+    fig.add_trace(go.Bar(x=weeks, y=net_open_interest_list, name="OI", marker_color=color_palette[2]),
+                  row=3, col=2)
 
     fig.update_xaxes(title_text="date")
     fig.update_yaxes(title_text="z_score", row=1, col=1)
@@ -134,16 +109,21 @@ def create_z_score_plot(n_clicks, TICKER):
     fig.update_yaxes(title_text="net_contracts", row=3, col=2)
 
     fig.update_layout(
-        width=1200,
-        height=1250)
+        xaxis_title="date",
+        yaxis_title="z-score",
+        template="plotly_white",
+        showlegend=True,
+        legend=dict(orientation="h"),
+        height=1200,
+        width=1450,
+    )
     return fig
 
 @dash_app.callback(
     Output('cftc_positioning', 'children'),
-    [Input('cftc_submit', 'n_clicks')],
-    [State('cftc_input', 'value')]
+    [Input('cftc_input', 'value')]
 )
-def get_cftc_positioning(n_clicks, TICKER):
+def get_cftc_positioning(value):
     num_of_entries = len(name_list)
     weeks = []
     for i in range(0, 156):
@@ -156,7 +136,7 @@ def get_cftc_positioning(n_clicks, TICKER):
     done = False
     for asset_class in metrics:
         for metric in metrics[asset_class]:
-            if metric == TICKER:
+            if metric == value:
                 list_of_i_and_date = get_list_of_i_and_date_for_metric(metrics[asset_class][metric], num_of_entries, date_list, name_list)
 
                 investor = 'Open interest'
@@ -190,84 +170,84 @@ def get_cftc_positioning(n_clicks, TICKER):
 dash_app.layout = html.Div([
     dbc.Container([
         dbc.Row([
-            dbc.Col(
-                html.Div([
-                    html.H4('Base Ticker'),
+            dbc.Col([
+                html.Div(html.H2(f"CFTC analysis {datetime.today().date()}", style={'textAlign': 'center', "text-decoration": "underline"}))
+            ])
+        ], align='center'),
+
+        html.Br(),
+
+        # Row for base ticker selection and chart generation
+        dbc.Row([
+            dbc.Col([
+                dbc.Row([
                     dcc.Dropdown(
                         id='cftc_input',
-                        options=[{'label':x, 'value':x} for x in cftc_metrics_non_comm],
+                        options=[{'label': x, 'value': x} for x in cftc_metrics_non_comm],
                         value='SPX',
                         placeholder='Select security',
-                        multi=False
-                    ),
-                    html.Br(),
-                    dbc.Button(
-                        'Get chart',
-                        id='cftc_submit'
-                    ),
-                ])
-            ),
-        ]),
+                        multi=False,
+                        style={'textAlign': 'center'}),
+                    ])
+                ], width={'size':8, 'offset': 2})
+            ], align='center'),  
+
+
+        # Row for CFTC positioning table for selected base ticker 
         html.Br(),
         dbc.Row([
-            dbc.Col([
-                html.H4('CFTC positioning'),
-                html.Div(
-                    id='cftc_positioning'
-                )
-            ])
-        ]),
-        html.Br(),
-        dbc.Row([
-            dcc.Graph(
-                id='cftc_graph'
-            )
-        ]),
-        dbc.Row(
             dbc.Col([
                 html.Div([
-                    html.Br(),
-                    dcc.Dropdown(
-                        id='cftc_input_df',
-                        options=[{'label': x, 'value': x} for x in get_asset_lists()],
-                        value=['SPX', 'VIX', 'Russel 2000', 'Dow Jones', 'Nasdaq', 'Nikkei Index',  '10Y UST', '2Y UST', '5Y UST', 'UST Bonds', '30D Fed Funds', '3M Eurodollar', 'Gold', 'USD', 'JPY', 'EUR', 'GBP', 'BTC',
-                               'Crude Oil', 'Copper', 'Nat Gas', 'RBOB Gasoline', 'Silver', 'Platinum', 'Corn', 'Soybeans', 'Wheat', 'Live Cattle', 'Lean Hogs', 'Sugar', 'Cotton', 'Coffee', 'Cocoa', 'Orange Juice'],
-                        placeholder='Select security',
-                        multi=True
-                    ),
-                    html.Br(),
-                    dbc.Button(
-                        'Get CFTC datatable',
-                        id='cftc_submit_df'
-                    )
-                ])
-            ])
+                    html.Div(id='cftc_positioning')
+                ], style={"textAlign": "center"})
+            ], width={'size': 8, 'offset': 2})  # Centering the column
+        ], align='center'),
+
+        # Row for the CFTC grap:
+        dbc.Row(
+            dbc.Col(
+                dcc.Graph(id='cftc_graph'),
+                width=12,  # Full width column
+                style={"display": "flex", "justifyContent": "center"}  # Centering the graph
+            ),
+            align='center',
         ),
+
+        # Row for selecting multiple assets and displaying CFTC data table
         html.Br(),
         html.Br(),
         dbc.Row([
+            dbc.Col([                
+                html.H2('Non-commercial positioning', style={'textAlign': 'center', "text-decoration": "underline"}),
+                html.Br(),
+                dbc.Row([
+                    html.Div([
+                        dcc.Dropdown(
+                            id='cftc_input_df',
+                            options=[{'label': x, 'value': x} for x in get_asset_lists()],
+                            value=['SPX', 'VIX', '10Y UST', '2Y UST', 'UST Bonds', '3M SOFR', 'Gold', 'USD', 'JPY', 'EUR', 'GBP', 'BTC',
+                                'Crude Oil', 'Copper', 'Nat Gas', 'Silver'],
+                            placeholder='Select security',
+                            multi=True,
+                            style={'textAlign': 'center'}
+                        )
+                    ])
+                ])
+            ], width={'size': 8, 'offset': 2})  # Centering the column
+        ], align='center'),
+
+        html.Br(),
+        # Row for displaying the CFTC non-commercial datatable
+        dbc.Row([
             dbc.Col([
-                html.H4("CFTC non-commercial positioning {}".format(datetime.today().date())),
-                html.Br(),
-                html.Div(
-                    id='cftc_datatable_non_comm'
-                ),
-                html.Br(),
-            ]),
-            dbc.Col([
-                html.H4("CFTC commercial positioning {}".format(datetime.today().date())),
-                html.Br(),
-                html.Div(
-                    id='cftc_datatable_comm'
-                )
-            ])
-        ])
-    ])
+                html.Div([
+                    html.Div(id='cftc_datatable_non_comm')
+                ], style={"textAlign": "center"})
+            ], width={'size': 8, 'offset': 2})  # Centering the column
+        ], align='center')
+    ], fluid=True)
 ])
+
 
 if __name__ == '__main__':
     dash_app.run_server(debug=False)
-
-
-
-
