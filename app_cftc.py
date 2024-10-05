@@ -6,14 +6,13 @@ import yaml
 from dash import dcc, html
 from dateutil.relativedelta import relativedelta
 from datetime import datetime
-from dash import Dash, html, dcc
+from dash import Dash, html, dcc, Input, Output, callback
 from cftc_analyser import get_values, get_asset_lists, getLists, get_CFTC_Dataframe, \
     get_list_of_i_and_date_for_metric, get_list_of_z_scores, get_list_of_net_positioning
-from dash.dependencies import Input, Output, State
 from plotly.subplots import make_subplots
 
 
-dash_app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 three_years_ago = datetime.now() - relativedelta(years=3)
 one_year_ago = datetime.now() - relativedelta(years=1)
@@ -23,7 +22,7 @@ name_list, date_list, interest_list, non_comm_long_list, non_comm_short_list, co
 cftc_df_non_comm, cftc_metrics_non_comm, n_entries_non_comm = get_CFTC_Dataframe(name_list, date_list, non_comm_long_list, non_comm_short_list, three_years_ago, three_months_ago, six_months_ago, one_year_ago)
 cftc_df_comm, cftc_metrics_comm, n_entries_comm = get_CFTC_Dataframe(name_list, date_list, comm_long_list, comm_short_list, three_years_ago, three_months_ago, six_months_ago, one_year_ago)
 
-@dash_app.callback(
+@app.callback(
     Output('cftc_datatable_non_comm', 'children'),
     [Input('cftc_input_df', 'value')]
 )
@@ -32,7 +31,7 @@ def get_CFTC_df_selection(value):
         cftc_df_non_comm.loc[value, :],
         bordered=True)
 
-@dash_app.callback(
+@app.callback(
     Output('cftc_graph', 'figure'),
     [Input('cftc_input', 'value')]
 )
@@ -119,7 +118,7 @@ def create_z_score_plot(value):
     )
     return fig
 
-@dash_app.callback(
+@app.callback(
     Output('cftc_positioning', 'children'),
     [Input('cftc_input', 'value')]
 )
@@ -167,7 +166,7 @@ def get_cftc_positioning(value):
     return dbc.Table.from_dataframe(
         df.round(2), bordered=True)
 
-dash_app.layout = html.Div([
+app.layout = html.Div([
     dbc.Container([
         dbc.Row([
             dbc.Col([
@@ -250,4 +249,4 @@ dash_app.layout = html.Div([
 
 
 if __name__ == '__main__':
-    dash_app.run_server(debug=False)
+    app.run_server(debug=False)
