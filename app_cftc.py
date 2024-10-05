@@ -3,7 +3,6 @@ import plotly.graph_objects as go
 import pandas as pd
 import yaml
 
-from dash import dcc, html
 from dateutil.relativedelta import relativedelta
 from datetime import datetime
 from dash import Dash, html, dcc, Input, Output, callback
@@ -249,4 +248,4 @@ app.layout = html.Div([
 
 
 if __name__ == '__main__':
-    app.run_server(debug=False)
+    app.run(debug=False)
