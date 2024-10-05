@@ -6,4 +6,4 @@ format:
 	black *.py
 
 test:
-	python -m pytest -vv --cov=hello app_cftc.py
+	python -m pytest app_cftc.py
