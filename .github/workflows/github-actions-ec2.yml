@@ -41,17 +41,17 @@ jobs:
     - name: Deploy to Server 1
       uses: easingthemes/ssh-deploy@main
       env:
-        SSH_PRIVATE_KEY: ${{ secrects.EC2_SSH_KEY }}
-        REMOTE_HOST: ${{ secrects.HOST_DNS }}
-        REMOTE_USER: ${{ secrects.USERNAME }}
+        SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+        REMOTE_HOST: ${{ secrets.HOST_DNS }}
+        REMOTE_USER: ${{ secrets.USERNAME }}
         TARGET: ${{ secrets.TARGET_DIR }}
     
     - name: Executing remote ssh commands using ssh key
       uses: appleboy/ssh-actions@master
       with:
-        host: ${{ secrects.HOST_DNS }}
-        username: ${{ secrects.USERNAME }}
-        key: ${{ secrects.EC2_SSH_KEY }}
+        host: ${{ secrets.HOST_DNS }}
+        username: ${{ secrets.USERNAME }}
+        key: ${{ secrets.EC2_SSH_KEY }}
         script: |
           sudo apt-get -y update
     
