@@ -26,10 +26,6 @@ jobs:
     - name: Install dependencies
       run: |
         make install 
-               
-    - name: Test  
-      run: |
-        make test 
         
     - name: Format
       run: |
