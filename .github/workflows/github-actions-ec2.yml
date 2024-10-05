@@ -26,6 +26,7 @@ jobs:
     - name: Install aws dependencies
       run: |
         make install-aws 
+        
     - name: Lint 
       run: |
         make lint
@@ -46,12 +47,4 @@ jobs:
         REMOTE_USER: ${{ secrets.USERNAME }}
         TARGET: ${{ secrets.TARGET_DIR }}
     
-    - name: Executing remote ssh commands using ssh key
-      uses: appleboy/ssh-actions@master
-      with:
-        host: ${{ secrets.HOST_DNS }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.EC2_SSH_KEY }}
-        script: |
-          sudo apt-get -y update
     
