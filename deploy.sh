@@ -25,6 +25,9 @@ source venv/bin/activate
 echo "Install application dependencies from requirements.txt"
 sudo pip install -r requirements.txt
 
+which venv
+pip list
+
 # Update and install Nginx if not already installed
 if ! command -v nginx > /dev/null; then
     echo "Installing Nginx"
