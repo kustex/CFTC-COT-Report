@@ -24,14 +24,14 @@ jobs:
           EC2_HOST: ${{ secrets.EC2_HOST }}
           EC2_USERNAME: ${{ secrets.EC2_USERNAME }}
         run: |
-          scp -r * $EC2_USERNAME@$EC2_HOST:/home/ubuntu/
+          scp -r * ${{ EC2_USERNAME }}@${{ EC2_HOST }}:/home/ubuntu/
 
       - name: Run Bash Script To Delpoy App 🚀
         env:
           EC2_HOST: ${{ secrets.EC2_HOST }}
           EC2_USERNAME: ${{ secrets.EC2_USERNAME }}
         run: |
-          ssh -o StrictHostKeyChecking=no $EC2_USERNAME@$EC2_HOST "chmod +x ./deploy.sh && ./deploy.sh"
+          ssh -o StrictHostKeyChecking=no ${{ EC2_USERNAME }}@${{ EC2_HOST }} "chmod +x ./deploy.sh && ./deploy.sh"
 
       - name: Clean up SSH key 🚀
         if: always()
