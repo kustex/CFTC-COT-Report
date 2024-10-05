@@ -19,10 +19,6 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Check if target directory exists
-        run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} "mkdir -p /home/ubuntu/cftc-app"
-
       - name: List files in current directory
         run: ls -la
 
@@ -31,7 +27,7 @@ jobs:
           EC2_HOST: ${{ secrets.EC2_HOST }}
           EC2_USERNAME: ${{ secrets.EC2_USERNAME }}
         run: |
-          scp -vr * ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}:/home/ubuntu/cftc-app/
+          scp -vr * ${{secrets.EC2_USERNAME}}@${secrets.EC2_HOST}}:/home/ubuntu/cftc-app/
 
       - name: Run Bash Script To Deploy App 🚀
         env:
