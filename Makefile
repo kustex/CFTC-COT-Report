@@ -6,4 +6,4 @@ format:
 	black *.py
 
 test:
-	python -m pytest app_cftc.py
+	python -m -v pytest app_cftc.py
