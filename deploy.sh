@@ -14,8 +14,9 @@ sudo mv  * /var/www/cftc-app
 cd /var/www/cftc-app/
 
 sudo apt-get update
-echo "installing python and pip"
-sudo apt-get install -y python3 python3-pip
+
+python -m venv venv
+source venv/bin/activate
 
 # Install application dependencies from requirements.txt
 echo "Install application dependencies from requirements.txt"
