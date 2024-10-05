@@ -14,19 +14,17 @@ sudo mv  * /var/www/cftc-app
 cd /var/www/cftc-app/
 
 sudo apt-get update
-echo "installing python and pip"
-sudo apt-get install -y python3 python3-pip
-apt-install python3.12-venv
 
-python3 -m venv venv
+python3 install virtualenv
+virtualenv venv
 source venv/bin/activate
+which python3
 
 # Install application dependencies from requirements.txt
 echo "Install application dependencies from requirements.txt"
-sudo pip install -r requirements.txt
+pip3 install -r requirements.txt
 
-which venv
-pip list
+pip3 list
 
 # Update and install Nginx if not already installed
 if ! command -v nginx > /dev/null; then
