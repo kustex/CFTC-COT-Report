@@ -14,7 +14,10 @@ echo "Navigate to the app directory"
 cd /var/www/cftc-app/
 
 echo "install virtualenv"
+which pip3
+which python3
 pip3 install virtualenv
+python -m pip install --user virtualenv
 
 echo "creating venv"
 virtualenv venv
