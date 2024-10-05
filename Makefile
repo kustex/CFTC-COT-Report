@@ -6,7 +6,7 @@ format:
 	black *.py
 
 lint:
-	pylint --disable=R,C app_cftc.py
+	pylint --errors-only app_cftc.py cftc_analyser.py 
 
 test:
 	python -m pytest -vv --cov=hello app_cftc.py
