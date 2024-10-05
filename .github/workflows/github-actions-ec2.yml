@@ -57,7 +57,7 @@ jobs:
           pip install -r requirements.txt
 
           # Start the Dash app (replace 'app.py' with your actual app name)
-          pm2 start app_cftc.py --name dash-app
+          pm2 start app_cftc.py --name cftc-app
 
     - name: Restart Web Server (Optional)
       uses: appleboy/ssh-action@master
