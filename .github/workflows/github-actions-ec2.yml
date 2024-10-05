@@ -27,11 +27,8 @@ jobs:
           scp -vr * ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}:/home/ubuntu/cftc-app/
 
       - name: Run Bash Script To Deploy App 🚀
-        env:
-          EC2_HOST: ${{ secrets.EC2_HOST }}
-          EC2_USERNAME: ${{ secrets.EC2_USERNAME }}
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} "chmod +x ./deploy.sh && ./deploy.sh"
+          ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} "chmod +x /home/ubuntu/cftc-app/deploy.sh && /home/ubuntu/cftc-app/deploy.sh"
 
       - name: Clean up SSH key 🚀
         if: always()
