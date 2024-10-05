@@ -13,8 +13,8 @@ sudo mv  * /var/www/cftc-app
 echo "Navigate to the app directory"
 cd /var/www/cftc-app/
 
-echo "install python3"
-python3 install virtualenv
+echo "install virtualenv"
+pip3 install virtualenv
 
 echo "creating venv"
 virtualenv venv
@@ -22,6 +22,7 @@ source venv/bin/activate
 
 echo "check which python" 
 which python3
+which pip3
 
 # Install application dependencies from requirements.txt
 echo "Install application dependencies from requirements.txt"
