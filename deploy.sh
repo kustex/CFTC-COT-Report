@@ -13,6 +13,9 @@ sudo mv  * /var/www/cftc-app
 echo "Navigate to the app directory"
 cd /var/www/cftc-app/
 
+echo "installing python and pip"
+sudo apt-get install -y python3 python3-pip
+
 echo "install virtualenv"
 which pip3
 which python3
