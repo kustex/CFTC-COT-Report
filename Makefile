@@ -5,5 +5,4 @@ install:
 format:
 	black *.py
 
-test:
-	python -m -v pytest app_cftc.py
+
