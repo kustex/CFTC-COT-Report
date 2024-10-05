@@ -48,16 +48,16 @@ jobs:
           cd ${{ secrets.TARGET_DIR }}
 
           # Stop any existing Dash app (if running)
-          pm2 stop dash-app || true
+          pm2 stop cftc-app || true
 
           # Pull the latest code
-          git pull origin main
+          git pull origin main || true
 
           # Install/update any dependencies on the server
-          pip install -r requirements.txt
+          pip install -r requirements.txt || true
 
-          # Start the Dash app (replace 'app.py' with your actual app name)
-          pm2 start app_cftc.py --name cftc-app
+          # Start the Dash app (replace 'app_cftc.py' with your actual app name)
+          pm2 start app_cftc.py --name cftc-app --interpreter=python3 || true
 
     - name: Restart Web Server (Optional)
       uses: appleboy/ssh-action@master
