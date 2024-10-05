@@ -23,9 +23,9 @@ jobs:
       with:
         python-version: 3.12.6
 
-    - name: Install aws dependencies
+    - name: Install dependencies
       run: |
-        make install-aws 
+        make install 
         
     - name: Lint 
       run: |
