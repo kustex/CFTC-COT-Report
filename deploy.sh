@@ -13,10 +13,10 @@ sudo mv  * /var/www/cftc-app
 echo "Navigate to the app directory"
 cd /var/www/cftc-app/
 
-sudo apt-get update
-
 echo "install python3"
 python3 install virtualenv
+
+echo "creating venv"
 virtualenv venv
 source venv/bin/activate
 
