@@ -38,3 +38,4 @@ pytest
 pytest-cov
 click
 black
+gunicorn

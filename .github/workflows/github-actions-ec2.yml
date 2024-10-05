@@ -3,7 +3,7 @@ name: Deploy to EC2 🚀
 on:
   push:
     branches:
-      - "main" # This triggers the workflow on push to any branch
+      - "main" 
 
 jobs:
   deploy:
@@ -19,19 +19,16 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Copy files to remote server 🚙
-        env:
-          EC2_HOST: ${{ secrets.EC2_HOST }}
-          EC2_USERNAME: ${{ secrets.EC2_USERNAME }}
-        run: |
-          scp -r * $EC2_USERNAME@$EC2_HOST:/home/ubuntu/
+      - name: List files in current directory
+        run: ls -la
 
-      - name: Run Bash Script To Delpoy App 🚀
-        env:
-          EC2_HOST: ${{ secrets.EC2_HOST }}
-          EC2_USERNAME: ${{ secrets.EC2_USERNAME }}
+      - name: Copy files to remote server with verbosity 🚙
         run: |
-          ssh -o StrictHostKeyChecking=no $EC2_USERNAME@$EC2_HOST "chmod +x ./deploy.sh && ./deploy.sh"
+          scp -vr * ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}:/home/ubuntu/cftc-app/
+
+      - name: Run Bash Script To Deploy App 🚀
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} "chmod +x /home/ubuntu/cftc-app/deploy.sh && /home/ubuntu/cftc-app/deploy.sh"
 
       - name: Clean up SSH key 🚀
         if: always()
