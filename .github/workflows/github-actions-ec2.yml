@@ -1,42 +1,72 @@
-# This is a basic workflow to help you get started with Actions
-name: CFTC analysis application
+name: CFTC Analysis Application Deployment
 
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the main branch
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job calles "build"
-  build:
-    # The type of runner that the job will run on 
-    name: Deploy to EC2 on master branch push
+  deploy:
+    name: Deploy Dash App to EC2
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - name: Checkout the files
+    - name: Checkout Code
       uses: actions/checkout@v2
 
-    - name: Set up Python 3.12.6
-      uses: actions/setup-python@v1
+    - name: Set up Python
+      uses: actions/setup-python@v2
       with:
         python-version: 3.12.6
 
     - name: Install dependencies
       run: |
-        make install 
-        
-    - name: Format
+        pip install -r requirements.txt
+
+    - name: Run format
       run: |
-        make format 
-    
-    - name: Deploy to Server 1
-      uses: easingthemes/ssh-deploy@main
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-        REMOTE_HOST: ${{ secrets.HOST_DNS }}
-        REMOTE_USER: ${{ secrets.USERNAME }}
-        TARGET: ${{ secrets.TARGET_DIR }}
-    
+        make format
+
+    - name: Install Node.js (to install pm2)
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'  # or any version compatible with your system
+
+    - name: Install pm2
+      run: |
+        npm install pm2 -g
+
+    - name: Deploy to EC2
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USER }}
+        key: ${{ secrets.EC2_SSH_KEY }}
+        port: 22
+        script: |
+          # Navigate to the target directory
+          cd ${{ secrets.TARGET_DIR }}
+
+          # Stop any existing Dash app (if running)
+          pm2 stop dash-app || true
+
+          # Pull the latest code
+          git pull origin main
+
+          # Install/update any dependencies on the server
+          pip install -r requirements.txt
+
+          # Start the Dash app (replace 'app.py' with your actual app name)
+          pm2 start app.py --name dash-app
+
+    - name: Restart Web Server (Optional)
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ${{ secrets.EC2_USER }}
+        key: ${{ secrets.EC2_SSH_KEY }}
+        port: 22
+        script: |
+          sudo systemctl restart nginx
+
     
