@@ -10,21 +10,25 @@ sudo mkdir -p /var/www/cftc-app
 echo "moving files to app folder"
 sudo mv  * /var/www/cftc-app
 
-# Navigate to the app directory
+echo "Navigate to the app directory"
 cd /var/www/cftc-app/
 
 sudo apt-get update
 
+echo "install python3"
 python3 install virtualenv
 virtualenv venv
 source venv/bin/activate
+
+echo "check which python" 
 which python3
 
 # Install application dependencies from requirements.txt
 echo "Install application dependencies from requirements.txt"
 pip3 install -r requirements.txt
 
-pip3 list
+echo "which pip"
+which pip3 
 
 # Update and install Nginx if not already installed
 if ! command -v nginx > /dev/null; then
