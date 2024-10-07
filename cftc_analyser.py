@@ -143,37 +143,24 @@ def getLists():
     comm_long_list = []
     comm_short_list = []
 
+    working_dir = os.getcwd()
     DATA_DIR = "cftc_data"
     if not os.path.exists(DATA_DIR):
         os.makedirs(DATA_DIR)
 
-    working_dir = os.getcwd()
+    years = [2021, 2022, 2023, 2024]
+    for y in years:
+        if not f"{y}.xls" in os.listdir(f"{working_dir}/tmp/"):
+            file = f'{DATA_DIR}/{y}.zip'
+            zip_file = get_cot_zip(f'https://www.cftc.gov/files/dea/history/dea_com_xls_{y}.zip', file)
+            with ZipFile(zip_file, 'r') as f:
+                listOfFileNames = f.namelist()
+                f.extractall(f"{working_dir}/tmp/")
+                os.replace(f"{working_dir}/tmp/{listOfFileNames[0]}", f"{working_dir}/tmp/{listOfFileNames[0]}.xls")
 
-    years = [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
-    for year in years:
-        file = f'{DATA_DIR}/{year}.zip'
-        get_cot_zip(f'https://www.cftc.gov/files/dea/history/dea_com_xls_{year}.zip', file)
-
-    data_files = os.listdir(DATA_DIR)
-
-    print('------------------------------------')
-    print('------------------------------------')
-    print('------------------------------------')
-    print('------------------------------------')
-    print('------------------------------------')
-    print(data_files)
-
-    for data_file in data_files:
-        if '.zip' in data_file:
-            data_file_name = data_file[:-4]
-            if extract_zip_files:
-                with ZipFile(f"{DATA_DIR}/{data_file}", 'r') as f:
-                    listOfFileNames = f.namelist()
-                    fileName = listOfFileNames[0]
-                    f.extractall(f"{working_dir}/tmp/")
-                    time.sleep(2)
-                    os.replace(f"{working_dir}/tmp/{fileName}", f"{working_dir}/tmp/{data_file_name}.xls")
-            xl = pd.ExcelFile(f"{working_dir}/tmp/{data_file_name}.xls")
+        else:
+            print(y)
+            xl = pd.ExcelFile(f"{working_dir}/tmp/{y}.xls")
             df = pd.read_excel(xl, usecols=[NAME, DATE, INTEREST, NON_COMM_LONG, NON_COMM_SHORT, COMM_LONG, COMM_SHORT])
             name_list += list(df[NAME])
             date_list += list(df[DATE])
@@ -182,7 +169,45 @@ def getLists():
             non_comm_short_list += list(df[NON_COMM_SHORT])
             comm_long_list += list(df[COMM_LONG])
             comm_short_list += list(df[COMM_SHORT])
+
     return name_list, date_list, interest_list, non_comm_long_list, non_comm_short_list, comm_long_list, comm_short_list
+
+
+
+
+
+
+
+
+
+
+    # years = [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+    # for year in years:
+    #     file = f'{DATA_DIR}/{year}.zip'
+    #     get_cot_zip(f'https://www.cftc.gov/files/dea/history/dea_com_xls_{year}.zip', file)
+
+    # data_files = os.listdir(DATA_DIR)
+
+    # for data_file in data_files:
+    #     if '.zip' in data_file:
+    #         data_file_name = data_file[:-4]
+    #         if extract_zip_files:
+    #             with ZipFile(f"{DATA_DIR}/{data_file}", 'r') as f:
+    #                 listOfFileNames = f.namelist()
+    #                 fileName = listOfFileNames[0]
+    #                 f.extractall(f"{working_dir}/tmp/")
+    #                 time.sleep(2)
+    #                 os.replace(f"{working_dir}/tmp/{fileName}", f"{working_dir}/tmp/{data_file_name}.xls")
+    #         xl = pd.ExcelFile(f"{working_dir}/tmp/{data_file_name}.xls")
+    #         df = pd.read_excel(xl, usecols=[NAME, DATE, INTEREST, NON_COMM_LONG, NON_COMM_SHORT, COMM_LONG, COMM_SHORT])
+    #         name_list += list(df[NAME])
+    #         date_list += list(df[DATE])
+    #         interest_list += list(df[INTEREST])
+    #         non_comm_long_list += list(df[NON_COMM_LONG])
+    #         non_comm_short_list += list(df[NON_COMM_SHORT])
+    #         comm_long_list += list(df[COMM_LONG])
+    #         comm_short_list += list(df[COMM_SHORT])
+    # return name_list, date_list, interest_list, non_comm_long_list, non_comm_short_list, comm_long_list, comm_short_list
 
 def get_values(list_of_i_and_date, list_long, three_years_ago, three_months_ago, six_months_ago, one_year_ago, list_short=None):
     latest_i = get_latest_i(list_of_i_and_date)
