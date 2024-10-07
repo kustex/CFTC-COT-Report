@@ -179,10 +179,11 @@ def getLists(extract_zip_files=True):
             if extract_zip_files:
                 with ZipFile(f"{DATA_DIR}/{data_file}", 'r') as f:
                     f.extractall(f"{working_dir}/tmp/")
-                    time.sleep(2)
+                    time.sleep(5)
                     listOfFileNames = f.namelist()
                     fileName = listOfFileNames[0]
-                    print(f"Extracted file: {fileName}")
+
+                    print(os.listdir('/tmp'))
 
                     # Set permissions for the newly created Excel file
                     os.chmod(f"{working_dir}/tmp/{fileName}", stat.S_IRUSR | stat.S_IWUSR | stat.S_IRGRP | stat.S_IROTH)  # rw-r--r--
