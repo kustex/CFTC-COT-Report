@@ -1,6 +1,7 @@
 import dash_bootstrap_components as dbc
 import plotly.graph_objects as go
 import pandas as pd
+import os
 import yaml
 
 from dateutil.relativedelta import relativedelta
@@ -249,4 +250,8 @@ app.layout = html.Div([
 
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(
+        host=os.getenv('LISTEN', '0.0.0.0'),
+        port=int(os.getenv('PORT', '8080')),
+        debug=False
+        )
