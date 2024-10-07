@@ -159,7 +159,9 @@ def getLists():
                 with ZipFile(f"{DATA_DIR}/{data_file}", 'r') as f:
                     listOfFileNames = f.namelist()
                     fileName = listOfFileNames[0]
-
+                    
+                    print("Current working directory:", os.getcwd())
+                    print("----------------------")
                     print(os.access("tmp", os.W_OK))  # Should return True if writable
 
                     f.extractall("tmp")
