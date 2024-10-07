@@ -17,7 +17,7 @@ echo "installing python and pip"
 sudo apt-get install -y python3 python3-pip
 
 echo "install venv"
-sudo apt install python3.12-venv
+sudo apt install -y python3.12-venv
 
 echo "create venv"
 sudo python3 -m venv venv
