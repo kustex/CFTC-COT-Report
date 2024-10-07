@@ -23,7 +23,7 @@ echo "create venv"
 sudo python3 -m venv venv
 
 echo "activating venv"
-sudo source venv/bin/activate
+source venv/bin/activate
 
 echo "check which python" 
 which python3
