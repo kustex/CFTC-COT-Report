@@ -184,10 +184,10 @@ def getLists(extract_zip_files=True):
                     fileName = listOfFileNames[0]
                     print(f"Extracted file: {fileName}")
 
-                    # Rename the file
-                    os.rename(f"{working_dir}/tmp/{fileName}", f"{working_dir}/tmp/{data_file_name}.xls")
                     # Set permissions for the newly created Excel file
                     os.chmod(f"{working_dir}/tmp/{data_file_name}.xls", stat.S_IRUSR | stat.S_IWUSR | stat.S_IRGRP | stat.S_IROTH)  # rw-r--r--
+                    # Rename the file
+                    os.rename(f"{working_dir}/tmp/{fileName}", f"{working_dir}/tmp/{data_file_name}.xls")
 
             xl = pd.ExcelFile(f"{working_dir}/tmp/{data_file_name}.xls")
             df = pd.read_excel(xl, usecols=[NAME, DATE, INTEREST, NON_COMM_LONG, NON_COMM_SHORT, COMM_LONG, COMM_SHORT])
