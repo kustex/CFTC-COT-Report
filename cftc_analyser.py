@@ -151,17 +151,17 @@ def getLists(extract_zip_files=True):
 
     working_dir = os.getcwd()
     DATA_DIR = "cftc_data"
-    tmp = 'tmp'
+    xls_data = 'xls_data'
 
     # Create DATA_DIR if it doesn't exist
     if not os.path.exists(DATA_DIR):
         os.makedirs(DATA_DIR)
 
-    # Create tmp directory if it doesn't exist
-    if not os.path.exists(tmp):
-        os.makedirs(tmp)
-        # Set permissions for the tmp directory
-        os.chmod(tmp, stat.S_IRWXU | stat.S_IRWXG | stat.S_IRWXO)  # rwx for all
+    # Create xls_data directory if it doesn't exist
+    if not os.path.exists(xls_data):
+        os.makedirs(xls_data)
+        # Set permissions for the xls_data directory
+        os.chmod(xls_data, stat.S_IRWXU | stat.S_IRWXG | stat.S_IRWXO)  # rwx for all
 
     years = [2020, 2021, 2022, 2023, 2024]
     for year in years:
@@ -178,19 +178,19 @@ def getLists(extract_zip_files=True):
             data_file_name = data_file[:-4]
             if extract_zip_files:
                 with ZipFile(f"{DATA_DIR}/{data_file}", 'r') as f:
-                    f.extractall(f"{working_dir}/tmp/")
+                    f.extractall(f"{working_dir}/xls_data/")
                     time.sleep(5)
                     listOfFileNames = f.namelist()
                     fileName = listOfFileNames[0]
 
-                    print(os.listdir('/tmp'))
+                    print(os.listdir('/xls_data'))
 
                     # Set permissions for the newly created Excel file
-                    os.chmod(f"{working_dir}/tmp/{fileName}", stat.S_IRUSR | stat.S_IWUSR | stat.S_IRGRP | stat.S_IROTH)  # rw-r--r--
+                    os.chmod(f"{working_dir}/xls_data/{fileName}", stat.S_IRUSR | stat.S_IWUSR | stat.S_IRGRP | stat.S_IROTH)  # rw-r--r--
                     # Rename the file
-                    os.rename(f"{working_dir}/tmp/{fileName}", f"{working_dir}/tmp/{data_file_name}.xls")
+                    os.rename(f"{working_dir}/xls_data/{fileName}", f"{working_dir}/xls_data/{data_file_name}.xls")
 
-            xl = pd.ExcelFile(f"{working_dir}/tmp/{data_file_name}.xls")
+            xl = pd.ExcelFile(f"{working_dir}/xls_data/{data_file_name}.xls")
             df = pd.read_excel(xl, usecols=[NAME, DATE, INTEREST, NON_COMM_LONG, NON_COMM_SHORT, COMM_LONG, COMM_SHORT])
             name_list += list(df[NAME])
             date_list += list(df[DATE])
