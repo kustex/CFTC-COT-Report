@@ -40,6 +40,15 @@ pip install -r requirements.txt
 echo "pip list"
 pip list
 
+echo "check status nginx"
+sudo systemctl status nginx
+
+echo "restart nginx"
+sudo systemctl restart nginx
+
+echo "check if setup correctly"
+sudo nginx -t
+
 # Update and install Nginx if not already installed
 if ! command -v nginx > /dev/null; then
     echo "Installing Nginx"
@@ -87,6 +96,6 @@ which gunicorn
 # # gunicorn --workers 3 --bind 0.0.0.0:8000 server:app &
 echo "starting gunicorn"
 # sudo /var/www/cftc-app/venv/bin/gunicorn gunicorn -w 4 app_cftc:app
-sudo /var/www/cftc-app/venv/bin/gunicorn --workers 1 --bind unix:myapp.sock app_cftc:server
+sudo /var/www/cftc-app/venv/bin/gunicorn --workers 3 --bind unix:myapp.sock app_cftc:server
 
 echo "started gunicorn 🚀"
