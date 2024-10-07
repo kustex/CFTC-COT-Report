@@ -4,6 +4,7 @@ import yaml
 import os
 import pandas as pd
 import requests
+import subprocess
 import time
 
 from datetime import datetime
@@ -148,6 +149,8 @@ def getLists():
     if not os.path.exists(DATA_DIR):
         os.makedirs(DATA_DIR)
 
+    print(os.listdir(f"{working_dir}/tmp/"))
+
     years = [2021, 2022, 2023, 2024]
     for y in years:
         if not f"{y}.xls" in os.listdir(f"{working_dir}/tmp/"):
@@ -155,6 +158,14 @@ def getLists():
             zip_file = get_cot_zip(f'https://www.cftc.gov/files/dea/history/dea_com_xls_{y}.zip', file)
             with ZipFile(zip_file, 'r') as f:
                 listOfFileNames = f.namelist()
+                filename = listOfFileNames[0]
+                file_path = f"{working_dir}/tmp/{filename}"
+                try:
+                    subprocess.run(["sudo", "chmod", "777", file_path], check=True)
+                    print(f"Changed permissions for {file_path}")
+                except subprocess.CalledProcessError as e:
+                    print(f"Failed to change permissions: {e}")
+
                 f.extractall(f"{working_dir}/tmp/")
                 os.replace(f"{working_dir}/tmp/{listOfFileNames[0]}", f"{working_dir}/tmp/{listOfFileNames[0]}.xls")
 
