@@ -16,15 +16,11 @@ cd /var/www/cftc-app/
 echo "installing python and pip"
 sudo apt-get install -y python3 python3-pip
 
-# echo "install virtualenv"
-# which pip3
-# which python3
-# pip3 install virtualenv
-# python -m pip install --user virtualenv
+echo "create venv"
+python3 -m venv venv
 
-# echo "creating venv"
-# virtualenv venv
-# source venv/bin/activate
+echo "activating venv"
+source venv/bin/activate
 
 echo "check which python" 
 which python3
