@@ -31,7 +31,7 @@ which pip3
 
 # Install application dependencies from requirements.txt
 echo "Install application dependencies from requirements.txt"
-pip3 install -r requirements.txt
+sudo pip3 install -r requirements.txt
 
 echo "pip list"
 pip3 list
