@@ -27,11 +27,11 @@ source venv/bin/activate
 
 echo "check which python" 
 which python3
-which pip3
+which pip
 
 # Install application dependencies from requirements.txt
 echo "Install application dependencies from requirements.txt"
-sudo pip3 install -r requirements.txt
+pip3 install -r requirements.txt
 
 echo "pip list"
 pip3 list
