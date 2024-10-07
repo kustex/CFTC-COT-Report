@@ -24,11 +24,11 @@ jobs:
 
       - name: Copy files to remote server with verbosity 🚙
         run: |
-          scp -vr * ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}:/home/ubuntu/cftc-app/
+          scp -vr * ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }}:/home/ubuntu/
 
       - name: Run Bash Script To Deploy App 🚀
         run: |
-          ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} "chmod +x /home/ubuntu/cftc-app/deploy.sh && /home/ubuntu/cftc-app/deploy.sh"
+          ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USERNAME }}@${{ secrets.EC2_HOST }} "chmod +x /home/ubuntu/deploy.sh && /home/ubuntu/deploy.sh"
 
       - name: Clean up SSH key 🚀
         if: always()

@@ -10,16 +10,35 @@ sudo mkdir -p /var/www/cftc-app
 echo "moving files to app folder"
 sudo mv  * /var/www/cftc-app
 
-# Navigate to the app directory
+echo "Navigate to the app directory"
 cd /var/www/cftc-app/
 
-sudo apt-get update
 echo "installing python and pip"
 sudo apt-get install -y python3 python3-pip
 
+echo "install venv"
+sudo apt install -y python3.12-venv
+
+echo "create venv"
+sudo python3 -m venv venv
+
+echo "activating venv"
+source venv/bin/activate
+
+echo "check which python" 
+which python3
+which pip
+
+echo "change ownership of file"
+sudo chown -R ubuntu /var/www/cftc-app/
+
+
 # Install application dependencies from requirements.txt
 echo "Install application dependencies from requirements.txt"
-sudo pip install -r requirements.txt
+pip install -r requirements.txt
+
+echo "pip list"
+pip list
 
 # Update and install Nginx if not already installed
 if ! command -v nginx > /dev/null; then
@@ -49,13 +68,25 @@ else
     echo "Nginx reverse proxy configuration already exists."
 fi
 
-# Stop any existing Gunicorn process
+echo "which pip"
+which pip
+
+echo "which gunicorn"
+which gunicorn
+
+
+echo "Stop any existing Gunicorn process"
 sudo pkill gunicorn
 sudo rm -rf myapp.sock
+
+echo "which gunicorn"
+which gunicorn
 
 # # Start Gunicorn with the Flask application
 # # Replace 'server:app' with 'yourfile:app' if your Flask instance is named differently.
 # # gunicorn --workers 3 --bind 0.0.0.0:8000 server:app &
 echo "starting gunicorn"
-sudo gunicorn --workers 3 --bind unix:myapp.sock  app_cftc:app --user www-data --group www-data --daemon
+# sudo /var/www/cftc-app/venv/bin/gunicorn gunicorn -w 4 app_cftc:app
+sudo /var/www/cftc-app/venv/bin/gunicorn gunicorn --workers 3 --bind unix:myapp.sock  app_cftc:app --user www-data --group www-data --daemon
+
 echo "started gunicorn 🚀"
