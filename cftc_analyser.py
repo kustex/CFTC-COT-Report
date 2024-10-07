@@ -169,6 +169,7 @@ def getLists(extract_zip_files=True):
             print(f'Downloading: {year}.zip')
             file = f'{DATA_DIR}/{year}.zip'
             get_cot_zip(f'https://www.cftc.gov/files/dea/history/dea_com_xls_{year}.zip', file)
+            time.sleep(2)
 
     data_files = os.listdir(DATA_DIR)
 
@@ -178,6 +179,7 @@ def getLists(extract_zip_files=True):
             if extract_zip_files:
                 with ZipFile(f"{DATA_DIR}/{data_file}", 'r') as f:
                     f.extractall(f"{working_dir}/tmp/")
+                    time.sleep(2)
                     listOfFileNames = f.namelist()
                     fileName = listOfFileNames[0]
                     print(f"Extracted file: {fileName}")
