@@ -159,6 +159,9 @@ def getLists():
                 with ZipFile(f"{DATA_DIR}/{data_file}", 'r') as f:
                     listOfFileNames = f.namelist()
                     fileName = listOfFileNames[0]
+
+                    print(os.access("tmp", os.W_OK))  # Should return True if writable
+
                     f.extractall("tmp")
                     os.replace(f"tmp/{fileName}", f"tmp/{data_file_name}.xls")
             xl = pd.ExcelFile(f"tmp/{data_file_name}.xls")
