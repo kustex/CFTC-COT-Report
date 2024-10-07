@@ -74,15 +74,19 @@ which pip
 echo "which gunicorn"
 which gunicorn
 
+
 echo "Stop any existing Gunicorn process"
 sudo pkill gunicorn
 sudo rm -rf myapp.sock
+
+echo "which gunicorn"
+which gunicorn
 
 # # Start Gunicorn with the Flask application
 # # Replace 'server:app' with 'yourfile:app' if your Flask instance is named differently.
 # # gunicorn --workers 3 --bind 0.0.0.0:8000 server:app &
 echo "starting gunicorn"
-sudo gunicorn -w 4 app_cftc:app
+sudo /var/www/cftc-app/venv/bin/gunicorn gunicorn -w 4 app_cftc:app
 # sudo gunicorn --workers 3 --bind unix:myapp.sock  app_cftc:app --user www-data --group www-data --daemon
 
 echo "started gunicorn 🚀"
