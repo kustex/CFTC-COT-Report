@@ -152,6 +152,14 @@ def getLists():
         get_cot_zip(f'https://www.cftc.gov/files/dea/history/dea_com_xls_{year}.zip', file)
 
     data_files = os.listdir(DATA_DIR)
+
+    print('------------------------------------')
+    print('------------------------------------')
+    print('------------------------------------')
+    print('------------------------------------')
+    print('------------------------------------')
+    print(data_files)
+
     for data_file in data_files:
         if '.zip' in data_file:
             data_file_name = data_file[:-4]
