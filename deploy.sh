@@ -29,12 +29,16 @@ echo "check which python"
 which python3
 which pip
 
+echo "change ownership of file"
+sudo chown -R ubuntu /var/www/cftc-app/
+
+
 # Install application dependencies from requirements.txt
 echo "Install application dependencies from requirements.txt"
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 
 echo "pip list"
-pip3 list
+pip list
 
 # Update and install Nginx if not already installed
 if ! command -v nginx > /dev/null; then
