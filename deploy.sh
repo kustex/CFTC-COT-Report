@@ -16,15 +16,15 @@ cd /var/www/cftc-app/
 echo "installing python and pip"
 sudo apt-get install -y python3 python3-pip
 
-echo "install virtualenv"
-which pip3
-which python3
-pip3 install virtualenv
-python -m pip install --user virtualenv
+# echo "install virtualenv"
+# which pip3
+# which python3
+# pip3 install virtualenv
+# python -m pip install --user virtualenv
 
-echo "creating venv"
-virtualenv venv
-source venv/bin/activate
+# echo "creating venv"
+# virtualenv venv
+# source venv/bin/activate
 
 echo "check which python" 
 which python3
@@ -34,8 +34,8 @@ which pip3
 echo "Install application dependencies from requirements.txt"
 pip3 install -r requirements.txt
 
-echo "which pip"
-which pip3 
+echo "pip list"
+pip3 list
 
 # Update and install Nginx if not already installed
 if ! command -v nginx > /dev/null; then
