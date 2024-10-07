@@ -68,7 +68,10 @@ else
     echo "Nginx reverse proxy configuration already exists."
 fi
 
-# Stop any existing Gunicorn process
+echo "install gunicorn"
+sudo pip install gunicorn
+
+echo "Stop any existing Gunicorn process"
 sudo pkill gunicorn
 sudo rm -rf myapp.sock
 
