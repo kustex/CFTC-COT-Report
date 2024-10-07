@@ -16,6 +16,9 @@ jobs:
         run: |
           echo "${{ secrets.EC2_SSH_KEY }}"
 
+      - name: List SSH Directory
+        run: ls -la ~/.ssh
+
       - name: Set up SSH key and whitelist EC2 IP address 🐻‍❄️
         run: |
           mkdir -p ~/.ssh
