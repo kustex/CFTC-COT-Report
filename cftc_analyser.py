@@ -196,16 +196,17 @@ def getLists():
             get_cot_zip(f'https://www.cftc.gov/files/dea/history/dea_com_xls_{year}.zip', file)
 
     data_files = os.listdir(DATA_DIR)
-    print(data_files)
 
     for data_file in data_files:
         if '.zip' in data_file:
             data_file_name = data_file[:-4]
             if extract_zip_files:
                 with ZipFile(f"{DATA_DIR}/{data_file}", 'r') as f:
-                    print(f"{DATA_DIR}/{data_file}")
+                    print(data_file)
+                    print(f)
                     listOfFileNames = f.namelist()
                     fileName = listOfFileNames[0]
+                    print(fileName)
                     f.extractall(f"{working_dir}/tmp/")
 
                     os.replace(f"{working_dir}/tmp/{fileName}", f"{working_dir}/tmp/{data_file_name}.xls")
