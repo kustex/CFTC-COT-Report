@@ -17,10 +17,10 @@ echo "installing python and pip"
 sudo apt-get install -y python3 python3-pip
 
 echo "create venv"
-python3 -m venv venv
+sudo python3 -m venv venv
 
 echo "activating venv"
-source venv/bin/activate
+sudo source venv/bin/activate
 
 echo "check which python" 
 which python3
