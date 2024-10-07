@@ -185,7 +185,7 @@ def getLists(extract_zip_files=True):
                     print(f"Extracted file: {fileName}")
 
                     # Set permissions for the newly created Excel file
-                    os.chmod(f"{working_dir}/tmp/{fileName}.xls", stat.S_IRUSR | stat.S_IWUSR | stat.S_IRGRP | stat.S_IROTH)  # rw-r--r--
+                    os.chmod(f"{working_dir}/tmp/{fileName}", stat.S_IRUSR | stat.S_IWUSR | stat.S_IRGRP | stat.S_IROTH)  # rw-r--r--
                     # Rename the file
                     os.rename(f"{working_dir}/tmp/{fileName}", f"{working_dir}/tmp/{data_file_name}.xls")
 
