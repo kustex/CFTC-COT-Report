@@ -40,6 +40,15 @@ pip install -r requirements.txt
 echo "pip list"
 pip list
 
+echo "check status nginx"
+sudo systemctl status nginx
+
+echo "restart nginx"
+sudo systemctl restart nginx
+
+echo "check if setup correctly"
+sudo nginx -t
+
 # Update and install Nginx if not already installed
 if ! command -v nginx > /dev/null; then
     echo "Installing Nginx"
