@@ -4,6 +4,7 @@ import yaml
 import os
 import pandas as pd
 import requests
+import time
 
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
@@ -170,6 +171,7 @@ def getLists():
                     listOfFileNames = f.namelist()
                     fileName = listOfFileNames[0]
                     f.extractall(f"{working_dir}/tmp/")
+                    time.sleep(2)
                     os.replace(f"{working_dir}/tmp/{fileName}", f"{working_dir}/tmp/{data_file_name}.xls")
             xl = pd.ExcelFile(f"{working_dir}/tmp/{data_file_name}.xls")
             df = pd.read_excel(xl, usecols=[NAME, DATE, INTEREST, NON_COMM_LONG, NON_COMM_SHORT, COMM_LONG, COMM_SHORT])
