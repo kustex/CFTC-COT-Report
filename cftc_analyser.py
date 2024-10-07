@@ -146,6 +146,8 @@ def getLists():
     if not os.path.exists(DATA_DIR):
         os.makedirs(DATA_DIR)
 
+    working_dir = os.getcwd()
+
     years = [2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
     for year in years:
         file = f'{DATA_DIR}/{year}.zip'
@@ -167,9 +169,9 @@ def getLists():
                 with ZipFile(f"{DATA_DIR}/{data_file}", 'r') as f:
                     listOfFileNames = f.namelist()
                     fileName = listOfFileNames[0]
-                    f.extractall("/tmp/")
-                    os.replace(f"/tmp/{fileName}", f"/tmp/{data_file_name}.xls")
-            xl = pd.ExcelFile(f"/tmp/{data_file_name}.xls")
+                    f.extractall(f"{working_dir}/tmp/")
+                    os.replace(f"{working_dir}/tmp/{fileName}", f"{working_dir}/tmp/{data_file_name}.xls")
+            xl = pd.ExcelFile(f"{working_dir}/tmp/{data_file_name}.xls")
             df = pd.read_excel(xl, usecols=[NAME, DATE, INTEREST, NON_COMM_LONG, NON_COMM_SHORT, COMM_LONG, COMM_SHORT])
             name_list += list(df[NAME])
             date_list += list(df[DATE])
