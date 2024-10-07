@@ -127,7 +127,12 @@ def get_cot_zip(url, file_name):
             if chunk:  # filter out keep-alive new chunks
                 f.write(chunk)
 
-def getLists():
+import os
+import pandas as pd
+from zipfile import ZipFile
+import stat
+
+def getLists(extract_zip_files=True):
     NAME = "Market_and_Exchange_Names"
     DATE = "Report_Date_as_MM_DD_YYYY"
     INTEREST = "Open_Interest_All"
@@ -147,49 +152,21 @@ def getLists():
     working_dir = os.getcwd()
     DATA_DIR = "cftc_data"
     tmp = 'tmp'
+
+    # Create DATA_DIR if it doesn't exist
     if not os.path.exists(DATA_DIR):
         os.makedirs(DATA_DIR)
 
+    # Create tmp directory if it doesn't exist
     if not os.path.exists(tmp):
         os.makedirs(tmp)
-
-    # years = [2021, 2022, 2023, 2024]
-    # for y in years:
-    #     if not f"{y}.xls" in os.listdir(f"{working_dir}/tmp/"):
-    #         file = f'{DATA_DIR}/{y}.zip'
-    #         zip_file = get_cot_zip(f'https://www.cftc.gov/files/dea/history/dea_com_xls_{y}.zip', file)
-    #         with ZipFile(zip_file, 'r') as f:
-    #             listOfFileNames = f.namelist()
-    #             filename = listOfFileNames[0]
-    #             file_path = f"{working_dir}/tmp/{filename}"
-    #             try:
-    #                 subprocess.run(["sudo", "chmod", "777", file_path], check=True)
-    #                 print(f"Changed permissions for {file_path}")
-    #             except subprocess.CalledProcessError as e:
-    #                 print(f"Failed to change permissions: {e}")
-
-    #             f.extractall(f"{working_dir}/tmp/")
-    #             os.replace(f"{working_dir}/tmp/{listOfFileNames[0]}", f"{working_dir}/tmp/{listOfFileNames[0]}.xls")
-
-    #     else:
-    #         print(y)
-    #         xl = pd.ExcelFile(f"{working_dir}/tmp/{y}.xls")
-    #         df = pd.read_excel(xl, usecols=[NAME, DATE, INTEREST, NON_COMM_LONG, NON_COMM_SHORT, COMM_LONG, COMM_SHORT])
-    #         name_list += list(df[NAME])
-    #         date_list += list(df[DATE])
-    #         interest_list += list(df[INTEREST])
-    #         non_comm_long_list += list(df[NON_COMM_LONG])
-    #         non_comm_short_list += list(df[NON_COMM_SHORT])
-    #         comm_long_list += list(df[COMM_LONG])
-    #         comm_short_list += list(df[COMM_SHORT])
-
-    # return name_list, date_list, interest_list, non_comm_long_list, non_comm_short_list, comm_long_list, comm_short_list
-
+        # Set permissions for the tmp directory
+        os.chmod(tmp, stat.S_IRWXU | stat.S_IRWXG | stat.S_IRWXO)  # rwx for all
 
     years = [2020, 2021, 2022, 2023, 2024]
     for year in years:
-        if not f'{year}.zip' in os.listdir(DATA_DIR):
-            print(f'{year}.zip')
+        if f'{year}.zip' not in os.listdir(DATA_DIR):
+            print(f'Downloading: {year}.zip')
             file = f'{DATA_DIR}/{year}.zip'
             get_cot_zip(f'https://www.cftc.gov/files/dea/history/dea_com_xls_{year}.zip', file)
 
@@ -203,8 +180,12 @@ def getLists():
                     f.extractall(f"{working_dir}/tmp/")
                     listOfFileNames = f.namelist()
                     fileName = listOfFileNames[0]
-                    print(fileName)
+                    print(f"Extracted file: {fileName}")
+
+                    # Rename the file
                     os.rename(f"{working_dir}/tmp/{fileName}", f"{working_dir}/tmp/{data_file_name}.xls")
+                    # Set permissions for the newly created Excel file
+                    os.chmod(f"{working_dir}/tmp/{data_file_name}.xls", stat.S_IRUSR | stat.S_IWUSR | stat.S_IRGRP | stat.S_IROTH)  # rw-r--r--
 
             xl = pd.ExcelFile(f"{working_dir}/tmp/{data_file_name}.xls")
             df = pd.read_excel(xl, usecols=[NAME, DATE, INTEREST, NON_COMM_LONG, NON_COMM_SHORT, COMM_LONG, COMM_SHORT])
@@ -215,7 +196,9 @@ def getLists():
             non_comm_short_list += list(df[NON_COMM_SHORT])
             comm_long_list += list(df[COMM_LONG])
             comm_short_list += list(df[COMM_SHORT])
+
     return name_list, date_list, interest_list, non_comm_long_list, non_comm_short_list, comm_long_list, comm_short_list
+
 
 def get_values(list_of_i_and_date, list_long, three_years_ago, three_months_ago, six_months_ago, one_year_ago, list_short=None):
     latest_i = get_latest_i(list_of_i_and_date)
