@@ -162,11 +162,11 @@ def getLists():
                     
                     print("Current working directory:", os.getcwd())
                     print("----------------------")
-                    print(os.access("tmp", os.W_OK))  # Should return True if writable
+                    print(os.access("/tmp", os.W_OK))  # Should return True if writable
 
-                    f.extractall("tmp")
-                    os.replace(f"tmp/{fileName}", f"tmp/{data_file_name}.xls")
-            xl = pd.ExcelFile(f"tmp/{data_file_name}.xls")
+                    f.extractall("/tmp")
+                    os.replace(f"/tmp/{fileName}", f"/tmp/{data_file_name}.xls")
+            xl = pd.ExcelFile(f"/tmp/{data_file_name}.xls")
             df = pd.read_excel(xl, usecols=[NAME, DATE, INTEREST, NON_COMM_LONG, NON_COMM_SHORT, COMM_LONG, COMM_SHORT])
             name_list += list(df[NAME])
             date_list += list(df[DATE])
