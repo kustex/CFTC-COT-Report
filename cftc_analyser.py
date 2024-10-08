@@ -169,7 +169,6 @@ def getLists(extract_zip_files=True):
             print(f'Downloading: {year}.zip')
             file = f'{DATA_DIR}/{year}.zip'
             get_cot_zip(f'https://www.cftc.gov/files/dea/history/dea_com_xls_{year}.zip', file)
-            time.sleep(2)
 
     data_files = os.listdir(DATA_DIR)
 
@@ -181,13 +180,10 @@ def getLists(extract_zip_files=True):
                     f.extractall(f"{working_dir}/xls_data/")
                     listOfFileNames = f.namelist()
                     fileName = listOfFileNames[0]
-
-                    print(os.listdir(f'{working_dir}/xls_data/'))
-
                     # Set permissions for the newly created Excel file
                     os.chmod(f"{working_dir}/xls_data/{fileName}", stat.S_IRUSR | stat.S_IWUSR | stat.S_IRGRP | stat.S_IROTH)  # rw-r--r--
                     # Rename the file
-                    os.rename(f"{working_dir}/xls_data/{fileName}", f"{working_dir}/xls_data/{data_file_name}.xls")
+                    os.replace(f"{working_dir}/xls_data/{fileName}", f"{working_dir}/xls_data/{data_file_name}.xls")
 
             xl = pd.ExcelFile(f"{working_dir}/xls_data/{data_file_name}.xls")
             df = pd.read_excel(xl, usecols=[NAME, DATE, INTEREST, NON_COMM_LONG, NON_COMM_SHORT, COMM_LONG, COMM_SHORT])
