@@ -33,16 +33,18 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: SSH to EC2 and deploy
-        uses: appleboy/ssh-action@v0.1.2
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ubuntu
-          key: ${{ secrets.EC2_SSH_KEY }}
-          script: |
-            docker pull smokepaus/cftc_app:latest
-            docker-compose down
-            docker-compose up -d
+    - name: SSH to EC2 and deploy
+      uses: appleboy/ssh-action@v0.1.2
+      with:
+        host: ${{ secrets.EC2_HOST }}
+        username: ubuntu
+        key: ${{ secrets.EC2_SSH_KEY }}
+        script: |
+          set -x  # Enable debug output
+          docker pull smokepaus/cftc_app:latest
+          docker-compose down
+          docker-compose up -d
+
 
 
 
