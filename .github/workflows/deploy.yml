@@ -44,6 +44,9 @@ jobs:
             
             # Download the docker-compose.yml from the main branch
             curl -O https://raw.githubusercontent.com/${{ github.repository }}/main/docker-compose.yml
+
+            # Download the Dockerfile from the main branch
+            curl -O https://raw.githubusercontent.com/${{ github.repository }}/main/Dockerfile
             
             # Bring down any running containers
             docker-compose down
