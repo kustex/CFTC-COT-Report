@@ -27,7 +27,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: lucas/smokepaus/cftc-app:latest  # Change this to your Docker image name
+          tags: smokepaus/cftc-app:latest  # Change this to your Docker image name
 
       - name: SSH to EC2 and run docker-compose
         uses: appleboy/ssh-action@v0.1.5
@@ -36,6 +36,7 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }} 
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            mkdir /home/ubuntu/cftc_app
             cd /home/ubuntu/cftc_app  
             docker-compose down
             docker-compose up -d --build
