@@ -8,14 +8,11 @@ WORKDIR /app
 COPY . /app
 
 # Install any needed packages specified in requirements.txt
-RUN	pip install --upgrade pip &&\
-		pip install -r requirements.txt 
+RUN pip install --upgrade pip &&\
+		pip install -r requirements.txt
 
 # Expose the port the app runs on
 EXPOSE 80
-
-# Define environment variable for Dash
-ENV DASH_ENV=production
 
 # Run the app
 CMD ["python", "app_cftc.py"]
