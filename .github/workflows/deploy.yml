@@ -39,7 +39,7 @@ jobs:
             mkdir -p /home/ubuntu/cftc_app  
             cd /home/ubuntu/cftc_app
             rm -rf *  
-            scp -o StrictHostKeyChecking=no -i ${{ secrets.EC2_SSH_KEY }} docker-compose.yml ubuntu@${{ secrets.EC2_HOST }}:/home/ubuntu/cftc_app/docker-compose.yml
+            scp -o StrictHostKeyChecking=no -i ${{ secrets.EC2_SSH_KEY }} docker-compose.yml ubuntu@${{ secrets.EC2_HOST }}:/home/ubuntu/cftc_app/
             docker-compose down
             docker-compose up -d --build
 
