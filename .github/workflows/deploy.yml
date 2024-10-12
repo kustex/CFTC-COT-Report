@@ -41,10 +41,11 @@ jobs:
         key: ${{ secrets.EC2_SSH_KEY }}
         script: |
           set -x  # Enable debug output
+          ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts  
           docker pull smokepaus/cftc_app:latest
           docker-compose down
           docker-compose up -d
-
+        debug: true
 
 
 
