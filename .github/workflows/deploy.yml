@@ -46,8 +46,8 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
-          source: "docker-compose.yml"
-          target: "/home/ubuntu/cftc_app/"
+          source: "./docker-compose.yml"
+          target: "/home/ubuntu/cftc_app/docker-compose.yml"
 
       # SSH into EC2 instance and run docker-compose commands
       - name: SSH to EC2 and run docker-compose
