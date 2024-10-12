@@ -32,11 +32,14 @@ jobs:
       - name: SSH to EC2 and run docker-compose
         uses: appleboy/ssh-action@v0.1.5
         with:
-          host: ${{ secrets.EC2_HOST}} 
+          host: ${{ secrets.EC2_HOST }} 
           username: ${{ secrets.EC2_USERNAME }} 
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            mkdir /home/ubuntu/cftc_app
-            cd /home/ubuntu/cftc_app  
+            mkdir -p /home/ubuntu/cftc_app  
+            cd /home/ubuntu/cftc_app
+            rm -rf *  
+            scp -o StrictHostKeyChecking=no -i ${{ secrets.EC2_SSH_KEY }} docker-compose.yml ubuntu@${{ secrets.EC2_HOST }}:/home/ubuntu/cftc_app/docker-compose.yml
             docker-compose down
             docker-compose up -d --build
+
