@@ -9,4 +9,11 @@ on:
 jobs:
   build:
     runs-on: self-hosted
-    
+
+    steps:
+      - name: Pull Docker imag
+        run: sudo docker pull smokepaus/cftc_app:latest
+      - name: Delete old docker container
+        run: sudo docker rm -f cftc_app_container || true
+      - name: Run Docker container
+        run: sudo docker run -d -p 80:5000 --name cftc_app_container smokepaus/cftc_app
