@@ -1,5 +1,7 @@
 # CFTC Commitment of Traders Report
 
+[![CD Pipeline](https://github.com/kustex/CFTC-COT-Report/actions/workflows/cd.yml/badge.svg?branch=main)](https://github.com/kustex/CFTC-COT-Report/actions/workflows/cd.yml)
+
 ## Overview
 
 The **CFTC-COT-Report A** provides a weekly update dashboard with tables + visualizations of z-scores en related metrics for Futures positions in all major Macro asset classes. 
