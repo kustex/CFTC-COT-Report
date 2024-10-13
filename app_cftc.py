@@ -13,7 +13,7 @@ from plotly.subplots import make_subplots
 
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
-#server = app.server
+server = app.server
 
 three_years_ago = datetime.now() - relativedelta(years=3)
 one_year_ago = datetime.now() - relativedelta(years=1)
