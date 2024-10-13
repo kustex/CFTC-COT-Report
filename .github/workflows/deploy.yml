@@ -32,20 +32,32 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
+
     steps:
-    - name: SSH to EC2 and deploy
-      uses: appleboy/ssh-action@v0.1.2
-      with:
-        host: ${{ secrets.EC2_HOST }}
-        username: ubuntu
-        key: ${{ secrets.EC2_SSH_KEY }}
-        script: |
-          set -x  # Enable debug output
-          ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts  
-          docker pull smokepaus/cftc_app:latest
-          docker-compose down
-          docker-compose up -d
-        debug: true
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Set up the SSH Agent with your EC2 private key
+      - name: Start SSH Agent and add EC2 key
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
+
+      # Disable StrictHostKeyChecking for SSH (optional, for smoother connections)
+      - name: Disable strict host key checking
+        run: |
+          echo "Host *" >> ~/.ssh/config
+          echo "    StrictHostKeyChecking no" >> ~/.ssh/config
+
+      # Pull the latest Docker image and restart the containers on EC2
+      - name: Deploy Docker container on EC2
+        run: |
+          ssh ubuntu@${{ secrets.EC2_HOST }} << 'EOF'
+            set -x  # Enable debug output
+            docker pull smokepaus/cftc_app:latest
+            docker-compose down
+            docker-compose up -d
+          EOF
 
 
 
