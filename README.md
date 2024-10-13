@@ -1,5 +1,6 @@
 # CFTC Commitment of Traders Report
 
+[![CI Pipeline](https://github.com/kustex/CFTC-COT-Report/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/kustex/CFTC-COT-Report/actions/workflows/ci.yml)
 [![CD Pipeline](https://github.com/kustex/CFTC-COT-Report/actions/workflows/cd.yml/badge.svg?branch=main)](https://github.com/kustex/CFTC-COT-Report/actions/workflows/cd.yml)
 
 ## Overview
