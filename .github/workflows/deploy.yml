@@ -38,15 +38,19 @@ jobs:
         uses: actions/checkout@v3
 
       - name: SSH to EC2 and deploy
-        uses: appleboy/ssh-action@v0.1.2
+        uses: appleboy/ssh-action@v0.1.5 
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ubuntu
-          private-key: ${{ secrets.EC2_SSH_KEY }}
+          key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            docker pull smokepaus/cftc_app:latest
-            docker-compose down
-            docker-compose up -d
+            echo "Pulling latest Docker image..."
+            docker pull smokepaus/cftc_app:latest || { echo 'Docker pull failed'; exit 1; }
+            echo "Stopping and removing existing containers..."
+            docker-compose down || { echo 'docker-compose down failed'; exit 1; }
+            echo "Starting containers..."
+            docker-compose up -d || { echo 'docker-compose up failed'; exit 1; }
           debug: true
+
 
 
