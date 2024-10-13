@@ -37,6 +37,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Copy files to EC2
+        uses: appleboy/scp-action@v0.1.0
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          source: |
+            docker-compose.yml
+          target: "/home/ubuntu/"
+
       - name: SSH to EC2 and deploy
         uses: appleboy/ssh-action@v0.1.5 
         with:
@@ -44,6 +54,7 @@ jobs:
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            cd /home/ubuntu/
             echo "Pulling latest Docker image..."
             docker pull smokepaus/cftc_app:latest || { echo 'Docker pull failed'; exit 1; }
             echo "Stopping and removing existing containers..."
