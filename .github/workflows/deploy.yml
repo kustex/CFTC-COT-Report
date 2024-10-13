@@ -45,8 +45,6 @@ jobs:
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd /home  # Navigate to the directory with the docker-compose file
-            git pull origin main  # Pull the latest code including docker-compose.yml
             docker pull smokepaus/cftc_app:latest
             docker-compose down
             docker-compose up -d
