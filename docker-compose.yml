@@ -1,8 +1,0 @@
-version: '3'
-services:
-  web:
-    build:
-      context: https://github.com/kustex/CFTC-COT-Report.git
-      dockerfile: Dockerfile
-    ports:
-      - "80:5000"
