@@ -17,6 +17,6 @@ jobs:
       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
     - name: Build the Docker image
-      run: docker build -t cftc_app .
+      run: docker build -t cftc-app .
     - name: Push to Dockerhub
-      run: docker push smokepaus/cftc_app:latest
+      run: docker push smokepaus/cftc-app:latest
