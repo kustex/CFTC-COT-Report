@@ -41,7 +41,7 @@ jobs:
         uses: appleboy/scp-action@v0.1.0
         with:
           host: ${{ secrets.EC2_HOST }}
-          username: ubuntu
+          username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           source: |
             docker-compose.yml
