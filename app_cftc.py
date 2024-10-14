@@ -7,21 +7,22 @@ import yaml
 from dateutil.relativedelta import relativedelta
 from datetime import datetime
 from dash import Dash, html, dcc, Input, Output, callback
-from cftc_analyser import get_values, get_asset_lists, getLists, get_CFTC_Dataframe, \
-    get_list_of_i_and_date_for_metric, get_list_of_z_scores, get_list_of_net_positioning
+from cftc_analyser import CFTCDataAnalyzer
 from plotly.subplots import make_subplots
 
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 server = app.server
 
+CFTC = CFTCDataAnalyzer()
+
 three_years_ago = datetime.now() - relativedelta(years=3)
 one_year_ago = datetime.now() - relativedelta(years=1)
 three_months_ago = datetime.now() - relativedelta(months=3)
 six_months_ago = datetime.now() - relativedelta(months=6)
-name_list, date_list, interest_list, non_comm_long_list, non_comm_short_list, comm_long_list, comm_short_list  = getLists()
-cftc_df_non_comm, cftc_metrics_non_comm, n_entries_non_comm = get_CFTC_Dataframe(name_list, date_list, non_comm_long_list, non_comm_short_list, three_years_ago, three_months_ago, six_months_ago, one_year_ago)
-cftc_df_comm, cftc_metrics_comm, n_entries_comm = get_CFTC_Dataframe(name_list, date_list, comm_long_list, comm_short_list, three_years_ago, three_months_ago, six_months_ago, one_year_ago)
+name_list, date_list, interest_list, non_comm_long_list, non_comm_short_list, comm_long_list, comm_short_list  = CFTC.getLists()
+cftc_df_non_comm, cftc_metrics_non_comm, n_entries_non_comm = CFTC.get_cftc_dataframe(name_list, date_list, non_comm_long_list, non_comm_short_list, three_years_ago, three_months_ago, six_months_ago, one_year_ago)
+cftc_df_comm, cftc_metrics_comm, n_entries_comm = CFTC.get_cftc_dataframe(name_list, date_list, comm_long_list, comm_short_list, three_years_ago, three_months_ago, six_months_ago, one_year_ago)
 
 @app.callback(
     Output('cftc_datatable_non_comm', 'children'),
@@ -48,28 +49,28 @@ def create_z_score_plot(value):
     for asset_class in metrics:
         for metric in metrics[asset_class]:
             if metric == value:
-                list_of_i_and_date = get_list_of_i_and_date_for_metric(metrics[asset_class][metric], num_of_entries, date_list, name_list)
+                list_of_i_and_date = CFTC.get_list_of_i_and_date_for_metric(metrics[asset_class][metric], date_list, name_list)
 
     diff_non_comm = [(a - b) for a, b in zip(non_comm_long_list, non_comm_short_list)]
-    z_score_list_one_year_non_comm = get_list_of_z_scores(list_of_i_and_date, 1, diff_non_comm)
-    z_score_list_three_year_non_comm = get_list_of_z_scores(list_of_i_and_date, 3, diff_non_comm)
+    z_score_list_one_year_non_comm = CFTC.get_list_of_z_scores(list_of_i_and_date, 1, diff_non_comm)
+    z_score_list_three_year_non_comm = CFTC.get_list_of_z_scores(list_of_i_and_date, 3, diff_non_comm)
     z_score_list_one_year_non_comm.reverse()
     z_score_list_three_year_non_comm.reverse()
 
     diff_comm = [(a - b) for a, b in zip(comm_long_list, comm_short_list)]
-    z_score_list_one_year_comm = get_list_of_z_scores(list_of_i_and_date, 1, diff_comm)
-    z_score_list_three_year_comm = get_list_of_z_scores(list_of_i_and_date, 3, diff_comm)
+    z_score_list_one_year_comm = CFTC.get_list_of_z_scores(list_of_i_and_date, 1, diff_comm)
+    z_score_list_three_year_comm = CFTC.get_list_of_z_scores(list_of_i_and_date, 3, diff_comm)
     z_score_list_one_year_comm.reverse()
     z_score_list_three_year_comm.reverse()
 
-    z_score_list_one_year_open_interest = get_list_of_z_scores(list_of_i_and_date, 1, interest_list)
-    z_score_list_three_year_open_interest = get_list_of_z_scores(list_of_i_and_date, 3, interest_list)
+    z_score_list_one_year_open_interest = CFTC.get_list_of_z_scores(list_of_i_and_date, 1, interest_list)
+    z_score_list_three_year_open_interest = CFTC.get_list_of_z_scores(list_of_i_and_date, 3, interest_list)
     z_score_list_one_year_open_interest.reverse()
     z_score_list_three_year_open_interest.reverse()
 
-    non_comm_net_positioning_list = get_list_of_net_positioning(list_of_i_and_date, three_years_ago, diff_non_comm)
-    comm_net_positioning_list = get_list_of_net_positioning(list_of_i_and_date, three_years_ago, diff_comm)
-    net_open_interest_list = get_list_of_net_positioning(list_of_i_and_date, three_years_ago, interest_list)
+    non_comm_net_positioning_list = CFTC.get_list_of_net_positioning(list_of_i_and_date, three_years_ago, diff_non_comm)
+    comm_net_positioning_list = CFTC.get_list_of_net_positioning(list_of_i_and_date, three_years_ago, diff_comm)
+    net_open_interest_list = CFTC.get_list_of_net_positioning(list_of_i_and_date, three_years_ago, interest_list)
     
     color_palette = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd']
 
@@ -137,22 +138,22 @@ def get_cftc_positioning(value):
     for asset_class in metrics:
         for metric in metrics[asset_class]:
             if metric == value:
-                list_of_i_and_date = get_list_of_i_and_date_for_metric(metrics[asset_class][metric], num_of_entries, date_list, name_list)
+                list_of_i_and_date = CFTC.get_list_of_i_and_date_for_metric(metrics[asset_class][metric], date_list, name_list)
 
                 investor = 'Open interest'
-                latest_i, second_latest_i, latest, second_latest, ww_change, minimum, maximum, three_month_avg, six_month_avg, one_year_avg, three_year_avg, z_score_one_year, z_score_three_years = get_values(
+                latest_i, second_latest_i, latest, second_latest, ww_change, minimum, maximum, three_month_avg, six_month_avg, one_year_avg, three_year_avg, z_score_one_year, z_score_three_years = CFTC.get_values(
                     list_of_i_and_date, interest_list, three_years_ago, three_months_ago, six_months_ago, one_year_ago,)
                 df[investor] = [investor, latest, ww_change, three_month_avg, six_month_avg, one_year_avg, three_year_avg, maximum, minimum, z_score_one_year, z_score_three_years]
 
                 investor = 'Non_commercial'
                 latest_i, second_latest_i, latest, second_latest, ww_change, minimum, maximum, three_month_avg, six_month_avg, one_year_avg, three_year_avg, z_score_one_year, \
-                z_score_three_years = get_values(list_of_i_and_date, non_comm_long_list, three_years_ago, three_months_ago, six_months_ago, one_year_ago, non_comm_short_list)
+                z_score_three_years = CFTC.get_values(list_of_i_and_date, non_comm_long_list, three_years_ago, three_months_ago, six_months_ago, one_year_ago, non_comm_short_list)
 
                 df[investor] = [investor, latest, ww_change, three_month_avg, six_month_avg, one_year_avg, three_year_avg, maximum, minimum, z_score_one_year, z_score_three_years]
 
                 investor = 'Commercial'
                 latest_i, second_latest_i, latest, second_latest, ww_change, minimum, maximum, three_month_avg, six_month_avg, one_year_avg, three_year_avg, z_score_one_year, \
-                z_score_three_years = get_values(list_of_i_and_date, comm_long_list, three_years_ago, three_months_ago, six_months_ago, one_year_ago, comm_short_list)
+                z_score_three_years = CFTC.get_values(list_of_i_and_date, comm_long_list, three_years_ago, three_months_ago, six_months_ago, one_year_ago, comm_short_list)
 
                 df[investor] = [investor, latest, ww_change, three_month_avg, six_month_avg, one_year_avg, three_year_avg, maximum, minimum, z_score_one_year, z_score_three_years]
                 done = True
@@ -171,7 +172,8 @@ app.layout = html.Div([
     dbc.Container([
         dbc.Row([
             dbc.Col([
-                html.Div(html.H2(f"CFTC analysis {datetime.today().date()}", style={'textAlign': 'center', "text-decoration": "underline"}))
+                html.Div(html.H2(f"CFTC analysis {datetime.today().date()}", style={'textAlign': 'center', "text-decoration": "underline"})),
+                html.Div(f"Last modified date for this year: {CFTC.get_last_modified_date()}", style={'textAlign': 'center', 'fontSize': 'small'})
             ])
         ], align='center'),
 
@@ -224,7 +226,7 @@ app.layout = html.Div([
                     html.Div([
                         dcc.Dropdown(
                             id='cftc_input_df',
-                            options=[{'label': x, 'value': x} for x in get_asset_lists()],
+                            options=[{'label': x, 'value': x} for x in CFTC.get_asset_lists()],
                             value=['SPX', 'VIX', '10Y UST', '2Y UST', 'UST Bonds', '3M SOFR', 'Gold', 'USD', 'JPY', 'EUR', 'GBP', 'BTC',
                                 'Crude Oil', 'Copper', 'Nat Gas', 'Silver'],
                             placeholder='Select security',
@@ -249,5 +251,3 @@ app.layout = html.Div([
 ])
 
 
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)

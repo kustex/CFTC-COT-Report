@@ -2,3 +2,7 @@ venv
 *.pyc
 .DS_Store
 .env
+cftc_data
+xls_data
+cftc_data.db
+
