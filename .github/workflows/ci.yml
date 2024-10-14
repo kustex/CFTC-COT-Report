@@ -27,11 +27,13 @@ jobs:
           ${{ runner.os }}-buildx-
 
     - name: Build the Docker image
-      run: docker build --cache-from=type=local,src=/tmp/.buildx-cache \
-                       -t smokepaus/cftc-app:latest .
+      run: |
+        docker buildx build --cache-from=type=local,src=/tmp/.buildx-cache \
+          -t smokepaus/cftc-app:latest .
 
     - name: List Docker images
       run: docker images
 
     - name: Push to Docker Hub
       run: docker push smokepaus/cftc-app:latest
+
