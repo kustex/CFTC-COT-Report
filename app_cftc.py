@@ -173,7 +173,7 @@ app.layout = html.Div([
         dbc.Row([
             dbc.Col([
                 html.Div(html.H2(f"CFTC analysis {datetime.today().date()}", style={'textAlign': 'center', "text-decoration": "underline"})),
-                html.Div(f"Last modified date for this year: {CFTC.get_last_modified_date()}", style={'textAlign': 'center', 'fontSize': 'small'})
+                html.Div(f"Latest update: {CFTC.get_last_modified_date()}", style={'textAlign': 'center', 'fontSize': 'small'})
             ])
         ], align='center'),
 
