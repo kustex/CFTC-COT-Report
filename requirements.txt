@@ -33,7 +33,6 @@ urllib3==2.2.3
 Werkzeug==3.0.4
 xlrd==2.0.1
 zipp==3.20.2
-gunicornbeautifulsoup4==4.12.3
 blinker==1.8.2
 bs4==0.0.2
 certifi==2024.8.30
@@ -74,3 +73,5 @@ urllib3==2.2.3
 Werkzeug==3.0.4
 xlrd==2.0.1
 zipp==3.20.2
+gunicorn==20.1.0
+beautifulsoup4==4.12.3
