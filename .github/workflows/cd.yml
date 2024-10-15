@@ -11,9 +11,6 @@ jobs:
     runs-on: self-hosted
 
     steps:
-    - name: Prune unused Docker resources
-      run: sudo docker system prune -af  # Clean up any unused resources before deployment
-
     - name: Pull Docker image
       run: sudo docker pull smokepaus/cftc-app:latest
 
@@ -25,6 +22,9 @@ jobs:
 
     - name: Prune dangling images
       run: sudo docker image prune -f  # Clean up dangling images post deployment
+
+    - name: Prune unused Docker resources
+      run: sudo docker system prune -af  # Clean up any unused resources before deployment
 
     - name: Cleanup Docker volumes
       run: sudo docker system prune -f --volumes  # Clean up unused volumes post deployment
