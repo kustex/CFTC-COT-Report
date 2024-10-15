@@ -27,8 +27,10 @@ jobs:
     - name: List Docker images
       run: sudo docker images
 
-    - name: Delete old docker container
-      run: sudo docker rm -f cftc-app-container 
+    - name: Stop and remove any existing containers
+      run: |
+        sudo docker stop cftc-app-container || true
+        sudo docker rm cftc-app-container || true
 
     - name: Run Docker container
       run: |
