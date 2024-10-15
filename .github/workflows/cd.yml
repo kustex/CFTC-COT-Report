@@ -18,7 +18,11 @@ jobs:
       run: sudo docker rm -f cftc-app-container || true
 
     - name: Run Docker container
-      run: sudo docker run -d -p 80:5000 --name cftc-app-container smokepaus/cftc-app:latest
+      run: |
+        sudo docker run -d -p 80:5000 --name cftc-app-container \
+        -e EMAIL_USER=${{ secrets.EMAIL_USER }} \
+        -e EMAIL_PASSWORD=${{ secrets.EMAIL_PASSWORD }} \
+        smokepaus/cftc-app:latest
 
     - name: Prune dangling images
       run: sudo docker image prune -f  # Clean up dangling images post deployment
