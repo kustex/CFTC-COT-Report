@@ -15,6 +15,9 @@ jobs:
       EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
 
     steps:
+    - name: Log in to Docker Hub
+      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+      
     - name: Prune unused Docker resources
       run: sudo docker system prune -af  
 
@@ -34,7 +37,6 @@ jobs:
         -e EMAIL_USER=$EMAIL_USER \
         -e EMAIL_PASSWORD=$EMAIL_PASSWORD \
         smokepaus/cftc-app:latest
-
     
     - name: Prune dangling images
       run: sudo docker image prune -f  
