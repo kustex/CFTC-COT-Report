@@ -5,10 +5,11 @@ import time
 import sys
 import smtplib
 import ssl
+import traceback
 
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from zip_checker import CFTCDataDownloader
+from zip_checker import CFTCDataDownloader 
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -86,7 +87,7 @@ if __name__ == "__main__":
 
     try:
         # Run the Dash app
-        app.run_server(host='0.0.0.0', port=5000, debug=True)
+        app.run_server(host='0.0.0.0', port=5000, debug=False)
     except KeyboardInterrupt:
         print("Keyboard interrupt received, terminating processes...")
     finally:
