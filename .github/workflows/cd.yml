@@ -11,28 +11,28 @@ jobs:
     runs-on: self-hosted
 
     steps:
-    - name: Prune unused Docker resources
-      run: sudo docker system prune -af  # Clean up any unused resources before deployment
+    # - name: Prune unused Docker resources
+    #   run: sudo docker system prune -af  # Clean up any unused resources before deployment
 
     - name: Pull Docker image
       run: sudo docker pull smokepaus/cftc-app:latest
 
-    - name: Delete old docker container
-      run: sudo docker rm -f cftc-app-container || true
+    # - name: Delete old docker container
+    #   run: sudo docker rm -f cftc-app-container || true
 
     - name: Run Docker container
       run: sudo docker run -d -p 80:5000 --name cftc-app-container -e EMAIL_USER=${{ secrets.EMAIL_USER }} -e EMAIL_PASSWORD=${{ secrets.EMAIL_PASSWORD }} smokepaus/cftc-app:latest
     
-    - name: Wait for the container to start
-      run: |
-        sleep 10  # Wait for a few seconds for the container to start
-        sudo docker ps -a  # List all containers to check status
+    # - name: Wait for the container to start
+    #   run: |
+    #     sleep 10  # Wait for a few seconds for the container to start
+    #     sudo docker ps -a  # List all containers to check status
 
-    - name: Check Docker container logs
-      run: sudo docker logs cftc-app-container
+    # - name: Check Docker container logs
+    #   run: sudo docker logs cftc-app-container
 
-    - name: Prune dangling images
-      run: sudo docker image prune -f  # Clean up dangling images post deployment
+    # - name: Prune dangling images
+    #   run: sudo docker image prune -f  # Clean up dangling images post deployment
 
-    - name: Cleanup Docker volumes
-      run: sudo docker system prune -f --volumes  # Clean up unused volumes post deployment
+    # - name: Cleanup Docker volumes
+    #   run: sudo docker system prune -f --volumes  # Clean up unused volumes post deployment
