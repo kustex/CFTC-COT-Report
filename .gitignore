@@ -5,4 +5,4 @@ venv
 cftc_data
 xls_data
 cftc_data.db
-
+docker-compose.yml
