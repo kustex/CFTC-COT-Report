@@ -10,16 +10,12 @@ jobs:
   build:
     runs-on: self-hosted
 
-    env:
-      EMAIL_USER: ${{ secrets.EMAIL_USER }}
-      EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-
     steps:
     - name: Prune unused Docker resources
       run: sudo docker system prune -af  
 
     - name: Pull Docker image
-      run: sudo docker pull smokepaus/cftc-app:latest
+      run: docker pull smokepaus/cftc-app:latest
 
     - name: Stop and remove any existing containers
       run: |
@@ -32,9 +28,9 @@ jobs:
     - name: Run Docker container
       run: |
         sudo docker run -d -p 80:5000 --name cftc-app-container \
-        -e EMAIL_USER=$EMAIL_USER \
-        -e EMAIL_PASSWORD=$EMAIL_PASSWORD \
-        smokepaus/cftc-app:latest  # Ensure this line is correct
+        -e EMAIL_USER=${{ secrets.EMAIL_USER }} \
+        -e EMAIL_PASSWORD=${{ secrets.EMAIL_PASSWORD }} \
+        smokepaus/cftc-app:latest
     
     - name: Prune dangling images
       run: sudo docker image prune -f  
