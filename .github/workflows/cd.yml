@@ -34,10 +34,9 @@ jobs:
 
     - name: Run Docker container
       run: |
-        echo "Running: sudo docker run -d -p 80:5000 --name cftc-app-container -e EMAIL_USER=$EMAIL_USER -e EMAIL_PASSWORD=$EMAIL_PASSWORD smokepaus/cftc-app:latest"
         sudo docker run -d -p 80:5000 --name cftc-app-container \
-        -e EMAIL_USER=$EMAIL_USER \
-        -e EMAIL_PASSWORD=$EMAIL_PASSWORD \
+        # -e EMAIL_USER=$EMAIL_USER \
+        # -e EMAIL_PASSWORD=$EMAIL_PASSWORD \
         smokepaus/cftc-app:latest
     
     - name: Prune dangling images
