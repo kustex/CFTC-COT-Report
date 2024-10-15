@@ -20,5 +20,12 @@ jobs:
     - name: Run Docker container
       run: sudo docker run -d -p 80:5000 --name cftc-app-container smokepaus/cftc-app:latest
 
+    - name: Prune dangling images
+      run: sudo docker image prune -f  # Clean up dangling images post deployment
 
+    - name: Prune unused Docker resources
+      run: sudo docker system prune -af  # Clean up any unused resources before deployment
+
+    - name: Cleanup Docker volumes
+      run: sudo docker system prune -f --volumes  # Clean up unused volumes post deployment
 
