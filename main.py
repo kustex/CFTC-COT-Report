@@ -1,4 +1,5 @@
 import os
+import logging
 import multiprocessing
 import time
 import sys
@@ -9,6 +10,8 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from zip_checker import CFTCDataDownloader
 
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def send_email_notification(new_files):
     # Set up the email details from environment variables
@@ -35,15 +38,37 @@ def send_email_notification(new_files):
         server.login(sender_email, password)
         server.sendmail(sender_email, receiver_email, msg.as_string())
 
-def check_zip_updates(data_downloader):
+def check_zip_updates(data_downloader, sleep_interval=3600, max_retries=3):
+    retries = 0
+
     while True:
         try:
-            new_files = data_downloader.check_and_update_zip_files()  # Use the class method and get new files
-            if new_files:  # If there are new files
+            logging.info("Checking for zip file updates...")
+
+            # Check and update zip files, returning any new files
+            new_files = data_downloader.check_and_update_zip_files()
+
+            if new_files:
+                logging.info(f"New zip files downloaded: {new_files}")
                 send_email_notification(new_files)
-            time.sleep(3600)  # Sleep for 1 hour before checking again
+            
+            # Reset retries if successful
+            retries = 0
+            time.sleep(sleep_interval)  # Sleep for the configured interval before checking again
+
         except Exception as e:
-            print(f"Error while checking zip updates: {e}", file=sys.stderr)
+            logging.error(f"Error while checking zip updates: {e}")
+            logging.error(traceback.format_exc())  # Log full stack trace for debugging
+
+            # Implement retry logic with exponential backoff
+            retries += 1
+            if retries <= max_retries:
+                backoff_time = min(sleep_interval * 2 ** retries, 7200)  # Exponential backoff, up to 2 hours
+                logging.warning(f"Retrying in {backoff_time} seconds... (Attempt {retries}/{max_retries})")
+                time.sleep(backoff_time)
+            else:
+                logging.error("Max retries exceeded. Aborting further attempts.")
+                break  # Exit the loop if retries are exhausted
 
 if __name__ == "__main__":
     # Create an instance of CFTCDataDownloader to manage zip file updates

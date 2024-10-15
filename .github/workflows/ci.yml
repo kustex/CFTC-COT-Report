@@ -21,6 +21,9 @@ jobs:
 
     - name: Build the Docker image
       run: docker build -t smokepaus/cftc-app:latest .
+    
+    - name: Cleanup Docker
+      run: docker system prune -f --volumes
 
     - name: List Docker images
       run: docker images
