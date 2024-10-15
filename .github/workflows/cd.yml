@@ -27,9 +27,16 @@ jobs:
         -e EMAIL_PASSWORD=${{ secrets.EMAIL_PASSWORD }} \
         smokepaus/cftc-app:latest
 
+    - name: Wait for the container to start
+      run: |
+        sleep 10  # Wait for a few seconds for the container to start
+        sudo docker ps -a  # List all containers to check status
+
+    - name: Check Docker container logs
+      run: sudo docker logs cftc-app-container
+
     - name: Prune dangling images
       run: sudo docker image prune -f  # Clean up dangling images post deployment
 
     - name: Cleanup Docker volumes
       run: sudo docker system prune -f --volumes  # Clean up unused volumes post deployment
-
