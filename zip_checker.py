@@ -1,10 +1,17 @@
 import os
+import logging
 import requests
 import sqlite3
 import shutil
 import stat
-from datetime import datetime
+import ssl
+import smtplib
 import zipfile
+
+from datetime import datetime
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
 
 class CFTCDataDownloader:
     """Class to manage downloading and extracting CFTC data zip files."""
@@ -86,6 +93,34 @@ class CFTCDataDownloader:
         conn.commit()
         conn.close()
 
+    def send_email_notification(self, new_files):
+        # Set up the email details from environment variables
+        sender_email = os.environ.get("EMAIL_USER")  # GitHub Secret
+        receiver_email = os.environ.get("EMAIL_USER")  # Assuming you are sending to yourself
+        password = os.environ.get("EMAIL_PASSWORD")  # GitHub Secret
+
+        logging.info(f"Sender email: {sender_email}")
+        logging.info(f"Password: {password}")  
+
+        subject = "New Zip Files Downloaded"
+        body = f"The following new zip files have been downloaded:\n\n" + "\n".join(new_files)
+
+        # Create a multipart email message
+        msg = MIMEMultipart()
+        msg['From'] = sender_email
+        msg['To'] = receiver_email
+        msg['Subject'] = subject
+
+        # Attach the email body to the message
+        msg.attach(MIMEText(body, 'plain'))
+
+        # Send the email
+        context = ssl.create_default_context()
+        with smtplib.SMTP("smtp.gmail.com", 587) as server: 
+            server.starttls(context=context)
+            server.login(sender_email, password)
+            server.sendmail(sender_email, receiver_email, msg.as_string())
+
     def check_and_update_zip_files(self):
         """Check for updates and download new zip files if available."""
         years = [2020, 2021, 2022, 2023, 2024]
@@ -127,9 +162,6 @@ class CFTCDataDownloader:
                 self.download_and_extract_zip(f'https://www.cftc.gov/files/dea/history/dea_com_xls_{year}.zip', year)
                 self.update_zip_file(year, last_modified)
 
-# # Example usage:
-# if __name__ == '__main__':
-#     downloader = CFTCDataDownloader()
-#     downloader.check_and_update_zip_files()
+
 
 
