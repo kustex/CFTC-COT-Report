@@ -21,9 +21,6 @@ jobs:
     - name: Pull Docker image
       run: sudo docker pull smokepaus/cftc-app:latest
 
-    - name: Stop container
-      run: sudo docker stop cftc-app-container
-
     - name: Delete old docker container
       run: sudo docker rm -f cftc-app-container 
 
