@@ -20,6 +20,9 @@ def send_email_notification(new_files):
     receiver_email = os.environ.get("EMAIL_USER")  # Assuming you are sending to yourself
     password = os.environ.get("EMAIL_PASSWORD")  # GitHub Secret
 
+    logging.info(f"Sender email: {sender_email}")
+    logging.info(f"Password: {password}")  
+
     subject = "New Zip Files Downloaded"
     body = f"The following new zip files have been downloaded:\n\n" + "\n".join(new_files)
 
