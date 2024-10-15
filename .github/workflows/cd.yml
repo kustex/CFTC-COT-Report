@@ -11,13 +11,21 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Prune unused Docker resources
-        run: docker system prune -af 
-      - name: Prune dangling images
-        run: docker image prune -f 
-      - name: Pull Docker image
-        run: sudo docker pull smokepaus/cftc-app:latest
-      - name: Delete old docker container
-        run: sudo docker rm -f cftc-app-container || true
-      - name: Run Docker container
-        run: sudo docker run -d -p 80:5000 --name cftc-app-container smokepaus/cftc-app
+    - name: Prune unused Docker resources
+      run: sudo docker system prune -af  # Clean up any unused resources before deployment
+
+    - name: Pull Docker image
+      run: sudo docker pull smokepaus/cftc-app:latest
+
+    - name: Delete old docker container
+      run: sudo docker rm -f cftc-app-container || true
+
+    - name: Run Docker container
+      run: sudo docker run -d -p 80:5000 --name cftc-app-container smokepaus/cftc-app:latest
+
+    - name: Prune dangling images
+      run: sudo docker image prune -f  # Clean up dangling images post deployment
+
+    - name: Cleanup Docker volumes
+      run: sudo docker system prune -f --volumes  # Clean up unused volumes post deployment
+

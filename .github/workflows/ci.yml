@@ -16,14 +16,17 @@ jobs:
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
+    - name: Prune unused Docker resources
+      run: docker system prune -af 
+
     - name: Build the Docker image
       run: docker build -t smokepaus/cftc-app:latest .
-    
-    - name: Cleanup Docker
-      run: docker system prune -f --volumes
 
     - name: List Docker images
       run: docker images
+
+    - name: Cleanup Docker
+      run: docker system prune -f --volumes
 
     - name: Push to Docker Hub
       run: docker push smokepaus/cftc-app:latest
