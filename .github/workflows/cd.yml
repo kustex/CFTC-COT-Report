@@ -11,6 +11,10 @@ jobs:
     runs-on: self-hosted
 
     steps:
+      - name: Prune unused Docker resources
+        run: docker system prune -af 
+      - name: Prune dangling images
+        run: docker image prune -f 
       - name: Pull Docker image
         run: sudo docker pull smokepaus/cftc-app:latest
       - name: Delete old docker container
