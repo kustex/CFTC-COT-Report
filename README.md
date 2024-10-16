@@ -48,10 +48,10 @@ pip install -r requirements.txt
 
 ### 3. Running the App
 ```bash
-python app_cftc.py
+python main.py
 ```
 
 ### 4. Access the App: Open your web browser and go to:
 ```arduino
-http://127.0.0.1:8050/
+http://127.0.0.1:5000/
 ```
