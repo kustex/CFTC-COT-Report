@@ -15,26 +15,32 @@ jobs:
       EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
 
     steps:
+    - name: Print Environment Variables
+      run: echo "EMAIL_USER:$EMAIL_USER"
+
+    - name: Check Docker Installation
+      run: sudo docker info || echo "Docker is not available"
+
     - name: Prune unused Docker resources
       run: sudo docker system prune -af  
 
     - name: Pull Docker image
       run: sudo docker pull smokepaus/cftc-app:latest
 
+    - name: List Docker images
+      run: sudo docker images
+
     - name: Stop and remove any existing containers
       run: |
         sudo docker stop cftc-app-container || true
         sudo docker rm cftc-app-container || true
-
-    - name: List Docker images
-      run: sudo docker images
 
     - name: Run Docker container
       run: |
         sudo docker run -d -p 80:5000 --name cftc-app-container \
         -e EMAIL_USER=$EMAIL_USER \
         -e EMAIL_PASSWORD=$EMAIL_PASSWORD \
-        smokepaus/cftc-app:latest  # Ensure this line is correct
+        smokepaus/cftc-app:latest
     
     - name: Prune dangling images
       run: sudo docker image prune -f  
