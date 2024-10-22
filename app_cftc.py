@@ -227,8 +227,7 @@ app.layout = html.Div([
                         dcc.Dropdown(
                             id='cftc_input_df',
                             options=[{'label': x, 'value': x} for x in CFTC.get_asset_lists()],
-                            value=['SPX', 'VIX', '10Y UST', '2Y UST', 'UST Bonds', '3M SOFR', 'Gold', 'USD', 'JPY', 'EUR', 'GBP', 'BTC',
-                                'Crude Oil', 'Copper', 'Nat Gas', 'Silver'],
+                            value=CFTC.get_asset_lists(),
                             placeholder='Select security',
                             multi=True,
                             style={'textAlign': 'center'}
