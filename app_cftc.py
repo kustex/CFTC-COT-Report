@@ -170,10 +170,17 @@ def get_cftc_positioning(value):
 
 app.layout = html.Div([
     dbc.Container([
+        
+        # Title row with loading spinner
         dbc.Row([
             dbc.Col([
-                html.Div(html.H2(f"CFTC analysis {datetime.today().date()}", style={'textAlign': 'center', "text-decoration": "underline"})),
-                html.Div(f"Latest update: {CFTC.get_last_modified_date()}", style={'textAlign': 'center', 'fontSize': 'small'})
+                dcc.Loading(
+                    type="circle",
+                    children=[
+                        html.H2(f"CFTC analysis {datetime.today().date()}", style={'textAlign': 'center', "text-decoration": "underline"}),
+                        html.P(f"Latest update: {CFTC.get_last_modified_date()}", style={'textAlign': 'center', 'fontSize': 'small'})
+                    ]
+                )
             ])
         ], align='center'),
 
@@ -183,71 +190,93 @@ app.layout = html.Div([
         dbc.Row([
             dbc.Col([
                 dbc.Row([
-                    dcc.Dropdown(
-                        id='cftc_input',
-                        options=[{'label': x, 'value': x} for x in cftc_metrics_non_comm],
-                        value='SPX',
-                        placeholder='Select security',
-                        multi=False,
-                        style={'textAlign': 'center'}),
-                    ])
-                ], width={'size':8, 'offset': 2})
-            ], align='center'),  
+                    dcc.Loading(
+                        type="circle",
+                        children=[
+                            dcc.Dropdown(
+                                id='cftc_input',
+                                options=[{'label': x, 'value': x} for x in cftc_metrics_non_comm],
+                                value='SPX',
+                                placeholder='Select security',
+                                multi=False,
+                                style={'textAlign': 'center'}
+                            )
+                        ]
+                    )
+                ])
+            ], width={'size': 8, 'offset': 2})
+        ], align='center'),
 
-
-        # Row for CFTC positioning table for selected base ticker 
         html.Br(),
+
+        # Row for CFTC positioning table for selected base ticker
         dbc.Row([
             dbc.Col([
-                html.Div([
-                    html.Div(id='cftc_positioning')
-                ], style={"textAlign": "center"})
+                dcc.Loading(
+                    type="circle",
+                    children=[
+                        html.Div(id='cftc_positioning')
+                    ],
+                    style={"textAlign": "center"}
+                )
             ], width={'size': 8, 'offset': 2})  # Centering the column
         ], align='center'),
 
-        # Row for the CFTC grap:
+        # Row for the CFTC graph
         dbc.Row(
             dbc.Col(
-                dcc.Graph(id='cftc_graph'),
+                dcc.Loading(
+                    type="circle",
+                    children=[dcc.Graph(id='cftc_graph')]
+                ),
                 width=12,  # Full width column
                 style={"display": "flex", "justifyContent": "center"}  # Centering the graph
             ),
             align='center',
         ),
 
+        html.Br(),
+        html.Br(),
+
         # Row for selecting multiple assets and displaying CFTC data table
-        html.Br(),
-        html.Br(),
         dbc.Row([
             dbc.Col([                
                 html.H2('Non-commercial positioning', style={'textAlign': 'center', "text-decoration": "underline"}),
                 html.Br(),
                 dbc.Row([
-                    html.Div([
-                        dcc.Dropdown(
-                            id='cftc_input_df',
-                            options=[{'label': x, 'value': x} for x in CFTC.get_asset_lists()],
-                            value=['SPX', 'VIX', '10Y UST', '2Y UST', 'UST Bonds', '3M SOFR', 'Gold', 'USD', 'JPY', 'EUR', 'GBP', 'BTC',
-                                'Crude Oil', 'Copper', 'Nat Gas', 'Silver'],
-                            placeholder='Select security',
-                            multi=True,
-                            style={'textAlign': 'center'}
-                        )
-                    ])
+                    dcc.Loading(
+                        type="circle",
+                        children=[
+                            dcc.Dropdown(
+                                id='cftc_input_df',
+                                options=[{'label': x, 'value': x} for x in CFTC.get_asset_lists()],
+                                value=CFTC.get_asset_lists(),
+                                placeholder='Select security',
+                                multi=True,
+                                style={'textAlign': 'center'}
+                            )
+                        ]
+                    )
                 ])
             ], width={'size': 8, 'offset': 2})  # Centering the column
         ], align='center'),
 
         html.Br(),
+
         # Row for displaying the CFTC non-commercial datatable
         dbc.Row([
             dbc.Col([
-                html.Div([
-                    html.Div(id='cftc_datatable_non_comm')
-                ], style={"textAlign": "center"})
+                dcc.Loading(
+                    type="circle",
+                    children=[
+                        html.Div(id='cftc_datatable_non_comm')
+                    ],
+                    style={"textAlign": "center"}
+                )
             ], width={'size': 8, 'offset': 2})  # Centering the column
         ], align='center')
     ], fluid=True)
 ])
+
 
 
