@@ -11,7 +11,7 @@ from zip_checker import CFTCDataDownloader
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 
-def check_zip_updates(data_downloader, sleep_interval=60):
+def check_zip_updates(data_downloader, sleep_interval=3600):
     while True:
         try:
             logging.info("Checking for zip file updates...")
