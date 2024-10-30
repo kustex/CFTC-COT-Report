@@ -95,9 +95,10 @@ class CFTCDataDownloader:
 
     def send_email_notification(self, new_files):
         # Set up the email details from environment variables
-        sender_email = os.environ.get("EMAIL_USER")  # GitHub Secret
-        receiver_email = os.environ.get("EMAIL_USER")  # Assuming you are sending to yourself
-        password = os.environ.get("EMAIL_PASSWORD")  # GitHub Secret
+        sender_email = os.environ.get("EMAIL_USER")  
+        receiver_email = os.environ.get("EMAIL_USER")  
+        password = os.environ.get("EMAIL_PASSWORD") 
+        password = password.encode('utf-8').decode('ascii', 'ignore')
 
         logging.info(f"Sender email: {sender_email}")
         logging.info(f"Password: {password}")  
