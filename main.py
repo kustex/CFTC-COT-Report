@@ -31,8 +31,6 @@ def check_zip_updates(data_downloader, sleep_interval=3600):
 if __name__ == "__main__":
     # Create an instance of CFTCDataDownloader to manage zip file updates
     data_downloader = CFTCDataDownloader()
-    test_file = 'test'
-    data_downloader.send_email_notification(test_file)
 
     # Run the zip checker first to ensure files are downloaded
     data_downloader.check_and_update_zip_files()

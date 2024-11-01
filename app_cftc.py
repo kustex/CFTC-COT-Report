@@ -1,17 +1,26 @@
 import dash_bootstrap_components as dbc
 import plotly.graph_objects as go
 import pandas as pd
+import pytz
 import os
 import yaml
 
 from dateutil.relativedelta import relativedelta
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from dash import Dash, html, dcc, Input, Output, callback
 from cftc_analyser import CFTCDataAnalyzer
 from plotly.subplots import make_subplots
 
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+
+def milliseconds_until_midnight_cet():
+    cet = pytz.timezone('CET')
+    now = datetime.now(tz=cet)
+    next_midnight = (now + timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
+    delta = next_midnight - now
+    return int(delta.total_seconds() * 1000)
+
 server = app.server
 
 CFTC = CFTCDataAnalyzer()
@@ -168,25 +177,37 @@ def get_cftc_positioning(value):
     return dbc.Table.from_dataframe(
         df.round(2), bordered=True)
 
+
+@app.callback(
+    Output("date-display", "children"),
+    Input("interval-component", "n_intervals")
+)
+def update_date(n):
+    cet = pytz.timezone("CET")
+    current_date = datetime.now(cet).strftime('%Y-%m-%d')
+    return f"CFTC analysis {current_date}"
+
+
 app.layout = html.Div([
     dbc.Container([
-        
-        # Title row with loading spinner
         dbc.Row([
             dbc.Col([
                 dcc.Loading(
                     type="circle",
                     children=[
-                        html.H2(f"CFTC analysis {datetime.today().date()}", style={'textAlign': 'center', "text-decoration": "underline"}),
+                        html.H2(id='date-display', style={'textAlign': 'center', "text-decoration": "underline"}),
                         html.P(f"Latest update: {CFTC.get_last_modified_date()}", style={'textAlign': 'center', 'fontSize': 'small'})
                     ]
                 )
             ])
         ], align='center'),
-
+        dcc.Interval(
+            id='interval-component',
+            interval=24*60*60*100,
+            n_intervals=0,
+            disabled=False
+        ),
         html.Br(),
-
-        # Row for base ticker selection and chart generation
         dbc.Row([
             dbc.Col([
                 dbc.Row([
@@ -279,4 +300,5 @@ app.layout = html.Div([
 ])
 
 
+app.layout.children[-1].interval = milliseconds_until_midnight_cet()
 
