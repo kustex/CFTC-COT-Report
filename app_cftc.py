@@ -3,6 +3,7 @@ import plotly.graph_objects as go
 import pandas as pd
 import pytz
 import os
+import time
 import yaml
 
 from dateutil.relativedelta import relativedelta
@@ -14,6 +15,13 @@ from plotly.subplots import make_subplots
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
+def check_zip_updates(data_downloader, sleep_interval=3600):
+    """Check for zip updates every hour."""
+    while True:
+        data_downloader.check_and_update_zip_files()
+        time.sleep(sleep_interval)  
+
+# Update the date display in the title daily at midnight CET
 def milliseconds_until_midnight_cet():
     cet = pytz.timezone('CET')
     now = datetime.now(tz=cet)
@@ -32,6 +40,17 @@ six_months_ago = datetime.now() - relativedelta(months=6)
 name_list, date_list, interest_list, non_comm_long_list, non_comm_short_list, comm_long_list, comm_short_list  = CFTC.getLists()
 cftc_df_non_comm, cftc_metrics_non_comm, n_entries_non_comm = CFTC.get_cftc_dataframe(name_list, date_list, non_comm_long_list, non_comm_short_list, three_years_ago, three_months_ago, six_months_ago, one_year_ago)
 cftc_df_comm, cftc_metrics_comm, n_entries_comm = CFTC.get_cftc_dataframe(name_list, date_list, comm_long_list, comm_short_list, three_years_ago, three_months_ago, six_months_ago, one_year_ago)
+
+
+# # Dash callback to update the date in the title daily
+@app.callback(
+    Output("date-display", "children"),
+    Input("daily-interval", "n_intervals")
+)
+def update_date(n):
+    cet = pytz.timezone("CET")
+    current_date = datetime.now(cet).strftime('%Y-%m-%d')
+    return f"CFTC Analysis {current_date}"
 
 @app.callback(
     Output('cftc_datatable_non_comm', 'children'),
@@ -178,35 +197,13 @@ def get_cftc_positioning(value):
         df.round(2), bordered=True)
 
 
-@app.callback(
-    Output("date-display", "children"),
-    Input("interval-component", "n_intervals")
-)
-def update_date(n):
-    cet = pytz.timezone("CET")
-    current_date = datetime.now(cet).strftime('%Y-%m-%d')
-    return f"CFTC analysis {current_date}"
-
-
 app.layout = html.Div([
     dbc.Container([
-        dbc.Row([
-            dbc.Col([
-                dcc.Loading(
-                    type="circle",
-                    children=[
-                        html.H2(id='date-display', style={'textAlign': 'center', "text-decoration": "underline"}),
-                        html.P(f"Latest update: {CFTC.get_last_modified_date()}", style={'textAlign': 'center', 'fontSize': 'small'})
-                    ]
-                )
-            ])
-        ], align='center'),
-        dcc.Interval(
-            id='interval-component',
-            interval=24*60*60*100,
-            n_intervals=0,
-            disabled=False
-        ),
+        dbc.Container([
+            html.H2(id='date-display', style={'textAlign': 'center', "text-decoration": "underline"}),
+            dcc.Interval(id="daily-interval", interval=milliseconds_until_midnight_cet(), n_intervals=0),
+            # dcc.Interval(id="test-interval", interval=TEST_INTERVAL_MS, n_intervals=0),
+        ]),
         html.Br(),
         dbc.Row([
             dbc.Col([
@@ -300,5 +297,5 @@ app.layout = html.Div([
 ])
 
 
-app.layout.children[-1].interval = milliseconds_until_midnight_cet()
+# app.layout.children[-1].interval = milliseconds_until_midnight_cet()
 

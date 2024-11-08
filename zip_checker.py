@@ -63,12 +63,11 @@ class CFTCDataDownloader:
         with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
             zip_ref.extractall(self.xls_data_dir)
             list_of_file_names = zip_ref.namelist()
-            file_name = list_of_file_names[0]  # Assuming there's only one file
+            file_name = list_of_file_names[0] 
 
             extracted_file_path = os.path.join(self.xls_data_dir, file_name)
             new_file_path = os.path.join(self.xls_data_dir, f'{year}.xls')
 
-            # Delete the old file if it exists before renaming
             if os.path.exists(new_file_path):
                 try:
                     os.remove(new_file_path)
@@ -77,7 +76,7 @@ class CFTCDataDownloader:
                     return
 
             try:
-                shutil.move(extracted_file_path, new_file_path)  # Use shutil.move for better safety
+                shutil.move(extracted_file_path, new_file_path)  
                 print(f"Renamed extracted file to: {new_file_path}")
             except PermissionError as e:
                 print(f"Error renaming file {extracted_file_path} to {new_file_path}: {e}")
@@ -93,18 +92,16 @@ class CFTCDataDownloader:
         conn.commit()
         conn.close()
 
-    def send_email_notification(self, new_files):
-        # Set up the email details from environment variables
-        sender_email = os.environ.get("EMAIL_USER")  
-        receiver_email = os.environ.get("EMAIL_USER")  
-        password = os.environ.get("EMAIL_PASSWORD") 
-        password = password.encode('utf-8').decode('ascii', 'ignore')
+    def send_email_notification(self, updated_years):
+        """Send an email notification listing the years with new files downloaded."""
+        sender_email = os.environ.get("EMAIL_USER")
+        receiver_email = os.environ.get("EMAIL_USER")  # For testing, you can send it to yourself
+        password = os.environ.get("EMAIL_PASSWORD")
 
-        logging.info(f"Sender email: {sender_email}")
-        logging.info(f"Password: {password}")  
+        print(receiver_email, password)
 
-        subject = "New Zip Files Downloaded"
-        body = f"The following new zip files have been downloaded:\n\n" + "\n".join(new_files)
+        subject = "New CFTC Zip Files Downloaded"
+        body = "The following years had new zip files downloaded:\n\n" + "\n".join(map(str, updated_years))
 
         # Create a multipart email message
         msg = MIMEMultipart()
@@ -115,16 +112,24 @@ class CFTCDataDownloader:
         # Attach the email body to the message
         msg.attach(MIMEText(body, 'plain'))
 
-        # Send the email
-        context = ssl.create_default_context()
-        with smtplib.SMTP("smtp.gmail.com", 587) as server: 
-            server.starttls(context=context)
-            server.login(sender_email, password)
-            server.sendmail(sender_email, receiver_email, msg.as_string())
+        try:
+            # Send the email
+            context = ssl.create_default_context()
+            with smtplib.SMTP("smtp.gmail.com", 587) as server:
+                server.starttls(context=context)
+                server.login(sender_email, password)
+                server.sendmail(sender_email, receiver_email, msg.as_string())
+
+            print(f"Email notification sent for updated years: {', '.join(map(str, updated_years))}")
+
+        except Exception as e:
+            print(f"Failed to send email notification: {e}")
+
 
     def check_and_update_zip_files(self):
-        """Check for updates and download new zip files if available."""
+        """Check for updates, download new zip files if available, and send email notification for updated years."""
         years = [2020, 2021, 2022, 2023, 2024]
+        updated_years = []  
 
         for year in years:
             # Check the last modified date of the online zip file
@@ -155,6 +160,7 @@ class CFTCDataDownloader:
                     print(f'Updating: {year}.zip')
                     self.download_and_extract_zip(f'https://www.cftc.gov/files/dea/history/dea_com_xls_{year}.zip', year)
                     self.update_zip_file(year, last_modified)
+                    updated_years.append(year)
                 else:
                     print(f'No update needed for {year}.zip')
             else:
@@ -162,7 +168,11 @@ class CFTCDataDownloader:
                 print(f'Downloading: {year}.zip')
                 self.download_and_extract_zip(f'https://www.cftc.gov/files/dea/history/dea_com_xls_{year}.zip', year)
                 self.update_zip_file(year, last_modified)
+                updated_years.append(year)
 
+        # Send an email if there are any updated years
+        if updated_years:
+            self.send_email_notification(updated_years)
 
 
 
