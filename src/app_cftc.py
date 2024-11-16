@@ -337,7 +337,7 @@ app.layout = html.Div([dcc.Location(id='url', refresh=False), sidebar, content])
 def display_page(pathname):
     if pathname == '/datatable':
         return datatable_layout
-    elif pathname == '/graphs':
+    elif pathname == '/graphs'or pathname is None or pathname == '/':
         return graphs_layout
     else:
         return graphs_layout 
