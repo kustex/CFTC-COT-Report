@@ -36,7 +36,7 @@ class CFTCDataDownloader:
         os.makedirs(self.data_dir, exist_ok=True)
         os.makedirs(self.xls_data_dir, exist_ok=True)
 
-    def check_zip_updates(self, sleep_interval=60):
+    def check_zip_updates(self, sleep_interval=3600):
         """Check for zip updates every hour."""
         while True:
             logging.info("Starting the zip file update check.")

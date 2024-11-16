@@ -48,6 +48,16 @@ def update_date(n):
     current_date = datetime.now(cet).strftime('%Y-%m-%d')
     return f"CFTC Analysis {current_date}"
 
+# Dash callback to update the date in the title daily
+@app.callback(
+    Output("date-display-non-comm", "children"),
+    Input("daily-interval-non-comm", "n_intervals")
+)
+def update_date(n):
+    cet = pytz.timezone("CET")
+    current_date = datetime.now(cet).strftime('%Y-%m-%d')
+    return f"Non-commercial Positioning {current_date}"
+
 @app.callback(
     Output('cftc_datatable_non_comm', 'children'),
     [Input('cftc_input_df', 'value')]
@@ -192,105 +202,145 @@ def get_cftc_positioning(value):
     return dbc.Table.from_dataframe(
         df.round(2), bordered=True)
 
-
-app.layout = html.Div([
+graphs_layout = html.Div([
     dbc.Container([
-        dbc.Container([
-            html.H2(id='date-display', style={'textAlign': 'center', "text-decoration": "underline"}),
-            html.P(f"Latest update: {CFTC_D.latest_update_timestamp}", style={'textAlign': 'center', 'fontSize': 'small'}),
-            dcc.Interval(id="daily-interval", interval=milliseconds_until_midnight_cet(), n_intervals=0),
-        ]),
-        html.Br(),
-        dbc.Row([
-            dbc.Col([
-                dbc.Row([
-                    dcc.Loading(
-                        type="circle",
-                        children=[
-                            dcc.Dropdown(
-                                id='cftc_input',
-                                options=[{'label': x, 'value': x} for x in cftc_metrics_non_comm],
-                                value='SPX',
-                                placeholder='Select security',
-                                multi=False,
-                                style={'textAlign': 'center'}
-                            )
-                        ]
-                    )
-                ])
-            ], width={'size': 8, 'offset': 2})
-        ], align='center'),
-
-        html.Br(),
-
-        # Row for CFTC positioning table for selected base ticker
-        dbc.Row([
-            dbc.Col([
+        # Date Display and Latest Update
+        html.H2(id='date-display', style={'textAlign': 'center', "text-decoration": "underline"}),
+        html.P(f"Latest update: {CFTC_D.latest_update_timestamp}", style={'textAlign': 'center', 'fontSize': 'small'}),
+        dcc.Interval(id="daily-interval", interval=milliseconds_until_midnight_cet(), n_intervals=0),
+    ]),
+    html.Br(),
+    dbc.Row([
+        dbc.Col([
+            dbc.Row([
                 dcc.Loading(
                     type="circle",
                     children=[
-                        html.Div(id='cftc_positioning')
-                    ],
-                    style={"textAlign": "center"}
+                        dcc.Dropdown(
+                            id='cftc_input',
+                            options=[{'label': x, 'value': x} for x in cftc_metrics_non_comm],
+                            value='SPX',
+                            placeholder='Select security',
+                            multi=False,
+                            style={'textAlign': 'center'}
+                        )
+                    ]
                 )
-            ], width={'size': 8, 'offset': 2})  # Centering the column
-        ], align='center'),
+            ])
+        ], width={'size': 8, 'offset': 2})
+    ], align='center'),
 
-        # Row for the CFTC graph
-        dbc.Row(
-            dbc.Col(
-                dcc.Loading(
-                    type="circle",
-                    children=[dcc.Graph(id='cftc_graph')]
-                ),
-                width=12,  # Full width column
-                style={"display": "flex", "justifyContent": "center"}  # Centering the graph
+    html.Br(),
+
+    # Row for CFTC positioning table for selected base ticker
+    dbc.Row([
+        dbc.Col([
+            dcc.Loading(
+                type="circle",
+                children=[
+                    html.Div(id='cftc_positioning')
+                ],
+                style={"textAlign": "center"}
+            )
+        ], width={'size': 8, 'offset': 2})  # Centering the column
+    ], align='center'),
+
+    # Row for the CFTC graph
+    dbc.Row(
+        dbc.Col(
+            dcc.Loading(
+                type="circle",
+                children=[dcc.Graph(id='cftc_graph')]
             ),
-            align='center',
+            width=12,  # Full width column
+            style={"display": "flex", "justifyContent": "center"}  # Centering the graph
         ),
+        align='center',
+    )
+])
 
-        html.Br(),
-        html.Br(),
-
-        # Row for selecting multiple assets and displaying CFTC data table
-        dbc.Row([
-            dbc.Col([                
-                html.H2('Non-commercial positioning', style={'textAlign': 'center', "text-decoration": "underline"}),
-                html.Br(),
-                dbc.Row([
-                    dcc.Loading(
-                        type="circle",
-                        children=[
-                            dcc.Dropdown(
-                                id='cftc_input_df',
-                                options=[{'label': x, 'value': x} for x in CFTC.get_asset_lists()],
-                                value=CFTC.get_asset_lists(),
-                                placeholder='Select security',
-                                multi=True,
-                                style={'textAlign': 'center'}
-                            )
-                        ]
-                    )
-                ])
-            ], width={'size': 8, 'offset': 2})  # Centering the column
-        ], align='center'),
-
-        html.Br(),
-
-        # Row for displaying the CFTC non-commercial datatable
-        dbc.Row([
-            dbc.Col([
+datatable_layout = html.Div([
+    dbc.Container([
+        html.H2(id='date-display-non-comm', style={'textAlign': 'center', "text-decoration": "underline"}),
+        html.P(f"Latest update: {CFTC_D.latest_update_timestamp}", style={'textAlign': 'center', 'fontSize': 'small'}),
+        dcc.Interval(id="daily-interval-non-comm", interval=milliseconds_until_midnight_cet(), n_intervals=0),
+    ]),
+    html.Br(),
+    dbc.Row([
+        dbc.Col([
+            dbc.Row([
                 dcc.Loading(
                     type="circle",
                     children=[
-                        html.Div(id='cftc_datatable_non_comm')
-                    ],
-                    style={"textAlign": "center"}
-                )
-            ], width={'size': 8, 'offset': 2})  # Centering the column
-        ], align='center')
-    ], fluid=True)
+                        dcc.Dropdown(
+                            id='cftc_input_df',
+                            options=[{'label': x, 'value': x} for x in CFTC.get_asset_lists()],
+                            value=CFTC.get_asset_lists(),
+                            placeholder='Select security',
+                            multi=True,
+                            style={'textAlign': 'center'}
+                        )
+                    ])
+                ])
+        ], width={'size': 8, 'offset': 2})  # Centering the column
+    ], align='center'),
+
+    html.Br(),
+
+    dbc.Row([
+        dbc.Col([
+            dcc.Loading(
+                type="circle",
+                children=[
+                    html.Div(id='cftc_datatable_non_comm')
+                ],
+                style={"textAlign": "center"}
+            )], width={'size': 8, 'offset': 2})  # Centering the column
+    ], align='center')
 ])
+
+
+sidebar = html.Div(
+    [
+        html.H2("CFTC Report", className="display-4"),
+        html.Hr(),
+        dbc.Nav(
+            [
+                dbc.NavLink("graphs", href="/graphs", id="graphs-link", active="exact"),
+                dbc.NavLink("datatable", href="/datatable", id="datatable-link", active="exact")
+            ],
+            vertical=True,
+            pills=True,
+        ),
+    ],
+    style={
+        "position": "fixed",
+        "top": 0,
+        "left": 0,
+        "bottom": 0,
+        "width": "16rem",
+        "padding": "2rem 1rem",
+        "background-color": "#f8f9fa",
+    },
+)
+
+content = html.Div(id="page-content", style={"margin-left": "18rem", "padding": "2rem 1rem"})
+
+# Main layout with navigation
+app.layout = html.Div([dcc.Location(id='url', refresh=False), sidebar, content])
+
+# Callback to control page navigation
+@app.callback(
+    Output('page-content', 'children'),
+    [Input('url', 'pathname')]
+)
+def display_page(pathname):
+    if pathname == '/datatable':
+        return datatable_layout
+    elif pathname == '/graphs':
+        return graphs_layout
+    else:
+        return graphs_layout 
 
 
 
