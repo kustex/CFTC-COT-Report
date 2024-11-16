@@ -77,7 +77,7 @@ def create_z_score_plot(value):
     for i in range(0,156):
         weeks.append(datetime.now() - relativedelta(weeks=i))
     weeks.reverse()
-    with open("metrics.yaml", 'r') as yf:
+    with open("res/metrics.yaml", 'r') as yf:
         metrics = yaml.safe_load(yf)
 
     for asset_class in metrics:
@@ -164,7 +164,7 @@ def get_cftc_positioning(value):
     for i in range(0, 156):
         weeks.append(datetime.now() - relativedelta(weeks=i))
     weeks.reverse()
-    with open("metrics.yaml", 'r') as yf:
+    with open("res/metrics.yaml", 'r') as yf:
         metrics = yaml.safe_load(yf)
 
     df = pd.DataFrame()

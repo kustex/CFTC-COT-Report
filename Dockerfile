@@ -15,4 +15,4 @@ RUN pip install --upgrade pip &&\
 EXPOSE 80
 
 # Run the app
-CMD ["python", "main.py"]
+CMD ["python", "src/main.py"]

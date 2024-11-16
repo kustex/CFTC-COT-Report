@@ -1,0 +1,781 @@
+2024-11-16 11:08:45,987 - INFO - No update needed for 2020.zip
+2024-11-16 11:08:46,549 - INFO - No update needed for 2021.zip
+2024-11-16 11:08:47,089 - INFO - Updating: 2022.zip
+2024-11-16 11:08:48,701 - INFO - Updating: 2023.zip
+2024-11-16 11:08:50,376 - INFO - Updating: 2024.zip
+2024-11-16 11:08:51,280 - INFO - Updated years: 2022, 2023, 2024
+2024-11-16 11:08:51,664 - ERROR - Failed to send email notification: 'ascii' codec can't encode character '\xa0' in position 30: ordinal not in range(128)
+2024-11-16 11:09:12,569 - INFO - Dash is running on http://0.0.0.0:5000/
+
+2024-11-16 11:09:12,604 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.134:5000
+2024-11-16 11:09:12,605 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-16 11:09:13,195 - INFO - Starting the zip file update check.
+2024-11-16 11:09:13,504 - INFO - No update needed for 2020.zip
+2024-11-16 11:09:14,050 - INFO - No update needed for 2021.zip
+2024-11-16 11:09:14,353 - INFO - No update needed for 2022.zip
+2024-11-16 11:09:14,625 - INFO - No update needed for 2023.zip
+2024-11-16 11:09:14,827 - INFO - No update needed for 2024.zip
+2024-11-16 11:09:14,827 - INFO - No updates detected for any years.
+2024-11-16 11:10:01,921 - INFO - Downloading: 2020.zip
+2024-11-16 11:10:03,485 - INFO - Downloading: 2021.zip
+2024-11-16 11:10:05,155 - INFO - Downloading: 2022.zip
+2024-11-16 11:10:06,372 - INFO - Downloading: 2023.zip
+2024-11-16 11:10:08,072 - INFO - Downloading: 2024.zip
+2024-11-16 11:10:09,477 - INFO - Updated years: 2020, 2021, 2022, 2023, 2024
+2024-11-16 11:10:09,799 - ERROR - Failed to send email notification: 'ascii' codec can't encode character '\xa0' in position 30: ordinal not in range(128)
+2024-11-16 11:11:51,956 - INFO - Downloading: 2020.zip
+2024-11-16 11:11:54,007 - INFO - Downloading: 2021.zip
+2024-11-16 11:11:55,117 - INFO - Downloading: 2022.zip
+2024-11-16 11:11:56,804 - INFO - Downloading: 2023.zip
+2024-11-16 11:11:58,111 - INFO - Downloading: 2024.zip
+2024-11-16 11:11:59,478 - INFO - Updated years: 2020, 2021, 2022, 2023, 2024
+2024-11-16 11:11:59,706 - ERROR - Failed to send email notification: 'ascii' codec can't encode character '\xa0' in position 30: ordinal not in range(128)
+2024-11-16 11:12:17,960 - INFO - Dash is running on http://0.0.0.0:5000/
+
+2024-11-16 11:12:17,972 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.134:5000
+2024-11-16 11:12:17,973 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-16 11:12:18,588 - INFO - Starting the zip file update check.
+2024-11-16 11:12:18,904 - INFO - No update needed for 2020.zip
+2024-11-16 11:12:19,221 - INFO - No update needed for 2021.zip
+2024-11-16 11:12:19,533 - INFO - No update needed for 2022.zip
+2024-11-16 11:12:19,831 - INFO - No update needed for 2023.zip
+2024-11-16 11:12:20,164 - INFO - No update needed for 2024.zip
+2024-11-16 11:12:20,165 - INFO - No updates detected for any years.
+2024-11-16 11:16:23,890 - INFO - No update needed for 2020.zip
+2024-11-16 11:16:24,430 - INFO - No update needed for 2021.zip
+2024-11-16 11:16:24,973 - INFO - No update needed for 2022.zip
+2024-11-16 11:16:25,217 - INFO - No update needed for 2023.zip
+2024-11-16 11:16:25,439 - INFO - No update needed for 2024.zip
+2024-11-16 11:16:25,439 - INFO - No updates detected for any years.
+2024-11-16 11:16:40,149 - INFO - Downloading: 2020.zip
+2024-11-16 11:16:41,493 - INFO - Downloading: 2021.zip
+2024-11-16 11:16:43,066 - INFO - Downloading: 2022.zip
+2024-11-16 11:16:44,410 - INFO - Downloading: 2023.zip
+2024-11-16 11:16:45,611 - INFO - Downloading: 2024.zip
+2024-11-16 11:16:46,958 - INFO - Updated years: 2020, 2021, 2022, 2023, 2024
+2024-11-16 11:16:47,731 - ERROR - Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-3821ae321c5sm6788567f8f.106 - gsmtp')
+2024-11-16 11:17:20,402 - INFO - Downloading: 2020.zip
+2024-11-16 11:17:21,941 - INFO - Downloading: 2021.zip
+2024-11-16 11:17:24,069 - INFO - Downloading: 2022.zip
+2024-11-16 11:17:25,313 - INFO - Downloading: 2023.zip
+2024-11-16 11:17:26,986 - INFO - Downloading: 2024.zip
+2024-11-16 11:17:28,231 - INFO - Updated years: 2020, 2021, 2022, 2023, 2024
+2024-11-16 11:17:28,994 - ERROR - Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-432da28ba80sm88006645e9.29 - gsmtp')
+2024-11-16 11:18:38,208 - INFO - Downloading: 2020.zip
+2024-11-16 11:18:39,745 - INFO - Downloading: 2021.zip
+2024-11-16 11:18:41,356 - INFO - Downloading: 2022.zip
+2024-11-16 11:18:42,951 - INFO - Downloading: 2023.zip
+2024-11-16 11:18:44,108 - INFO - Downloading: 2024.zip
+2024-11-16 11:18:45,403 - INFO - Updated years: 2020, 2021, 2022, 2023, 2024
+2024-11-16 11:18:46,850 - INFO - Email notification successfully sent for updated years: 2020, 2021, 2022, 2023, 2024
+2024-11-16 11:19:03,446 - INFO - Dash is running on http://0.0.0.0:5000/
+
+2024-11-16 11:19:03,457 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.134:5000
+2024-11-16 11:19:03,457 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-16 11:19:04,073 - INFO - Starting the zip file update check.
+2024-11-16 11:19:04,392 - INFO - No update needed for 2020.zip
+2024-11-16 11:19:04,707 - INFO - No update needed for 2021.zip
+2024-11-16 11:19:05,004 - INFO - No update needed for 2022.zip
+2024-11-16 11:19:05,283 - INFO - No update needed for 2023.zip
+2024-11-16 11:19:05,590 - INFO - No update needed for 2024.zip
+2024-11-16 11:19:05,590 - INFO - No updates detected for any years.
+2024-11-16 11:19:13,365 - INFO - 127.0.0.1 - - [16/Nov/2024 11:19:13] "GET / HTTP/1.1" 200 -
+2024-11-16 11:19:13,602 - INFO - 127.0.0.1 - - [16/Nov/2024 11:19:13] "GET /_dash-layout HTTP/1.1" 200 -
+2024-11-16 11:19:13,900 - INFO - 127.0.0.1 - - [16/Nov/2024 11:19:13] "GET /_dash-dependencies HTTP/1.1" 200 -
+2024-11-16 11:19:13,910 - INFO - 127.0.0.1 - - [16/Nov/2024 11:19:13] "GET /_favicon.ico?v=2.18.1 HTTP/1.1" 200 -
+2024-11-16 11:19:14,140 - INFO - 127.0.0.1 - - [16/Nov/2024 11:19:14] "GET /_dash-component-suites/dash/dcc/async-dropdown.js HTTP/1.1" 200 -
+2024-11-16 11:19:14,230 - INFO - 127.0.0.1 - - [16/Nov/2024 11:19:14] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 11:19:14,283 - INFO - 127.0.0.1 - - [16/Nov/2024 11:19:14] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 11:19:14,348 - INFO - 127.0.0.1 - - [16/Nov/2024 11:19:14] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 11:19:14,606 - INFO - 127.0.0.1 - - [16/Nov/2024 11:19:14] "[36mGET /_dash-component-suites/dash/dcc/async-graph.js HTTP/1.1[0m" 304 -
+2024-11-16 11:19:15,278 - INFO - 127.0.0.1 - - [16/Nov/2024 11:19:15] "[36mGET /_dash-component-suites/plotly/package_data/plotly.min.js HTTP/1.1[0m" 304 -
+2024-11-16 11:19:16,356 - INFO - 127.0.0.1 - - [16/Nov/2024 11:19:16] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 11:22:01,750 - INFO - Downloading: 2020.zip
+2024-11-16 11:22:03,205 - INFO - Downloading: 2021.zip
+2024-11-16 11:22:05,276 - INFO - Downloading: 2022.zip
+2024-11-16 11:22:06,895 - INFO - Downloading: 2023.zip
+2024-11-16 11:22:08,063 - INFO - Downloading: 2024.zip
+2024-11-16 11:22:09,422 - INFO - Updated years: 2020, 2021, 2022, 2023, 2024
+2024-11-16 11:22:10,767 - INFO - Email notification successfully sent for updated years: 2020, 2021, 2022, 2023, 2024
+2024-11-16 11:22:27,585 - INFO - Dash is running on http://0.0.0.0:5000/
+
+2024-11-16 11:22:27,598 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.134:5000
+2024-11-16 11:22:27,598 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-16 11:22:28,234 - INFO - Starting the zip file update check.
+2024-11-16 11:22:28,558 - INFO - No update needed for 2020.zip
+2024-11-16 11:22:28,884 - INFO - No update needed for 2021.zip
+2024-11-16 11:22:29,175 - INFO - No update needed for 2022.zip
+2024-11-16 11:22:29,494 - INFO - No update needed for 2023.zip
+2024-11-16 11:22:29,945 - INFO - No update needed for 2024.zip
+2024-11-16 11:22:29,945 - INFO - No updates detected for any years.
+2024-11-16 11:23:29,945 - INFO - Starting the zip file update check.
+2024-11-16 11:23:30,533 - INFO - No update needed for 2020.zip
+2024-11-16 11:23:31,086 - INFO - No update needed for 2021.zip
+2024-11-16 11:23:31,641 - INFO - No update needed for 2022.zip
+2024-11-16 11:23:32,197 - INFO - No update needed for 2023.zip
+2024-11-16 11:23:32,512 - INFO - No update needed for 2024.zip
+2024-11-16 11:23:32,512 - INFO - No updates detected for any years.
+2024-11-16 11:24:32,513 - INFO - Starting the zip file update check.
+2024-11-16 11:24:33,066 - INFO - No update needed for 2020.zip
+2024-11-16 11:24:33,841 - INFO - No update needed for 2021.zip
+2024-11-16 11:24:34,065 - INFO - No update needed for 2022.zip
+2024-11-16 11:24:34,278 - INFO - No update needed for 2023.zip
+2024-11-16 11:24:34,840 - INFO - No update needed for 2024.zip
+2024-11-16 11:24:34,840 - INFO - No updates detected for any years.
+2024-11-16 11:25:34,841 - INFO - Starting the zip file update check.
+2024-11-16 11:25:35,375 - INFO - No update needed for 2020.zip
+2024-11-16 11:25:35,942 - INFO - No update needed for 2021.zip
+2024-11-16 11:25:36,168 - INFO - No update needed for 2022.zip
+2024-11-16 11:25:36,902 - INFO - No update needed for 2023.zip
+2024-11-16 11:25:37,445 - INFO - No update needed for 2024.zip
+2024-11-16 11:25:37,445 - INFO - No updates detected for any years.
+2024-11-16 11:26:37,445 - INFO - Starting the zip file update check.
+2024-11-16 11:26:37,992 - INFO - No update needed for 2020.zip
+2024-11-16 11:26:38,550 - INFO - No update needed for 2021.zip
+2024-11-16 11:26:39,092 - INFO - No update needed for 2022.zip
+2024-11-16 11:26:39,304 - INFO - No update needed for 2023.zip
+2024-11-16 11:26:39,704 - INFO - No update needed for 2024.zip
+2024-11-16 11:26:39,704 - INFO - No updates detected for any years.
+2024-11-16 11:26:50,663 - INFO - 127.0.0.1 - - [16/Nov/2024 11:26:50] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 11:26:51,517 - INFO - 127.0.0.1 - - [16/Nov/2024 11:26:51] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 11:26:52,281 - INFO - 127.0.0.1 - - [16/Nov/2024 11:26:52] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 11:26:52,295 - INFO - 127.0.0.1 - - [16/Nov/2024 11:26:52] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 11:31:04,295 - INFO - No update needed for 2020.zip
+2024-11-16 11:31:04,835 - INFO - No update needed for 2021.zip
+2024-11-16 11:31:05,383 - INFO - No update needed for 2022.zip
+2024-11-16 11:31:05,689 - INFO - No update needed for 2023.zip
+2024-11-16 11:31:05,920 - INFO - Downloading: 2024.zip
+2024-11-16 11:31:07,075 - INFO - Updated years: 2024
+2024-11-16 11:31:09,630 - INFO - Email notification successfully sent for updated years: 2024
+2024-11-16 11:31:25,839 - INFO - Dash is running on http://0.0.0.0:5000/
+
+2024-11-16 11:31:25,851 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.134:5000
+2024-11-16 11:31:25,851 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-16 11:31:26,461 - INFO - Starting the zip file update check.
+2024-11-16 11:31:26,755 - INFO - No update needed for 2020.zip
+2024-11-16 11:31:27,088 - INFO - No update needed for 2021.zip
+2024-11-16 11:31:27,390 - INFO - No update needed for 2022.zip
+2024-11-16 11:31:27,691 - INFO - No update needed for 2023.zip
+2024-11-16 11:31:27,916 - INFO - No update needed for 2024.zip
+2024-11-16 11:31:27,916 - INFO - No updates detected for any years.
+2024-11-16 11:32:27,917 - INFO - Starting the zip file update check.
+2024-11-16 11:32:28,918 - INFO - No update needed for 2020.zip
+2024-11-16 11:32:29,485 - INFO - No update needed for 2021.zip
+2024-11-16 11:32:29,719 - INFO - No update needed for 2022.zip
+2024-11-16 11:32:29,969 - INFO - No update needed for 2023.zip
+2024-11-16 11:32:30,504 - INFO - No update needed for 2024.zip
+2024-11-16 11:32:30,504 - INFO - No updates detected for any years.
+2024-11-16 11:33:30,505 - INFO - Starting the zip file update check.
+2024-11-16 11:33:31,044 - INFO - No update needed for 2020.zip
+2024-11-16 11:33:31,624 - INFO - No update needed for 2021.zip
+2024-11-16 11:33:32,186 - INFO - No update needed for 2022.zip
+2024-11-16 11:33:32,401 - INFO - No update needed for 2023.zip
+2024-11-16 11:33:32,639 - INFO - Downloading: 2024.zip
+2024-11-16 11:33:34,235 - INFO - Updated years: 2024
+2024-11-16 11:33:36,325 - INFO - Email notification successfully sent for updated years: 2024
+2024-11-16 11:34:36,326 - INFO - Starting the zip file update check.
+2024-11-16 11:34:36,888 - INFO - No update needed for 2020.zip
+2024-11-16 11:34:37,436 - INFO - No update needed for 2021.zip
+2024-11-16 11:34:37,973 - INFO - No update needed for 2022.zip
+2024-11-16 11:34:38,206 - INFO - No update needed for 2023.zip
+2024-11-16 11:34:38,416 - INFO - Downloading: 2024.zip
+2024-11-16 11:34:39,700 - INFO - Updated years: 2024
+2024-11-16 11:34:40,979 - INFO - Email notification successfully sent for updated years: 2024
+2024-11-16 11:52:25,466 - INFO - No update needed for 2020.zip
+2024-11-16 11:52:26,171 - INFO - No update needed for 2021.zip
+2024-11-16 11:52:26,406 - INFO - No update needed for 2022.zip
+2024-11-16 11:52:26,611 - INFO - No update needed for 2023.zip
+2024-11-16 11:52:26,902 - INFO - No update needed for 2024.zip
+2024-11-16 11:52:26,902 - INFO - No updates detected for any years.
+2024-11-16 11:52:44,902 - INFO - Dash is running on http://0.0.0.0:5000/
+
+2024-11-16 11:52:44,920 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.134:5000
+2024-11-16 11:52:44,920 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-16 11:52:45,517 - INFO - Starting the zip file update check.
+2024-11-16 11:52:45,816 - INFO - No update needed for 2020.zip
+2024-11-16 11:52:46,117 - INFO - No update needed for 2021.zip
+2024-11-16 11:52:46,328 - INFO - No update needed for 2022.zip
+2024-11-16 11:52:46,627 - INFO - No update needed for 2023.zip
+2024-11-16 11:52:46,902 - INFO - No update needed for 2024.zip
+2024-11-16 11:52:46,903 - INFO - No updates detected for any years.
+2024-11-16 11:53:46,904 - INFO - Starting the zip file update check.
+2024-11-16 11:53:47,463 - INFO - No update needed for 2020.zip
+2024-11-16 11:53:47,685 - INFO - No update needed for 2021.zip
+2024-11-16 11:53:48,240 - INFO - No update needed for 2022.zip
+2024-11-16 11:53:48,458 - INFO - No update needed for 2023.zip
+2024-11-16 11:53:48,670 - INFO - No update needed for 2024.zip
+2024-11-16 11:53:48,670 - INFO - No updates detected for any years.
+2024-11-16 11:54:48,671 - INFO - Starting the zip file update check.
+2024-11-16 11:54:49,247 - INFO - No update needed for 2020.zip
+2024-11-16 11:54:49,676 - INFO - 127.0.0.1 - - [16/Nov/2024 11:54:49] "GET / HTTP/1.1" 200 -
+2024-11-16 11:54:49,791 - INFO - No update needed for 2021.zip
+2024-11-16 11:54:49,933 - INFO - 127.0.0.1 - - [16/Nov/2024 11:54:49] "GET /_dash-layout HTTP/1.1" 200 -
+2024-11-16 11:54:50,168 - INFO - 127.0.0.1 - - [16/Nov/2024 11:54:50] "GET /_dash-dependencies HTTP/1.1" 200 -
+2024-11-16 11:54:50,184 - INFO - 127.0.0.1 - - [16/Nov/2024 11:54:50] "[36mGET /_dash-component-suites/dash/dcc/async-dropdown.js HTTP/1.1[0m" 304 -
+2024-11-16 11:54:50,335 - INFO - No update needed for 2022.zip
+2024-11-16 11:54:50,500 - INFO - 127.0.0.1 - - [16/Nov/2024 11:54:50] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 11:54:50,552 - INFO - 127.0.0.1 - - [16/Nov/2024 11:54:50] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 11:54:50,658 - INFO - 127.0.0.1 - - [16/Nov/2024 11:54:50] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 11:54:50,750 - INFO - 127.0.0.1 - - [16/Nov/2024 11:54:50] "[36mGET /_dash-component-suites/dash/dcc/async-graph.js HTTP/1.1[0m" 304 -
+2024-11-16 11:54:50,895 - INFO - No update needed for 2023.zip
+2024-11-16 11:54:51,337 - INFO - 127.0.0.1 - - [16/Nov/2024 11:54:51] "[36mGET /_dash-component-suites/plotly/package_data/plotly.min.js HTTP/1.1[0m" 304 -
+2024-11-16 11:54:51,612 - INFO - No update needed for 2024.zip
+2024-11-16 11:54:51,612 - INFO - No updates detected for any years.
+2024-11-16 11:54:52,078 - INFO - 127.0.0.1 - - [16/Nov/2024 11:54:52] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 11:55:51,614 - INFO - Starting the zip file update check.
+2024-11-16 11:55:52,174 - INFO - No update needed for 2020.zip
+2024-11-16 11:55:53,044 - INFO - No update needed for 2021.zip
+2024-11-16 11:55:53,580 - INFO - No update needed for 2022.zip
+2024-11-16 11:55:53,808 - INFO - No update needed for 2023.zip
+2024-11-16 11:55:54,027 - INFO - No update needed for 2024.zip
+2024-11-16 11:55:54,027 - INFO - No updates detected for any years.
+2024-11-16 11:56:54,028 - INFO - Starting the zip file update check.
+2024-11-16 11:56:54,574 - INFO - No update needed for 2020.zip
+2024-11-16 11:56:55,125 - INFO - No update needed for 2021.zip
+2024-11-16 11:56:55,346 - INFO - No update needed for 2022.zip
+2024-11-16 11:56:55,570 - INFO - No update needed for 2023.zip
+2024-11-16 11:56:56,139 - INFO - No update needed for 2024.zip
+2024-11-16 11:56:56,140 - INFO - No updates detected for any years.
+2024-11-16 11:57:56,141 - INFO - Starting the zip file update check.
+2024-11-16 11:57:56,737 - INFO - No update needed for 2020.zip
+2024-11-16 11:57:57,285 - INFO - No update needed for 2021.zip
+2024-11-16 11:57:57,843 - INFO - No update needed for 2022.zip
+2024-11-16 11:57:58,397 - INFO - No update needed for 2023.zip
+2024-11-16 11:57:58,619 - INFO - No update needed for 2024.zip
+2024-11-16 11:57:58,619 - INFO - No updates detected for any years.
+2024-11-16 11:58:58,621 - INFO - Starting the zip file update check.
+2024-11-16 11:58:59,173 - INFO - No update needed for 2020.zip
+2024-11-16 11:58:59,725 - INFO - No update needed for 2021.zip
+2024-11-16 11:59:00,276 - INFO - No update needed for 2022.zip
+2024-11-16 11:59:00,491 - INFO - No update needed for 2023.zip
+2024-11-16 11:59:00,714 - INFO - No update needed for 2024.zip
+2024-11-16 11:59:00,714 - INFO - No updates detected for any years.
+2024-11-16 12:00:00,715 - INFO - Starting the zip file update check.
+2024-11-16 12:00:01,275 - INFO - No update needed for 2020.zip
+2024-11-16 12:00:01,488 - INFO - No update needed for 2021.zip
+2024-11-16 12:00:02,033 - INFO - No update needed for 2022.zip
+2024-11-16 12:00:02,571 - INFO - No update needed for 2023.zip
+2024-11-16 12:00:03,125 - INFO - No update needed for 2024.zip
+2024-11-16 12:00:03,125 - INFO - No updates detected for any years.
+2024-11-16 12:01:03,126 - INFO - Starting the zip file update check.
+2024-11-16 12:01:03,660 - INFO - No update needed for 2020.zip
+2024-11-16 12:01:04,221 - INFO - No update needed for 2021.zip
+2024-11-16 12:01:04,783 - INFO - No update needed for 2022.zip
+2024-11-16 12:01:05,342 - INFO - No update needed for 2023.zip
+2024-11-16 12:01:05,979 - INFO - No update needed for 2024.zip
+2024-11-16 12:01:05,980 - INFO - No updates detected for any years.
+2024-11-16 12:02:05,981 - INFO - Starting the zip file update check.
+2024-11-16 12:02:06,535 - INFO - No update needed for 2020.zip
+2024-11-16 12:02:07,074 - INFO - No update needed for 2021.zip
+2024-11-16 12:02:07,637 - INFO - No update needed for 2022.zip
+2024-11-16 12:02:08,194 - INFO - No update needed for 2023.zip
+2024-11-16 12:02:08,426 - INFO - No update needed for 2024.zip
+2024-11-16 12:02:08,426 - INFO - No updates detected for any years.
+2024-11-16 12:03:08,427 - INFO - Starting the zip file update check.
+2024-11-16 12:03:09,017 - INFO - No update needed for 2020.zip
+2024-11-16 12:03:09,572 - INFO - No update needed for 2021.zip
+2024-11-16 12:03:10,119 - INFO - No update needed for 2022.zip
+2024-11-16 12:03:10,341 - INFO - No update needed for 2023.zip
+2024-11-16 12:03:10,554 - INFO - No update needed for 2024.zip
+2024-11-16 12:03:10,554 - INFO - No updates detected for any years.
+2024-11-16 12:04:10,555 - INFO - Starting the zip file update check.
+2024-11-16 12:04:11,105 - INFO - No update needed for 2020.zip
+2024-11-16 12:04:11,689 - INFO - No update needed for 2021.zip
+2024-11-16 12:04:12,258 - INFO - No update needed for 2022.zip
+2024-11-16 12:04:12,827 - INFO - No update needed for 2023.zip
+2024-11-16 12:04:13,113 - INFO - No update needed for 2024.zip
+2024-11-16 12:04:13,114 - INFO - No updates detected for any years.
+2024-11-16 12:04:15,773 - INFO - 127.0.0.1 - - [16/Nov/2024 12:04:15] "GET / HTTP/1.1" 200 -
+2024-11-16 12:04:16,025 - INFO - 127.0.0.1 - - [16/Nov/2024 12:04:16] "GET /_dash-layout HTTP/1.1" 200 -
+2024-11-16 12:04:16,183 - INFO - 127.0.0.1 - - [16/Nov/2024 12:04:16] "GET /_dash-dependencies HTTP/1.1" 200 -
+2024-11-16 12:04:16,184 - INFO - 127.0.0.1 - - [16/Nov/2024 12:04:16] "GET /_favicon.ico?v=2.18.1 HTTP/1.1" 200 -
+2024-11-16 12:04:16,200 - INFO - 127.0.0.1 - - [16/Nov/2024 12:04:16] "[36mGET /_dash-component-suites/dash/dcc/async-dropdown.js HTTP/1.1[0m" 304 -
+2024-11-16 12:04:16,508 - INFO - 127.0.0.1 - - [16/Nov/2024 12:04:16] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:04:16,564 - INFO - 127.0.0.1 - - [16/Nov/2024 12:04:16] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:04:16,612 - INFO - 127.0.0.1 - - [16/Nov/2024 12:04:16] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:04:16,804 - INFO - 127.0.0.1 - - [16/Nov/2024 12:04:16] "[36mGET /_dash-component-suites/dash/dcc/async-graph.js HTTP/1.1[0m" 304 -
+2024-11-16 12:04:16,866 - INFO - 127.0.0.1 - - [16/Nov/2024 12:04:16] "[36mGET /_dash-component-suites/plotly/package_data/plotly.min.js HTTP/1.1[0m" 304 -
+2024-11-16 12:04:17,578 - INFO - 127.0.0.1 - - [16/Nov/2024 12:04:17] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:04:38,499 - INFO - 127.0.0.1 - - [16/Nov/2024 12:04:38] "GET / HTTP/1.1" 200 -
+2024-11-16 12:04:38,764 - INFO - 127.0.0.1 - - [16/Nov/2024 12:04:38] "GET /_dash-layout HTTP/1.1" 200 -
+2024-11-16 12:04:38,904 - INFO - 127.0.0.1 - - [16/Nov/2024 12:04:38] "GET /_dash-dependencies HTTP/1.1" 200 -
+2024-11-16 12:04:38,906 - INFO - 127.0.0.1 - - [16/Nov/2024 12:04:38] "GET /_favicon.ico?v=2.18.1 HTTP/1.1" 200 -
+2024-11-16 12:04:38,917 - INFO - 127.0.0.1 - - [16/Nov/2024 12:04:38] "[36mGET /_dash-component-suites/dash/dcc/async-dropdown.js HTTP/1.1[0m" 304 -
+2024-11-16 12:04:39,236 - INFO - 127.0.0.1 - - [16/Nov/2024 12:04:39] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:04:39,277 - INFO - 127.0.0.1 - - [16/Nov/2024 12:04:39] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:04:39,345 - INFO - 127.0.0.1 - - [16/Nov/2024 12:04:39] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:04:39,406 - INFO - 127.0.0.1 - - [16/Nov/2024 12:04:39] "[36mGET /_dash-component-suites/dash/dcc/async-graph.js HTTP/1.1[0m" 304 -
+2024-11-16 12:04:39,486 - INFO - 127.0.0.1 - - [16/Nov/2024 12:04:39] "[36mGET /_dash-component-suites/plotly/package_data/plotly.min.js HTTP/1.1[0m" 304 -
+2024-11-16 12:04:40,220 - INFO - 127.0.0.1 - - [16/Nov/2024 12:04:40] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:04:47,205 - INFO - No update needed for 2020.zip
+2024-11-16 12:04:47,449 - INFO - No update needed for 2021.zip
+2024-11-16 12:04:47,661 - INFO - No update needed for 2022.zip
+2024-11-16 12:04:48,201 - INFO - No update needed for 2023.zip
+2024-11-16 12:04:48,746 - INFO - No update needed for 2024.zip
+2024-11-16 12:04:48,746 - INFO - No updates detected for any years.
+2024-11-16 12:05:06,134 - INFO - Dash is running on http://0.0.0.0:5000/
+
+2024-11-16 12:05:06,905 - INFO - Starting the zip file update check.
+2024-11-16 12:05:07,322 - INFO - No update needed for 2020.zip
+2024-11-16 12:05:07,605 - INFO - No update needed for 2020.zip
+2024-11-16 12:05:07,623 - INFO - No update needed for 2021.zip
+2024-11-16 12:05:07,908 - INFO - No update needed for 2021.zip
+2024-11-16 12:05:07,918 - INFO - No update needed for 2022.zip
+2024-11-16 12:05:08,115 - INFO - No update needed for 2022.zip
+2024-11-16 12:05:08,131 - INFO - No update needed for 2023.zip
+2024-11-16 12:05:08,344 - INFO - No update needed for 2024.zip
+2024-11-16 12:05:08,344 - INFO - No updates detected for any years.
+2024-11-16 12:05:08,365 - INFO - No update needed for 2023.zip
+2024-11-16 12:05:08,578 - INFO - No update needed for 2024.zip
+2024-11-16 12:05:08,578 - INFO - No updates detected for any years.
+2024-11-16 12:05:26,433 - INFO - Starting the zip file update check.
+2024-11-16 12:05:26,747 - INFO - No update needed for 2020.zip
+2024-11-16 12:05:27,065 - INFO - No update needed for 2021.zip
+2024-11-16 12:05:27,348 - INFO - No update needed for 2022.zip
+2024-11-16 12:05:27,658 - INFO - No update needed for 2023.zip
+2024-11-16 12:05:27,926 - INFO - No update needed for 2024.zip
+2024-11-16 12:05:27,926 - INFO - No updates detected for any years.
+2024-11-16 12:11:36,362 - INFO - No update needed for 2020.zip
+2024-11-16 12:11:53,290 - INFO - No update needed for 2020.zip
+2024-11-16 12:11:53,834 - INFO - No update needed for 2021.zip
+2024-11-16 12:11:54,154 - INFO - No update needed for 2022.zip
+2024-11-16 12:11:54,444 - INFO - No update needed for 2023.zip
+2024-11-16 12:11:54,650 - INFO - No update needed for 2024.zip
+2024-11-16 12:11:54,650 - INFO - No updates detected for any years.
+2024-11-16 12:12:12,777 - INFO - Dash is running on http://0.0.0.0:5000/
+
+2024-11-16 12:12:12,793 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.134:5000
+2024-11-16 12:12:12,793 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-16 12:12:13,430 - INFO - Starting the zip file update check.
+2024-11-16 12:12:13,733 - INFO - No update needed for 2020.zip
+2024-11-16 12:12:14,056 - INFO - No update needed for 2021.zip
+2024-11-16 12:12:14,388 - INFO - No update needed for 2022.zip
+2024-11-16 12:12:14,702 - INFO - No update needed for 2023.zip
+2024-11-16 12:12:14,915 - INFO - No update needed for 2024.zip
+2024-11-16 12:12:14,916 - INFO - No updates detected for any years.
+2024-11-16 12:12:15,828 - INFO - 127.0.0.1 - - [16/Nov/2024 12:12:15] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:12:16,088 - INFO - 127.0.0.1 - - [16/Nov/2024 12:12:16] "GET /_dash-layout HTTP/1.1" 200 -
+2024-11-16 12:12:16,331 - INFO - 127.0.0.1 - - [16/Nov/2024 12:12:16] "GET /_dash-dependencies HTTP/1.1" 200 -
+2024-11-16 12:12:16,392 - INFO - 127.0.0.1 - - [16/Nov/2024 12:12:16] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:12:18,344 - INFO - 127.0.0.1 - - [16/Nov/2024 12:12:18] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:12:18,533 - INFO - 127.0.0.1 - - [16/Nov/2024 12:12:18] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:12:21,042 - INFO - 127.0.0.1 - - [16/Nov/2024 12:12:21] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:12:23,182 - INFO - 127.0.0.1 - - [16/Nov/2024 12:12:23] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:12:24,033 - INFO - 127.0.0.1 - - [16/Nov/2024 12:12:24] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:12:24,807 - INFO - 127.0.0.1 - - [16/Nov/2024 12:12:24] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:12:26,598 - INFO - 127.0.0.1 - - [16/Nov/2024 12:12:26] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:12:27,339 - INFO - 127.0.0.1 - - [16/Nov/2024 12:12:27] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:12:28,344 - INFO - 127.0.0.1 - - [16/Nov/2024 12:12:28] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:12:30,337 - INFO - 127.0.0.1 - - [16/Nov/2024 12:12:30] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:12:33,042 - INFO - 127.0.0.1 - - [16/Nov/2024 12:12:33] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:12:36,354 - INFO - 127.0.0.1 - - [16/Nov/2024 12:12:36] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:12:39,034 - INFO - 127.0.0.1 - - [16/Nov/2024 12:12:39] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:12:42,345 - INFO - 127.0.0.1 - - [16/Nov/2024 12:12:42] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:12:45,046 - INFO - 127.0.0.1 - - [16/Nov/2024 12:12:45] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:12:48,351 - INFO - 127.0.0.1 - - [16/Nov/2024 12:12:48] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:12:51,036 - INFO - 127.0.0.1 - - [16/Nov/2024 12:12:51] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:12:54,346 - INFO - 127.0.0.1 - - [16/Nov/2024 12:12:54] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:12:57,039 - INFO - 127.0.0.1 - - [16/Nov/2024 12:12:57] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:13:00,345 - INFO - 127.0.0.1 - - [16/Nov/2024 12:13:00] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:13:03,041 - INFO - 127.0.0.1 - - [16/Nov/2024 12:13:03] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:13:06,347 - INFO - 127.0.0.1 - - [16/Nov/2024 12:13:06] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:13:09,043 - INFO - 127.0.0.1 - - [16/Nov/2024 12:13:09] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:13:12,359 - INFO - 127.0.0.1 - - [16/Nov/2024 12:13:12] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:13:15,045 - INFO - 127.0.0.1 - - [16/Nov/2024 12:13:15] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:13:18,356 - INFO - 127.0.0.1 - - [16/Nov/2024 12:13:18] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:13:21,040 - INFO - 127.0.0.1 - - [16/Nov/2024 12:13:21] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:13:24,344 - INFO - 127.0.0.1 - - [16/Nov/2024 12:13:24] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:13:27,447 - INFO - 127.0.0.1 - - [16/Nov/2024 12:13:27] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:13:30,761 - INFO - 127.0.0.1 - - [16/Nov/2024 12:13:30] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:13:33,450 - INFO - 127.0.0.1 - - [16/Nov/2024 12:13:33] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:13:36,751 - INFO - 127.0.0.1 - - [16/Nov/2024 12:13:36] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:13:39,448 - INFO - 127.0.0.1 - - [16/Nov/2024 12:13:39] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:13:42,753 - INFO - 127.0.0.1 - - [16/Nov/2024 12:13:42] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:13:45,443 - INFO - 127.0.0.1 - - [16/Nov/2024 12:13:45] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:13:48,748 - INFO - 127.0.0.1 - - [16/Nov/2024 12:13:48] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:13:51,435 - INFO - 127.0.0.1 - - [16/Nov/2024 12:13:51] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:13:54,744 - INFO - 127.0.0.1 - - [16/Nov/2024 12:13:54] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:13:57,449 - INFO - 127.0.0.1 - - [16/Nov/2024 12:13:57] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:14:00,752 - INFO - 127.0.0.1 - - [16/Nov/2024 12:14:00] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:14:03,438 - INFO - 127.0.0.1 - - [16/Nov/2024 12:14:03] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:14:06,758 - INFO - 127.0.0.1 - - [16/Nov/2024 12:14:06] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:14:09,441 - INFO - 127.0.0.1 - - [16/Nov/2024 12:14:09] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:14:12,765 - INFO - 127.0.0.1 - - [16/Nov/2024 12:14:12] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:14:15,439 - INFO - 127.0.0.1 - - [16/Nov/2024 12:14:15] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:14:18,750 - INFO - 127.0.0.1 - - [16/Nov/2024 12:14:18] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:14:21,451 - INFO - 127.0.0.1 - - [16/Nov/2024 12:14:21] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:14:24,750 - INFO - 127.0.0.1 - - [16/Nov/2024 12:14:24] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:14:46,440 - INFO - 127.0.0.1 - - [16/Nov/2024 12:14:46] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:15:46,751 - INFO - 127.0.0.1 - - [16/Nov/2024 12:15:46] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:16:46,443 - INFO - 127.0.0.1 - - [16/Nov/2024 12:16:46] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:17:46,753 - INFO - 127.0.0.1 - - [16/Nov/2024 12:17:46] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:18:46,436 - INFO - 127.0.0.1 - - [16/Nov/2024 12:18:46] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:19:46,744 - INFO - 127.0.0.1 - - [16/Nov/2024 12:19:46] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:20:46,452 - INFO - 127.0.0.1 - - [16/Nov/2024 12:20:46] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:21:46,744 - INFO - 127.0.0.1 - - [16/Nov/2024 12:21:46] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:22:33,313 - INFO - No update needed for 2020.zip
+2024-11-16 12:22:33,874 - INFO - No update needed for 2021.zip
+2024-11-16 12:22:34,437 - INFO - No update needed for 2022.zip
+2024-11-16 12:22:34,736 - INFO - No update needed for 2023.zip
+2024-11-16 12:22:35,031 - INFO - No update needed for 2024.zip
+2024-11-16 12:22:35,032 - INFO - No updates detected for any years.
+2024-11-16 12:22:53,038 - INFO - Dash is running on http://0.0.0.0:5000/
+
+2024-11-16 12:22:53,053 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.134:5000
+2024-11-16 12:22:53,053 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-16 12:22:53,666 - INFO - Starting the zip file update check.
+2024-11-16 12:22:53,956 - INFO - No update needed for 2020.zip
+2024-11-16 12:22:54,236 - INFO - No update needed for 2021.zip
+2024-11-16 12:22:54,542 - INFO - No update needed for 2022.zip
+2024-11-16 12:22:54,839 - INFO - No update needed for 2023.zip
+2024-11-16 12:22:55,072 - INFO - No update needed for 2024.zip
+2024-11-16 12:22:55,072 - INFO - No updates detected for any years.
+2024-11-16 12:22:55,146 - INFO - 127.0.0.1 - - [16/Nov/2024 12:22:55] "GET /_reload-hash HTTP/1.1" 200 -
+2024-11-16 12:22:55,785 - INFO - 127.0.0.1 - - [16/Nov/2024 12:22:55] "GET /graphs HTTP/1.1" 200 -
+2024-11-16 12:22:56,259 - INFO - 127.0.0.1 - - [16/Nov/2024 12:22:56] "GET /_dash-layout HTTP/1.1" 200 -
+2024-11-16 12:22:56,260 - INFO - 127.0.0.1 - - [16/Nov/2024 12:22:56] "GET /_dash-dependencies HTTP/1.1" 200 -
+2024-11-16 12:22:56,275 - INFO - 127.0.0.1 - - [16/Nov/2024 12:22:56] "GET /_favicon.ico?v=2.18.1 HTTP/1.1" 200 -
+2024-11-16 12:22:56,525 - INFO - 127.0.0.1 - - [16/Nov/2024 12:22:56] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:22:56,629 - INFO - 127.0.0.1 - - [16/Nov/2024 12:22:56] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:22:56,839 - INFO - 127.0.0.1 - - [16/Nov/2024 12:22:56] "[36mGET /_dash-component-suites/dash/dcc/async-dropdown.js HTTP/1.1[0m" 304 -
+2024-11-16 12:23:02,618 - INFO - 127.0.0.1 - - [16/Nov/2024 12:23:02] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:23:02,932 - INFO - 127.0.0.1 - - [16/Nov/2024 12:23:02] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:23:02,984 - INFO - 127.0.0.1 - - [16/Nov/2024 12:23:02] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:23:03,057 - INFO - 127.0.0.1 - - [16/Nov/2024 12:23:03] "[36mGET /_dash-component-suites/dash/dcc/async-graph.js HTTP/1.1[0m" 304 -
+2024-11-16 12:23:03,607 - INFO - 127.0.0.1 - - [16/Nov/2024 12:23:03] "[36mGET /_dash-component-suites/plotly/package_data/plotly.min.js HTTP/1.1[0m" 304 -
+2024-11-16 12:23:04,578 - INFO - 127.0.0.1 - - [16/Nov/2024 12:23:04] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:23:12,267 - INFO - 127.0.0.1 - - [16/Nov/2024 12:23:12] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:23:12,617 - INFO - 127.0.0.1 - - [16/Nov/2024 12:23:12] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:23:18,918 - INFO - 127.0.0.1 - - [16/Nov/2024 12:23:18] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:23:19,260 - INFO - 127.0.0.1 - - [16/Nov/2024 12:23:19] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:23:19,322 - INFO - 127.0.0.1 - - [16/Nov/2024 12:23:19] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:23:20,150 - INFO - 127.0.0.1 - - [16/Nov/2024 12:23:20] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:24:31,011 - INFO - No update needed for 2020.zip
+2024-11-16 12:24:31,239 - INFO - No update needed for 2021.zip
+2024-11-16 12:24:31,788 - INFO - No update needed for 2022.zip
+2024-11-16 12:24:32,335 - INFO - No update needed for 2023.zip
+2024-11-16 12:24:32,571 - INFO - No update needed for 2024.zip
+2024-11-16 12:24:32,571 - INFO - No updates detected for any years.
+2024-11-16 12:24:50,116 - INFO - Dash is running on http://0.0.0.0:5000/
+
+2024-11-16 12:24:50,131 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.134:5000
+2024-11-16 12:24:50,131 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-16 12:24:50,739 - INFO - Starting the zip file update check.
+2024-11-16 12:24:51,039 - INFO - No update needed for 2020.zip
+2024-11-16 12:24:51,335 - INFO - No update needed for 2021.zip
+2024-11-16 12:24:51,633 - INFO - No update needed for 2022.zip
+2024-11-16 12:24:51,850 - INFO - No update needed for 2023.zip
+2024-11-16 12:24:52,064 - INFO - No update needed for 2024.zip
+2024-11-16 12:24:52,064 - INFO - No updates detected for any years.
+2024-11-16 12:24:55,018 - INFO - 127.0.0.1 - - [16/Nov/2024 12:24:55] "GET /graphs HTTP/1.1" 200 -
+2024-11-16 12:24:55,276 - INFO - 127.0.0.1 - - [16/Nov/2024 12:24:55] "GET /_dash-layout HTTP/1.1" 200 -
+2024-11-16 12:24:55,445 - INFO - 127.0.0.1 - - [16/Nov/2024 12:24:55] "GET /_dash-dependencies HTTP/1.1" 200 -
+2024-11-16 12:24:55,447 - INFO - 127.0.0.1 - - [16/Nov/2024 12:24:55] "GET /_favicon.ico?v=2.18.1 HTTP/1.1" 200 -
+2024-11-16 12:24:55,465 - INFO - 127.0.0.1 - - [16/Nov/2024 12:24:55] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:24:55,792 - INFO - 127.0.0.1 - - [16/Nov/2024 12:24:55] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:24:55,871 - INFO - 127.0.0.1 - - [16/Nov/2024 12:24:55] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:24:55,900 - INFO - 127.0.0.1 - - [16/Nov/2024 12:24:55] "[36mGET /_dash-component-suites/dash/dcc/async-graph.js HTTP/1.1[0m" 304 -
+2024-11-16 12:24:55,931 - INFO - 127.0.0.1 - - [16/Nov/2024 12:24:55] "[36mGET /_dash-component-suites/dash/dcc/async-dropdown.js HTTP/1.1[0m" 304 -
+2024-11-16 12:24:56,550 - INFO - 127.0.0.1 - - [16/Nov/2024 12:24:56] "[36mGET /_dash-component-suites/plotly/package_data/plotly.min.js HTTP/1.1[0m" 304 -
+2024-11-16 12:24:57,405 - INFO - 127.0.0.1 - - [16/Nov/2024 12:24:57] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:24:59,343 - INFO - 127.0.0.1 - - [16/Nov/2024 12:24:59] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:24:59,634 - INFO - 127.0.0.1 - - [16/Nov/2024 12:24:59] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:25:03,745 - INFO - 127.0.0.1 - - [16/Nov/2024 12:25:03] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:25:04,087 - INFO - 127.0.0.1 - - [16/Nov/2024 12:25:04] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:25:04,141 - INFO - 127.0.0.1 - - [16/Nov/2024 12:25:04] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:25:04,953 - INFO - 127.0.0.1 - - [16/Nov/2024 12:25:04] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:25:17,581 - INFO - 127.0.0.1 - - [16/Nov/2024 12:25:17] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:25:17,938 - INFO - 127.0.0.1 - - [16/Nov/2024 12:25:17] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:25:20,053 - INFO - 127.0.0.1 - - [16/Nov/2024 12:25:20] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:25:20,396 - INFO - 127.0.0.1 - - [16/Nov/2024 12:25:20] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:25:20,440 - INFO - 127.0.0.1 - - [16/Nov/2024 12:25:20] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:25:21,104 - INFO - 127.0.0.1 - - [16/Nov/2024 12:25:21] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:25:21,328 - INFO - 127.0.0.1 - - [16/Nov/2024 12:25:21] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:25:21,506 - INFO - 127.0.0.1 - - [16/Nov/2024 12:25:21] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:25:24,150 - INFO - 127.0.0.1 - - [16/Nov/2024 12:25:24] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:25:24,416 - INFO - 127.0.0.1 - - [16/Nov/2024 12:25:24] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:25:24,563 - INFO - 127.0.0.1 - - [16/Nov/2024 12:25:24] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:25:25,384 - INFO - 127.0.0.1 - - [16/Nov/2024 12:25:25] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:26:12,980 - INFO - 127.0.0.1 - - [16/Nov/2024 12:26:12] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:26:13,340 - INFO - 127.0.0.1 - - [16/Nov/2024 12:26:13] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:26:15,187 - INFO - 127.0.0.1 - - [16/Nov/2024 12:26:15] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:26:15,546 - INFO - 127.0.0.1 - - [16/Nov/2024 12:26:15] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:26:15,595 - INFO - 127.0.0.1 - - [16/Nov/2024 12:26:15] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:26:16,606 - INFO - 127.0.0.1 - - [16/Nov/2024 12:26:16] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:32:45,994 - INFO - No update needed for 2020.zip
+2024-11-16 12:32:46,559 - INFO - No update needed for 2021.zip
+2024-11-16 12:32:46,783 - INFO - No update needed for 2022.zip
+2024-11-16 12:32:47,004 - INFO - No update needed for 2023.zip
+2024-11-16 12:32:47,302 - INFO - No update needed for 2024.zip
+2024-11-16 12:32:47,302 - INFO - No updates detected for any years.
+2024-11-16 12:33:04,010 - INFO - Dash is running on http://0.0.0.0:5000/
+
+2024-11-16 12:33:04,024 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.134:5000
+2024-11-16 12:33:04,024 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-16 12:33:04,634 - INFO - Starting the zip file update check.
+2024-11-16 12:33:04,964 - INFO - No update needed for 2020.zip
+2024-11-16 12:33:05,273 - INFO - No update needed for 2021.zip
+2024-11-16 12:33:05,577 - INFO - No update needed for 2022.zip
+2024-11-16 12:33:05,797 - INFO - No update needed for 2023.zip
+2024-11-16 12:33:06,044 - INFO - No update needed for 2024.zip
+2024-11-16 12:33:06,044 - INFO - No updates detected for any years.
+2024-11-16 12:33:52,037 - INFO - 127.0.0.1 - - [16/Nov/2024 12:33:52] "GET /graphs HTTP/1.1" 200 -
+2024-11-16 12:33:52,291 - INFO - 127.0.0.1 - - [16/Nov/2024 12:33:52] "GET /_dash-layout HTTP/1.1" 200 -
+2024-11-16 12:33:52,448 - INFO - 127.0.0.1 - - [16/Nov/2024 12:33:52] "GET /_dash-dependencies HTTP/1.1" 200 -
+2024-11-16 12:33:52,450 - INFO - 127.0.0.1 - - [16/Nov/2024 12:33:52] "GET /_favicon.ico?v=2.18.1 HTTP/1.1" 200 -
+2024-11-16 12:33:52,472 - INFO - 127.0.0.1 - - [16/Nov/2024 12:33:52] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:33:52,793 - INFO - 127.0.0.1 - - [16/Nov/2024 12:33:52] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:33:52,868 - INFO - 127.0.0.1 - - [16/Nov/2024 12:33:52] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:33:52,963 - INFO - 127.0.0.1 - - [16/Nov/2024 12:33:52] "[36mGET /_dash-component-suites/dash/dcc/async-dropdown.js HTTP/1.1[0m" 304 -
+2024-11-16 12:33:53,028 - INFO - 127.0.0.1 - - [16/Nov/2024 12:33:53] "[36mGET /_dash-component-suites/dash/dcc/async-graph.js HTTP/1.1[0m" 304 -
+2024-11-16 12:33:53,482 - INFO - 127.0.0.1 - - [16/Nov/2024 12:33:53] "[36mGET /_dash-component-suites/plotly/package_data/plotly.min.js HTTP/1.1[0m" 304 -
+2024-11-16 12:33:54,505 - INFO - 127.0.0.1 - - [16/Nov/2024 12:33:54] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:33:56,970 - INFO - 127.0.0.1 - - [16/Nov/2024 12:33:56] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:33:57,220 - INFO - 127.0.0.1 - - [16/Nov/2024 12:33:57] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:33:57,321 - INFO - 127.0.0.1 - - [16/Nov/2024 12:33:57] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:34:02,631 - INFO - 127.0.0.1 - - [16/Nov/2024 12:34:02] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:34:02,983 - INFO - 127.0.0.1 - - [16/Nov/2024 12:34:02] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:34:03,041 - INFO - 127.0.0.1 - - [16/Nov/2024 12:34:03] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:34:03,824 - INFO - 127.0.0.1 - - [16/Nov/2024 12:34:03] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:35:04,451 - INFO - No update needed for 2020.zip
+2024-11-16 12:35:04,693 - INFO - No update needed for 2021.zip
+2024-11-16 12:35:05,250 - INFO - No update needed for 2022.zip
+2024-11-16 12:35:06,156 - INFO - Downloading: 2023.zip
+2024-11-16 12:35:07,842 - INFO - Downloading: 2024.zip
+2024-11-16 12:35:09,149 - INFO - Updated years: 2023, 2024
+2024-11-16 12:35:10,808 - INFO - Email notification successfully sent for updated years: 2023, 2024
+2024-11-16 12:35:27,378 - INFO - Dash is running on http://0.0.0.0:5000/
+
+2024-11-16 12:35:27,389 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.134:5000
+2024-11-16 12:35:27,390 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-16 12:35:28,002 - INFO - Starting the zip file update check.
+2024-11-16 12:35:28,310 - INFO - No update needed for 2020.zip
+2024-11-16 12:35:28,636 - INFO - No update needed for 2021.zip
+2024-11-16 12:35:28,951 - INFO - No update needed for 2022.zip
+2024-11-16 12:35:29,246 - INFO - No update needed for 2023.zip
+2024-11-16 12:35:29,551 - INFO - No update needed for 2024.zip
+2024-11-16 12:35:29,551 - INFO - No updates detected for any years.
+2024-11-16 12:36:29,553 - INFO - Starting the zip file update check.
+2024-11-16 12:36:30,127 - INFO - No update needed for 2020.zip
+2024-11-16 12:36:30,667 - INFO - No update needed for 2021.zip
+2024-11-16 12:36:31,221 - INFO - No update needed for 2022.zip
+2024-11-16 12:36:31,761 - INFO - No update needed for 2023.zip
+2024-11-16 12:36:31,972 - INFO - No update needed for 2024.zip
+2024-11-16 12:36:31,972 - INFO - No updates detected for any years.
+2024-11-16 12:37:31,973 - INFO - Starting the zip file update check.
+2024-11-16 12:37:32,510 - INFO - No update needed for 2020.zip
+2024-11-16 12:37:33,131 - INFO - No update needed for 2021.zip
+2024-11-16 12:37:33,672 - INFO - No update needed for 2022.zip
+2024-11-16 12:37:34,226 - INFO - No update needed for 2023.zip
+2024-11-16 12:37:34,448 - INFO - No update needed for 2024.zip
+2024-11-16 12:37:34,449 - INFO - No updates detected for any years.
+2024-11-16 12:38:34,450 - INFO - Starting the zip file update check.
+2024-11-16 12:38:35,058 - INFO - No update needed for 2020.zip
+2024-11-16 12:38:35,614 - INFO - No update needed for 2021.zip
+2024-11-16 12:38:36,271 - INFO - No update needed for 2022.zip
+2024-11-16 12:38:36,823 - INFO - No update needed for 2023.zip
+2024-11-16 12:38:37,029 - INFO - No update needed for 2024.zip
+2024-11-16 12:38:37,029 - INFO - No updates detected for any years.
+2024-11-16 12:39:37,031 - INFO - Starting the zip file update check.
+2024-11-16 12:39:37,589 - INFO - No update needed for 2020.zip
+2024-11-16 12:39:38,143 - INFO - No update needed for 2021.zip
+2024-11-16 12:39:38,353 - INFO - No update needed for 2022.zip
+2024-11-16 12:39:38,582 - INFO - No update needed for 2023.zip
+2024-11-16 12:39:39,134 - INFO - No update needed for 2024.zip
+2024-11-16 12:39:39,134 - INFO - No updates detected for any years.
+2024-11-16 12:40:39,135 - INFO - Starting the zip file update check.
+2024-11-16 12:40:39,682 - INFO - No update needed for 2020.zip
+2024-11-16 12:40:39,895 - INFO - No update needed for 2021.zip
+2024-11-16 12:40:40,120 - INFO - No update needed for 2022.zip
+2024-11-16 12:40:40,669 - INFO - No update needed for 2023.zip
+2024-11-16 12:40:40,897 - INFO - No update needed for 2024.zip
+2024-11-16 12:40:40,897 - INFO - No updates detected for any years.
+2024-11-16 12:41:40,899 - INFO - Starting the zip file update check.
+2024-11-16 12:41:41,438 - INFO - No update needed for 2020.zip
+2024-11-16 12:41:41,982 - INFO - No update needed for 2021.zip
+2024-11-16 12:41:42,203 - INFO - No update needed for 2022.zip
+2024-11-16 12:41:42,750 - INFO - No update needed for 2023.zip
+2024-11-16 12:41:43,319 - INFO - No update needed for 2024.zip
+2024-11-16 12:41:43,319 - INFO - No updates detected for any years.
+2024-11-16 12:42:43,320 - INFO - Starting the zip file update check.
+2024-11-16 12:42:43,873 - INFO - No update needed for 2020.zip
+2024-11-16 12:42:44,436 - INFO - No update needed for 2021.zip
+2024-11-16 12:42:44,659 - INFO - No update needed for 2022.zip
+2024-11-16 12:42:45,206 - INFO - No update needed for 2023.zip
+2024-11-16 12:42:45,424 - INFO - No update needed for 2024.zip
+2024-11-16 12:42:45,424 - INFO - No updates detected for any years.
+2024-11-16 12:43:45,425 - INFO - Starting the zip file update check.
+2024-11-16 12:43:46,037 - INFO - No update needed for 2020.zip
+2024-11-16 12:43:46,619 - INFO - No update needed for 2021.zip
+2024-11-16 12:43:46,842 - INFO - No update needed for 2022.zip
+2024-11-16 12:43:47,083 - INFO - No update needed for 2023.zip
+2024-11-16 12:43:47,613 - INFO - No update needed for 2024.zip
+2024-11-16 12:43:47,614 - INFO - No updates detected for any years.
+2024-11-16 12:44:47,615 - INFO - Starting the zip file update check.
+2024-11-16 12:44:48,169 - INFO - No update needed for 2020.zip
+2024-11-16 12:44:48,741 - INFO - No update needed for 2021.zip
+2024-11-16 12:44:49,266 - INFO - No update needed for 2022.zip
+2024-11-16 12:44:49,812 - INFO - No update needed for 2023.zip
+2024-11-16 12:44:50,124 - INFO - No update needed for 2024.zip
+2024-11-16 12:44:50,124 - INFO - No updates detected for any years.
+2024-11-16 12:45:50,125 - INFO - Starting the zip file update check.
+2024-11-16 12:45:50,693 - INFO - No update needed for 2020.zip
+2024-11-16 12:45:51,245 - INFO - No update needed for 2021.zip
+2024-11-16 12:45:51,792 - INFO - No update needed for 2022.zip
+2024-11-16 12:45:52,009 - INFO - No update needed for 2023.zip
+2024-11-16 12:45:52,228 - INFO - No update needed for 2024.zip
+2024-11-16 12:45:52,229 - INFO - No updates detected for any years.
+2024-11-16 12:46:52,230 - INFO - Starting the zip file update check.
+2024-11-16 12:46:52,782 - INFO - No update needed for 2020.zip
+2024-11-16 12:46:53,358 - INFO - No update needed for 2021.zip
+2024-11-16 12:46:53,913 - INFO - No update needed for 2022.zip
+2024-11-16 12:46:54,463 - INFO - No update needed for 2023.zip
+2024-11-16 12:46:54,794 - INFO - No update needed for 2024.zip
+2024-11-16 12:46:54,794 - INFO - No updates detected for any years.
+2024-11-16 12:47:54,795 - INFO - Starting the zip file update check.
+2024-11-16 12:47:55,342 - INFO - No update needed for 2020.zip
+2024-11-16 12:47:55,888 - INFO - No update needed for 2021.zip
+2024-11-16 12:47:56,097 - INFO - No update needed for 2022.zip
+2024-11-16 12:47:56,313 - INFO - No update needed for 2023.zip
+2024-11-16 12:47:56,850 - INFO - No update needed for 2024.zip
+2024-11-16 12:47:56,850 - INFO - No updates detected for any years.
+2024-11-16 12:48:38,775 - INFO - 127.0.0.1 - - [16/Nov/2024 12:48:38] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:48:38,897 - INFO - 127.0.0.1 - - [16/Nov/2024 12:48:38] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:48:39,145 - INFO - 127.0.0.1 - - [16/Nov/2024 12:48:39] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 12:48:56,851 - INFO - Starting the zip file update check.
+2024-11-16 12:48:57,444 - INFO - No update needed for 2020.zip
+2024-11-16 12:48:57,992 - INFO - No update needed for 2021.zip
+2024-11-16 12:48:58,193 - INFO - No update needed for 2022.zip
+2024-11-16 12:48:58,405 - INFO - No update needed for 2023.zip
+2024-11-16 12:48:58,946 - INFO - Downloading: 2024.zip
+2024-11-16 12:49:00,573 - INFO - Updated years: 2024
+2024-11-16 12:49:01,864 - INFO - Email notification successfully sent for updated years: 2024
+2024-11-16 13:07:48,413 - INFO - No update needed for 2020.zip
+2024-11-16 13:07:48,981 - INFO - No update needed for 2021.zip
+2024-11-16 13:07:49,292 - INFO - No update needed for 2022.zip
+2024-11-16 13:07:49,854 - INFO - No update needed for 2023.zip
+2024-11-16 13:07:50,067 - INFO - No update needed for 2024.zip
+2024-11-16 13:07:50,067 - INFO - No updates detected for any years.
+2024-11-16 13:08:10,417 - INFO - Dash is running on http://0.0.0.0:5000/
+
+2024-11-16 13:08:10,446 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.134:5000
+2024-11-16 13:08:10,446 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-16 13:08:11,028 - INFO - Starting the zip file update check.
+2024-11-16 13:08:11,346 - INFO - No update needed for 2020.zip
+2024-11-16 13:08:11,651 - INFO - No update needed for 2021.zip
+2024-11-16 13:08:11,960 - INFO - No update needed for 2022.zip
+2024-11-16 13:08:12,261 - INFO - No update needed for 2023.zip
+2024-11-16 13:08:12,558 - INFO - No update needed for 2024.zip
+2024-11-16 13:08:12,559 - INFO - No updates detected for any years.
+2024-11-16 13:08:58,904 - INFO - 127.0.0.1 - - [16/Nov/2024 13:08:58] "GET / HTTP/1.1" 200 -
+2024-11-16 13:08:59,158 - INFO - 127.0.0.1 - - [16/Nov/2024 13:08:59] "GET /_dash-layout HTTP/1.1" 200 -
+2024-11-16 13:08:59,375 - INFO - 127.0.0.1 - - [16/Nov/2024 13:08:59] "GET /_dash-dependencies HTTP/1.1" 200 -
+2024-11-16 13:08:59,404 - INFO - 127.0.0.1 - - [16/Nov/2024 13:08:59] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 13:08:59,720 - INFO - 127.0.0.1 - - [16/Nov/2024 13:08:59] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 13:08:59,736 - ERROR - Exception on /_dash-update-component [POST]
+Traceback (most recent call last):
+  File "C:\Users\lucas\Documents\repos\CFTC-COT-Report\venv\Lib\site-packages\flask\app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucas\Documents\repos\CFTC-COT-Report\venv\Lib\site-packages\flask\app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucas\Documents\repos\CFTC-COT-Report\venv\Lib\site-packages\flask\app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucas\Documents\repos\CFTC-COT-Report\venv\Lib\site-packages\flask\app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucas\Documents\repos\CFTC-COT-Report\venv\Lib\site-packages\dash\dash.py", line 1376, in dispatch
+    ctx.run(
+  File "C:\Users\lucas\Documents\repos\CFTC-COT-Report\venv\Lib\site-packages\dash\_callback.py", line 514, in add_context
+    raise err
+  File "C:\Users\lucas\Documents\repos\CFTC-COT-Report\venv\Lib\site-packages\dash\_callback.py", line 503, in add_context
+    output_value = _invoke_callback(func, *func_args, **func_kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucas\Documents\repos\CFTC-COT-Report\venv\Lib\site-packages\dash\_callback.py", line 43, in _invoke_callback
+    return func(*args, **kwargs)  # %% callback invoked %%
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucas\Documents\repos\CFTC-COT-Report\src\app_cftc.py", line 80, in create_z_score_plot
+    with open("data/metrics.yaml", 'r') as yf:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'data/metrics.yaml'
+2024-11-16 13:08:59,773 - INFO - 127.0.0.1 - - [16/Nov/2024 13:08:59] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 13:08:59,819 - INFO - 127.0.0.1 - - [16/Nov/2024 13:08:59] "[35m[1mPOST /_dash-update-component HTTP/1.1[0m" 500 -
+2024-11-16 13:08:59,826 - INFO - 127.0.0.1 - - [16/Nov/2024 13:08:59] "[36mGET /_dash-component-suites/dash/dcc/async-dropdown.js HTTP/1.1[0m" 304 -
+2024-11-16 13:08:59,833 - INFO - 127.0.0.1 - - [16/Nov/2024 13:08:59] "[36mGET /_dash-component-suites/dash/dcc/async-graph.js HTTP/1.1[0m" 304 -
+2024-11-16 13:09:00,056 - INFO - 127.0.0.1 - - [16/Nov/2024 13:09:00] "[36mGET /_dash-component-suites/plotly/package_data/plotly.min.js HTTP/1.1[0m" 304 -
+2024-11-16 13:09:52,886 - INFO - No update needed for 2020.zip
+2024-11-16 13:09:53,440 - INFO - No update needed for 2021.zip
+2024-11-16 13:09:53,650 - INFO - No update needed for 2022.zip
+2024-11-16 13:09:54,377 - INFO - No update needed for 2023.zip
+2024-11-16 13:09:54,687 - INFO - No update needed for 2024.zip
+2024-11-16 13:09:54,687 - INFO - No updates detected for any years.
+2024-11-16 13:10:11,506 - INFO - Dash is running on http://0.0.0.0:5000/
+
+2024-11-16 13:10:11,520 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.134:5000
+2024-11-16 13:10:11,521 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-16 13:10:12,120 - INFO - Starting the zip file update check.
+2024-11-16 13:10:12,429 - INFO - No update needed for 2020.zip
+2024-11-16 13:10:12,739 - INFO - No update needed for 2021.zip
+2024-11-16 13:10:13,061 - INFO - No update needed for 2022.zip
+2024-11-16 13:10:13,288 - INFO - No update needed for 2023.zip
+2024-11-16 13:10:13,503 - INFO - No update needed for 2024.zip
+2024-11-16 13:10:13,503 - INFO - No updates detected for any years.
+2024-11-16 13:10:22,811 - INFO - 127.0.0.1 - - [16/Nov/2024 13:10:22] "GET / HTTP/1.1" 200 -
+2024-11-16 13:10:23,066 - INFO - 127.0.0.1 - - [16/Nov/2024 13:10:23] "GET /_dash-layout HTTP/1.1" 200 -
+2024-11-16 13:10:23,193 - INFO - 127.0.0.1 - - [16/Nov/2024 13:10:23] "GET /_dash-dependencies HTTP/1.1" 200 -
+2024-11-16 13:10:23,203 - INFO - 127.0.0.1 - - [16/Nov/2024 13:10:23] "GET /_favicon.ico?v=2.18.1 HTTP/1.1" 200 -
+2024-11-16 13:10:23,210 - INFO - 127.0.0.1 - - [16/Nov/2024 13:10:23] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 13:10:23,525 - INFO - 127.0.0.1 - - [16/Nov/2024 13:10:23] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 13:10:23,575 - INFO - 127.0.0.1 - - [16/Nov/2024 13:10:23] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 13:10:23,635 - INFO - 127.0.0.1 - - [16/Nov/2024 13:10:23] "[36mGET /_dash-component-suites/dash/dcc/async-dropdown.js HTTP/1.1[0m" 304 -
+2024-11-16 13:10:23,727 - INFO - 127.0.0.1 - - [16/Nov/2024 13:10:23] "[36mGET /_dash-component-suites/dash/dcc/async-graph.js HTTP/1.1[0m" 304 -
+2024-11-16 13:10:24,243 - INFO - 127.0.0.1 - - [16/Nov/2024 13:10:24] "[36mGET /_dash-component-suites/plotly/package_data/plotly.min.js HTTP/1.1[0m" 304 -
+2024-11-16 13:10:25,315 - INFO - 127.0.0.1 - - [16/Nov/2024 13:10:25] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 13:10:28,925 - INFO - 127.0.0.1 - - [16/Nov/2024 13:10:28] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 13:10:29,179 - INFO - 127.0.0.1 - - [16/Nov/2024 13:10:29] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 13:10:29,326 - INFO - 127.0.0.1 - - [16/Nov/2024 13:10:29] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 13:10:30,132 - INFO - 127.0.0.1 - - [16/Nov/2024 13:10:30] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 13:10:32,757 - INFO - 127.0.0.1 - - [16/Nov/2024 13:10:32] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 13:10:33,104 - INFO - 127.0.0.1 - - [16/Nov/2024 13:10:33] "POST /_dash-update-component HTTP/1.1" 200 -
+2024-11-16 13:10:33,137 - INFO - 127.0.0.1 - - [16/Nov/2024 13:10:33] "POST /_dash-update-component HTTP/1.1" 200 -

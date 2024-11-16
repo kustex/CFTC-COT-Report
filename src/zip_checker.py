@@ -17,7 +17,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler("cftc_downloader.log"),
+        logging.FileHandler("log/cftc_downloader.log"),
         logging.StreamHandler()
     ]
 )
@@ -25,7 +25,7 @@ logging.basicConfig(
 class CFTCDataDownloader:
     """Class to manage downloading and extracting CFTC data zip files."""
 
-    def __init__(self, db_name='cftc_data.db', data_dir='cftc_data', xls_data_dir='xls_data'):
+    def __init__(self, db_name='data/cftc_data.db', data_dir='data/cftc_data', xls_data_dir='data/xls_data'):
         self.db_name = db_name
         self.data_dir = data_dir
         self.xls_data_dir = xls_data_dir

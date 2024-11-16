@@ -20,7 +20,7 @@ class CFTCDataAnalyzer:
         self.metrics = self.load_metrics()
 
     def load_metrics(self):
-        with open("metrics.yaml", 'r') as yf:
+        with open("res/metrics.yaml", 'r') as yf:
             return yaml.safe_load(yf)
 
     def get_asset_lists(self):
@@ -158,7 +158,7 @@ class CFTCDataAnalyzer:
         comm_short_list = []
 
         working_dir = os.getcwd()
-        xls_data = 'xls_data'
+        xls_data = 'data/xls_data'
 
         years = [2020, 2021, 2022, 2023, 2024]
         for year in years:
@@ -227,14 +227,14 @@ class CFTCDataAnalyzer:
         return cftc_df.round(2), cftc_df.index, num_of_entries
 
     def check_tables(self):
-        conn = sqlite3.connect('cftc_data.db')
+        conn = sqlite3.connect('data/cftc_data.db')
         cursor = conn.cursor()
         cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
         tables = cursor.fetchall()
         conn.close()
 
     def get_last_modified_date(self):
-        conn = sqlite3.connect('cftc_data.db')  
+        conn = sqlite3.connect('data/cftc_data.db')  
         
         self.check_tables()
 
