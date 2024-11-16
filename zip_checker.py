@@ -5,6 +5,7 @@ import sqlite3
 import shutil
 import stat
 import ssl
+import time
 import smtplib
 import zipfile
 
@@ -12,6 +13,14 @@ from datetime import datetime
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler("cftc_downloader.log"),
+        logging.StreamHandler()
+    ]
+)
 
 class CFTCDataDownloader:
     """Class to manage downloading and extracting CFTC data zip files."""
@@ -20,16 +29,24 @@ class CFTCDataDownloader:
         self.db_name = db_name
         self.data_dir = data_dir
         self.xls_data_dir = xls_data_dir
+        self.latest_update_timestamp = self.get_last_modified(2024) 
         self.setup_database()
-
-        # Create directories if they don't exist
+        
+        # Ensure directories exist
         os.makedirs(self.data_dir, exist_ok=True)
         os.makedirs(self.xls_data_dir, exist_ok=True)
+
+    def check_zip_updates(self, sleep_interval=60):
+        """Check for zip updates every hour."""
+        while True:
+            logging.info("Starting the zip file update check.")
+            self.check_and_update_zip_files()
+            time.sleep(sleep_interval)  
 
     def ensure_file_permissions(self, file_path):
         """Ensure the file has the necessary permissions for renaming."""
         try:
-            os.chmod(file_path, stat.S_IRUSR | stat.S_IWUSR | stat.S_IRGRP | stat.S_IROTH)  # rw-r--r--
+            os.chmod(file_path, stat.S_IRUSR | stat.S_IWUSR | stat.S_IRGRP | stat.S_IROTH)  
         except PermissionError as e:
             print(f"Failed to set permissions on {file_path}: {e}")
 
@@ -95,9 +112,8 @@ class CFTCDataDownloader:
     def send_email_notification(self, updated_years):
         """Send an email notification listing the years with new files downloaded."""
         sender_email = os.environ.get("EMAIL_USER")
-        receiver_email = os.environ.get("EMAIL_USER")  # For testing, you can send it to yourself
+        receiver_email = os.environ.get("EMAIL_USER")  
         password = os.environ.get("EMAIL_PASSWORD")
-
         print(receiver_email, password)
 
         subject = "New CFTC Zip Files Downloaded"
@@ -110,21 +126,17 @@ class CFTCDataDownloader:
         msg['Subject'] = subject
 
         # Attach the email body to the message
-        msg.attach(MIMEText(body, 'plain'))
+        msg.attach(MIMEText(body, 'plain', 'utf-8'))
 
         try:
-            # Send the email
             context = ssl.create_default_context()
             with smtplib.SMTP("smtp.gmail.com", 587) as server:
                 server.starttls(context=context)
                 server.login(sender_email, password)
                 server.sendmail(sender_email, receiver_email, msg.as_string())
-
-            print(f"Email notification sent for updated years: {', '.join(map(str, updated_years))}")
-
+            logging.info(f"Email notification successfully sent for updated years: {', '.join(map(str, updated_years))}")
         except Exception as e:
-            print(f"Failed to send email notification: {e}")
-
+            logging.error(f"Failed to send email notification: {e}")
 
     def check_and_update_zip_files(self):
         """Check for updates, download new zip files if available, and send email notification for updated years."""
@@ -132,21 +144,16 @@ class CFTCDataDownloader:
         updated_years = []  
 
         for year in years:
-            # Check the last modified date of the online zip file
             last_modified = self.get_last_modified(year)
-
-            # Skip the year if no last-modified header is found
             if last_modified is None:
-                print(f"No 'Last-Modified' header for {year}.zip, skipping...")
+                logging.warning(f"No 'Last-Modified' header for {year}.zip, skipping...")
                 continue
-
             try:
                 current_date = datetime.strptime(last_modified, '%a, %d %b %Y %H:%M:%S %Z')
             except ValueError:
-                print(f"Could not parse 'Last-Modified' date for {year}.zip, skipping...")
+                logging.error(f"Could not parse 'Last-Modified' date for {year}.zip, skipping...")
                 continue
 
-            # Check if the file is already in the database
             conn = sqlite3.connect(self.db_name)
             c = conn.cursor()
             c.execute('SELECT last_modified FROM zip_files WHERE year = ?', (year,))
@@ -155,24 +162,25 @@ class CFTCDataDownloader:
 
             if row:
                 db_last_modified = datetime.strptime(row[0], '%a, %d %b %Y %H:%M:%S %Z')
-                # If the database entry is older, download the new zip file
                 if current_date > db_last_modified:
-                    print(f'Updating: {year}.zip')
+                    logging.info(f'Updating: {year}.zip')
                     self.download_and_extract_zip(f'https://www.cftc.gov/files/dea/history/dea_com_xls_{year}.zip', year)
                     self.update_zip_file(year, last_modified)
                     updated_years.append(year)
                 else:
-                    print(f'No update needed for {year}.zip')
+                    logging.info(f'No update needed for {year}.zip')
             else:
-                # If not in the database, download it
-                print(f'Downloading: {year}.zip')
+                logging.info(f'Downloading: {year}.zip')
                 self.download_and_extract_zip(f'https://www.cftc.gov/files/dea/history/dea_com_xls_{year}.zip', year)
                 self.update_zip_file(year, last_modified)
                 updated_years.append(year)
 
-        # Send an email if there are any updated years
         if updated_years:
+            logging.info(f"Updated years: {', '.join(map(str, updated_years))}")
             self.send_email_notification(updated_years)
+        else:
+            logging.info("No updates detected for any years.")
+
 
 
 

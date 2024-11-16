@@ -10,16 +10,11 @@ from dateutil.relativedelta import relativedelta
 from datetime import datetime, timedelta, timezone
 from dash import Dash, html, dcc, Input, Output, callback
 from cftc_analyser import CFTCDataAnalyzer
+from zip_checker import CFTCDataDownloader
 from plotly.subplots import make_subplots
 
 
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
-
-def check_zip_updates(data_downloader, sleep_interval=3600):
-    """Check for zip updates every hour."""
-    while True:
-        data_downloader.check_and_update_zip_files()
-        time.sleep(sleep_interval)  
 
 # Update the date display in the title daily at midnight CET
 def milliseconds_until_midnight_cet():
@@ -32,6 +27,7 @@ def milliseconds_until_midnight_cet():
 server = app.server
 
 CFTC = CFTCDataAnalyzer()
+CFTC_D = CFTCDataDownloader()
 
 three_years_ago = datetime.now() - relativedelta(years=3)
 one_year_ago = datetime.now() - relativedelta(years=1)
@@ -42,7 +38,7 @@ cftc_df_non_comm, cftc_metrics_non_comm, n_entries_non_comm = CFTC.get_cftc_data
 cftc_df_comm, cftc_metrics_comm, n_entries_comm = CFTC.get_cftc_dataframe(name_list, date_list, comm_long_list, comm_short_list, three_years_ago, three_months_ago, six_months_ago, one_year_ago)
 
 
-# # Dash callback to update the date in the title daily
+# Dash callback to update the date in the title daily
 @app.callback(
     Output("date-display", "children"),
     Input("daily-interval", "n_intervals")
@@ -201,8 +197,8 @@ app.layout = html.Div([
     dbc.Container([
         dbc.Container([
             html.H2(id='date-display', style={'textAlign': 'center', "text-decoration": "underline"}),
+            html.P(f"Latest update: {CFTC_D.latest_update_timestamp}", style={'textAlign': 'center', 'fontSize': 'small'}),
             dcc.Interval(id="daily-interval", interval=milliseconds_until_midnight_cet(), n_intervals=0),
-            # dcc.Interval(id="test-interval", interval=TEST_INTERVAL_MS, n_intervals=0),
         ]),
         html.Br(),
         dbc.Row([
@@ -297,5 +293,4 @@ app.layout = html.Div([
 ])
 
 
-# app.layout.children[-1].interval = milliseconds_until_midnight_cet()
 
