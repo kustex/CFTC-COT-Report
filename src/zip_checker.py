@@ -29,12 +29,14 @@ class CFTCDataDownloader:
         self.db_name = db_name
         self.data_dir = data_dir
         self.xls_data_dir = xls_data_dir
-        self.latest_update_timestamp = self.get_last_modified(2024) 
-        self.setup_database()
         
         # Ensure directories exist
+        os.makedirs(os.path.dirname(self.db_name), exist_ok=True)
         os.makedirs(self.data_dir, exist_ok=True)
         os.makedirs(self.xls_data_dir, exist_ok=True)
+
+        self.latest_update_timestamp = self.get_last_modified(2024) 
+        self.setup_database()
 
     def check_zip_updates(self, sleep_interval=3600):
         """Check for zip updates every hour."""
