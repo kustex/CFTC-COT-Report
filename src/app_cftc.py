@@ -37,7 +37,6 @@ name_list, date_list, interest_list, non_comm_long_list, non_comm_short_list, co
 cftc_df_non_comm, cftc_metrics_non_comm, n_entries_non_comm = CFTC.get_cftc_dataframe(name_list, date_list, non_comm_long_list, non_comm_short_list, three_years_ago, three_months_ago, six_months_ago, one_year_ago)
 cftc_df_comm, cftc_metrics_comm, n_entries_comm = CFTC.get_cftc_dataframe(name_list, date_list, comm_long_list, comm_short_list, three_years_ago, three_months_ago, six_months_ago, one_year_ago)
 
-
 # Dash callback to update the date in the title daily
 @app.callback(
     Output("date-display", "children"),
@@ -306,8 +305,8 @@ sidebar = html.Div(
         html.Hr(),
         dbc.Nav(
             [
-                dbc.NavLink("graphs", href="/graphs", id="graphs-link", active="exact"),
-                dbc.NavLink("datatable", href="/datatable", id="datatable-link", active="exact")
+                dbc.NavLink("Graphs", href="/graphs", id="graphs-link", active="exact"),
+                dbc.NavLink("Datatable", href="/datatable", id="datatable-link", active="exact")
             ],
             vertical=True,
             pills=True,
@@ -342,5 +341,11 @@ def display_page(pathname):
     else:
         return graphs_layout 
 
-
+# Callback to update active state of navigation links
+@app.callback(
+    [Output('graphs-link', 'active'), Output('datatable-link', 'active')],
+    Input('url', 'pathname')
+)
+def update_active_links(pathname):
+    return pathname == '/graphs' or pathname == '/' or pathname is None, pathname == '/datatable'
 
