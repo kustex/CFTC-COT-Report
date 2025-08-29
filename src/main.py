@@ -19,7 +19,7 @@ if __name__ == "__main__":
     zip_update_process.start()
 
     try:
-        app.run_server(host="0.0.0.0", port=5000, debug=False)
+        app.run(host="0.0.0.0", port=5000, debug=False)
     except KeyboardInterrupt:
         print("Keyboard interrupt received, terminating background update process...")
     finally:
