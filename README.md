@@ -19,7 +19,7 @@ This project fetches the CFTC **disaggregated** historical ZIP archives, keeps t
 - **Data Table** – a compact summary with week‑over‑week deltas, multi‑horizon averages, and 3‑year bands to spot extremes quickly.
 
 <p align="center">
-  <img src="docs/images/cftc-datatable.PNG" alt="Dashboard" loading="lazy">
+  <img src="docs/images/cftc-datatable.PNG" alt="Datatable" loading="lazy">
 </p>
 
 Under the hood, an ingestion service checks the CFTC site on a schedule, only downloads truly new ZIPs (via `Last-Modified`), extracts files by year, and records state in SQLite so subsequent runs are fast and idempotent.
