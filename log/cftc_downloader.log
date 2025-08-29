@@ -278,3 +278,60 @@
 2025-08-29 15:18:37,832 - INFO - No update needed for 2024.zip
 2025-08-29 15:18:37,959 - INFO - No update needed for 2025.zip
 2025-08-29 15:18:37,959 - INFO - No updates detected for any years.
+2025-08-29 15:19:38,517 - INFO - No update needed for 2020.zip
+2025-08-29 15:19:38,660 - INFO - No update needed for 2021.zip
+2025-08-29 15:19:38,812 - INFO - No update needed for 2022.zip
+2025-08-29 15:19:38,929 - INFO - No update needed for 2023.zip
+2025-08-29 15:19:39,094 - INFO - No update needed for 2024.zip
+2025-08-29 15:19:39,263 - INFO - No update needed for 2025.zip
+2025-08-29 15:19:39,263 - INFO - No updates detected for any years.
+2025-08-29 15:20:03,856 - INFO - Dash is running on http://0.0.0.0:5000/
+
+2025-08-29 15:20:03,896 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.134:5000
+2025-08-29 15:20:03,896 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-29 15:20:04,560 - INFO - Starting the zip file update check.
+2025-08-29 15:20:04,743 - INFO - No update needed for 2020.zip
+2025-08-29 15:20:04,875 - INFO - No update needed for 2021.zip
+2025-08-29 15:20:05,011 - INFO - No update needed for 2022.zip
+2025-08-29 15:20:05,141 - INFO - No update needed for 2023.zip
+2025-08-29 15:20:05,271 - INFO - No update needed for 2024.zip
+2025-08-29 15:20:05,419 - INFO - No update needed for 2025.zip
+2025-08-29 15:20:05,419 - INFO - No updates detected for any years.
+2025-08-29 15:20:53,280 - INFO - 127.0.0.1 - - [29/Aug/2025 15:20:53] "GET / HTTP/1.1" 200 -
+2025-08-29 15:20:53,575 - INFO - 127.0.0.1 - - [29/Aug/2025 15:20:53] "GET /_dash-component-suites/dash/deps/polyfill@7.v3_0_4m1745928406.12.1.min.js HTTP/1.1" 200 -
+2025-08-29 15:20:53,666 - INFO - 127.0.0.1 - - [29/Aug/2025 15:20:53] "GET /_dash-component-suites/dash/deps/react@18.v3_0_4m1745928406.3.1.min.js HTTP/1.1" 200 -
+2025-08-29 15:20:53,667 - INFO - 127.0.0.1 - - [29/Aug/2025 15:20:53] "GET /_dash-component-suites/dash/deps/prop-types@15.v3_0_4m1745928406.8.1.min.js HTTP/1.1" 200 -
+2025-08-29 15:20:53,718 - INFO - 127.0.0.1 - - [29/Aug/2025 15:20:53] "GET /_dash-component-suites/dash/deps/react-dom@18.v3_0_4m1745928406.3.1.min.js HTTP/1.1" 200 -
+2025-08-29 15:20:53,756 - INFO - 127.0.0.1 - - [29/Aug/2025 15:20:53] "GET /_dash-component-suites/dash_bootstrap_components/_components/dash_bootstrap_components.v2_0_2m1745928466.min.js HTTP/1.1" 200 -
+2025-08-29 15:20:53,773 - INFO - 127.0.0.1 - - [29/Aug/2025 15:20:53] "GET /_dash-component-suites/dash/dash-renderer/build/dash_renderer.v3_0_4m1745928406.min.js HTTP/1.1" 200 -
+2025-08-29 15:20:54,009 - INFO - 127.0.0.1 - - [29/Aug/2025 15:20:54] "GET /_dash-component-suites/dash/dcc/dash_core_components.v3_0_6m1745928406.js HTTP/1.1" 200 -
+2025-08-29 15:20:54,019 - INFO - 127.0.0.1 - - [29/Aug/2025 15:20:54] "GET /_dash-component-suites/dash/dcc/dash_core_components-shared.v3_0_6m1745928406.js HTTP/1.1" 200 -
+2025-08-29 15:20:54,065 - INFO - 127.0.0.1 - - [29/Aug/2025 15:20:54] "GET /_dash-component-suites/dash/dash_table/bundle.v6_0_2m1745928406.js HTTP/1.1" 200 -
+2025-08-29 15:20:54,071 - INFO - 127.0.0.1 - - [29/Aug/2025 15:20:54] "GET /_dash-component-suites/dash/html/dash_html_components.v3_0_2m1745928406.min.js HTTP/1.1" 200 -
+2025-08-29 15:20:54,412 - INFO - 127.0.0.1 - - [29/Aug/2025 15:20:54] "GET /_dash-layout HTTP/1.1" 200 -
+2025-08-29 15:20:54,414 - INFO - 127.0.0.1 - - [29/Aug/2025 15:20:54] "GET /_dash-dependencies HTTP/1.1" 200 -
+2025-08-29 15:20:54,450 - INFO - 127.0.0.1 - - [29/Aug/2025 15:20:54] "GET /_favicon.ico?v=3.0.4 HTTP/1.1" 200 -
+2025-08-29 15:20:54,668 - INFO - 127.0.0.1 - - [29/Aug/2025 15:20:54] "POST /_dash-update-component HTTP/1.1" 200 -
+2025-08-29 15:20:54,761 - INFO - 127.0.0.1 - - [29/Aug/2025 15:20:54] "POST /_dash-update-component HTTP/1.1" 200 -
+2025-08-29 15:20:54,832 - INFO - 127.0.0.1 - - [29/Aug/2025 15:20:54] "GET /_dash-component-suites/dash/dcc/async-dropdown.js HTTP/1.1" 200 -
+2025-08-29 15:20:55,077 - INFO - 127.0.0.1 - - [29/Aug/2025 15:20:55] "POST /_dash-update-component HTTP/1.1" 200 -
+2025-08-29 15:20:55,147 - INFO - 127.0.0.1 - - [29/Aug/2025 15:20:55] "POST /_dash-update-component HTTP/1.1" 200 -
+2025-08-29 15:20:55,376 - INFO - 127.0.0.1 - - [29/Aug/2025 15:20:55] "GET /_dash-component-suites/dash/dcc/async-graph.js HTTP/1.1" 200 -
+2025-08-29 15:20:56,270 - INFO - 127.0.0.1 - - [29/Aug/2025 15:20:56] "GET /_dash-component-suites/plotly/package_data/plotly.min.js HTTP/1.1" 200 -
+2025-08-29 15:20:57,571 - INFO - 127.0.0.1 - - [29/Aug/2025 15:20:57] "POST /_dash-update-component HTTP/1.1" 200 -
+2025-08-29 15:21:11,291 - INFO - 127.0.0.1 - - [29/Aug/2025 15:21:11] "POST /_dash-update-component HTTP/1.1" 200 -
+2025-08-29 15:21:12,187 - INFO - 127.0.0.1 - - [29/Aug/2025 15:21:12] "POST /_dash-update-component HTTP/1.1" 200 -
+2025-08-29 15:21:13,521 - INFO - 127.0.0.1 - - [29/Aug/2025 15:21:13] "POST /_dash-update-component HTTP/1.1" 200 -
+2025-08-29 15:21:14,072 - INFO - 127.0.0.1 - - [29/Aug/2025 15:21:14] "POST /_dash-update-component HTTP/1.1" 200 -
+2025-08-29 15:21:24,763 - INFO - 127.0.0.1 - - [29/Aug/2025 15:21:24] "POST /_dash-update-component HTTP/1.1" 200 -
+2025-08-29 15:21:24,764 - INFO - 127.0.0.1 - - [29/Aug/2025 15:21:24] "POST /_dash-update-component HTTP/1.1" 200 -
+2025-08-29 15:21:25,005 - INFO - 127.0.0.1 - - [29/Aug/2025 15:21:25] "POST /_dash-update-component HTTP/1.1" 200 -
+2025-08-29 15:21:25,144 - INFO - 127.0.0.1 - - [29/Aug/2025 15:21:25] "POST /_dash-update-component HTTP/1.1" 200 -
+2025-08-29 15:21:42,547 - INFO - 127.0.0.1 - - [29/Aug/2025 15:21:42] "POST /_dash-update-component HTTP/1.1" 200 -
+2025-08-29 15:21:42,852 - INFO - 127.0.0.1 - - [29/Aug/2025 15:21:42] "POST /_dash-update-component HTTP/1.1" 200 -
+2025-08-29 15:21:42,927 - INFO - 127.0.0.1 - - [29/Aug/2025 15:21:42] "POST /_dash-update-component HTTP/1.1" 200 -
+2025-08-29 15:21:42,990 - INFO - 127.0.0.1 - - [29/Aug/2025 15:21:42] "POST /_dash-update-component HTTP/1.1" 200 -
+2025-08-29 15:21:44,002 - INFO - 127.0.0.1 - - [29/Aug/2025 15:21:44] "POST /_dash-update-component HTTP/1.1" 200 -
