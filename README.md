@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 # CFTC‑COT Dashboard
 
 A Dash/Plotly web app that **downloads, processes, and visualizes the CFTC’s Commitments of Traders (COT)** data for fast positioning insight across major macro assets.
@@ -155,5 +157,4 @@ Futures:
 ---
 
 ## License
-
-**MIT License** © 2025 Lucas Kustermans
+This project is licensed under the **MIT License** — see [LICENSE](LICENSE) for details.
