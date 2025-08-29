@@ -35,7 +35,7 @@ class CFTCDataDownloader:
         os.makedirs(self.data_dir, exist_ok=True)
         os.makedirs(self.xls_data_dir, exist_ok=True)
 
-        self.latest_update_timestamp = self.get_last_modified(2024) 
+        self.latest_update_timestamp = self.get_last_modified(2025) 
         self.setup_database()
 
     def check_zip_updates(self, sleep_interval=3600):
@@ -142,7 +142,7 @@ class CFTCDataDownloader:
 
     def check_and_update_zip_files(self):
         """Check for updates, download new zip files if available, and send email notification for updated years."""
-        years = [2020, 2021, 2022, 2023, 2024]
+        years = [2020, 2021, 2022, 2023, 2024, 2025]
         updated_years = []  
 
         for year in years:

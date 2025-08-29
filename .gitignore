@@ -3,6 +3,7 @@ venv
 .DS_Store
 .env
 cftc_data
+data
 xls_data
 cftc_data.db
 docker-compose.yml
