@@ -4,6 +4,9 @@
 
 A Dash/Plotly web app that **downloads, processes, and visualizes the CFTC’s Commitments of Traders (COT)** data for fast positioning insight across major macro assets.
 
+<p align="center">
+  <img src="docs/images/cftc-dashboard.PNG" alt="Dashboard" loading="lazy">
+</p>
 ---
 
 ## What
