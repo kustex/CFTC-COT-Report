@@ -31,7 +31,6 @@ Under the hood, an ingestion service checks the CFTC site on a schedule, only do
 - **Spot extremes fast.** Z‑scores (1‑year & 3‑year) make statistically unusual positioning pop out.
 - **Separate “who” from “what.”** View **Commercial** vs **Non‑Commercial** behavior and open interest side‑by‑side.
 - **Hands‑off ingestion.** Automatic hourly checks for new CFTC ZIPs; new years trigger an optional **email notification**.
-- **Reproducible + portable.** Python 3.10 project with a Dockerfile and a pinned `requirements.txt` for consistent deployment.
 
 ---
 
@@ -142,27 +141,13 @@ res/
 
 - If `res/metrics.yaml` is missing, create it with your asset‑class metric map. Example snippet:
 ```yaml
-Futures:
-  - non_comm_net
-  - non_comm_long
-  - non_comm_short
-  - comm_net
-  - open_interest
+"Equities":
+    "SPX":
+        - "E-MINI S&P 500 STOCK INDEX - CHICAGO MERCANTILE EXCHANGE"
+        - "E-MINI S&P 500 - CHICAGO MERCANTILE EXCHANGE"
+    "VIX":
+        - "VIX FUTURES - CBOE FUTURES EXCHANGE"
 ```
-
----
-
-## Roadmap
-
-- [ ] Package **metrics** as a first‑class config with presets per asset class.
-- [ ] Add in‑app **alerts** (e.g., z‑score thresholds) and a lightweight “signals” page.
-- [ ] Improve **Docker** image (non‑root, slimmer base, healthcheck) and fix default `CMD`.
-- [ ] Swap SMTP emails for in‑app toasts + webhook integrations (Slack/Discord).
-- [ ] Add **unit tests** (ETL & metrics) and **GitHub Actions** CI.
-- [ ] Expose a JSON **/api** for programmatic access to processed metrics.
-- [ ] Add more **visuals** (e.g., scatter of W/W vs Z‑score, regime heatmaps).
-- [ ] Parameterize **years** and add automatic backfill for new years.
-
 ---
 
 ## License
